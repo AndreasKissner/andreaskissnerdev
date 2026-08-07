@@ -2,8 +2,12 @@
 @use '../../../styles/abstracts/mixins' as m;
 
 .work {
-  padding-block: v.$space-xl;
+  padding-block: v.$space-lg;
   border-bottom: 1px solid var(--color-border);
+
+  @include m.respond-up(v.$bp-lg) {
+    padding-block: v.$space-xl;
+  }
 }
 
 .work__container {
@@ -76,6 +80,7 @@
   color: var(--color-on-accent);
   text-decoration: none;
   font-weight: 600;
+  transition: transform 200ms ease-out;
 
   @include m.focus-ring;
 }

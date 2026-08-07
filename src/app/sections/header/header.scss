@@ -8,6 +8,23 @@
   background-color: color-mix(in srgb, var(--color-bg) 85%, transparent);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-border);
+  transform: translateY(0);
+  visibility: visible;
+  transition:
+    transform 250ms ease,
+    visibility 0s linear 0s;
+
+  &--hidden {
+    transform: translateY(-100%);
+    visibility: hidden;
+    transition:
+      transform 250ms ease,
+      visibility 0s linear 250ms;
+  }
+
+  @include m.reduced-motion {
+    transition: none;
+  }
 }
 
 .header__container {
@@ -20,52 +37,94 @@
 }
 
 .header__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-weight: 600;
+  font-size: 0.9rem;
   text-decoration: none;
   letter-spacing: -0.01em;
+  white-space: nowrap;
 
   @include m.focus-ring;
+
+  @include m.respond-up(v.$bp-sm) {
+    gap: 8px;
+    font-size: 1rem;
+  }
 }
 
 .header__controls {
   display: flex;
   align-items: center;
-  gap: v.$space-xs;
+  gap: 4px;
+
+  @include m.respond-up(v.$bp-sm) {
+    gap: v.$space-xs;
+  }
 }
 
-.header__palette-hint {
-  display: none;
+.header__icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
   background: none;
-  border: 1px solid var(--color-border);
+  border: none;
   border-radius: v.$radius-sm;
-  padding: 6px 10px;
-  font-size: 0.75rem;
-  font-family: v.$font-mono;
   color: var(--color-text-muted);
+
+  @include m.respond-up(v.$bp-sm) {
+    width: 36px;
+    height: 36px;
+  }
+  transition: color 150ms ease;
 
   @include m.focus-ring;
 
   &:hover {
-    color: var(--color-text);
+    color: var(--color-accent-fg);
   }
 
-  @include m.respond-up(v.$bp-md) {
-    display: inline-flex;
+  &:hover .header__icon,
+  &:focus-visible .header__icon {
+    transform: scale(1.3);
+  }
+
+  @include m.reduced-motion {
+
+    &:hover .header__icon,
+    &:focus-visible .header__icon {
+      transform: none;
+    }
   }
 }
 
-.header__theme-toggle {
-  background: none;
-  border: 1px solid var(--color-border);
-  border-radius: v.$radius-sm;
-  padding: 6px 10px;
-  font-size: 0.8rem;
-  color: var(--color-text-muted);
+.header__icon {
+  width: 24px;
+  height: 24px;
+  transition: transform 150ms ease;
 
-  @include m.focus-ring;
+  &--mask {
+    display: inline-block;
+    background-color: currentColor;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+  }
 
-  &:hover {
-    color: var(--color-text);
+  &--lupe {
+    mask-image: url('/img/lupe.png');
+    -webkit-mask-image: url('/img/lupe.png');
+  }
+
+  &--moon {
+    mask-image: url('/img/moon.png');
+    -webkit-mask-image: url('/img/moon.png');
   }
 }
 
@@ -109,7 +168,36 @@
   }
 }
 
+.header__nav-links {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.header__nav-blob {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: var(--color-accent-glow);
+  border-radius: 999px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+  transition:
+    transform 300ms ease,
+    width 300ms ease,
+    opacity 200ms ease;
+
+  @include m.reduced-motion {
+    transition: opacity 200ms ease;
+  }
+}
+
 .header__nav-link {
+  position: relative;
+  z-index: 1;
+  padding: 8px 16px;
   text-decoration: none;
   color: var(--color-text-muted);
   transition: color 150ms ease;
@@ -122,15 +210,36 @@
 }
 
 .header__lang {
+  position: relative;
   display: flex;
-  gap: v.$space-xs;
+  gap: 2px;
+  padding: 3px;
+  background-color: var(--color-surface);
+  border-radius: 999px;
+}
+
+.header__lang-fill {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 0;
+  background-color: var(--color-accent);
+  border-radius: 999px;
+  z-index: 0;
+  transition: transform 250ms ease, width 250ms ease;
+
+  @include m.reduced-motion {
+    transition: none;
+  }
 }
 
 .header__lang-button {
+  position: relative;
+  z-index: 1;
   background: none;
-  border: 1px solid var(--color-border);
-  border-radius: v.$radius-sm;
-  padding: 4px 8px;
+  border: none;
+  border-radius: 999px;
+  padding: 4px 10px;
   font-size: 0.8rem;
   text-transform: uppercase;
   color: var(--color-text-muted);
@@ -139,7 +248,6 @@
 
   &--active {
     color: var(--color-on-accent);
-    background-color: var(--color-accent);
-    border-color: var(--color-accent);
+    font-weight: 600;
   }
 }

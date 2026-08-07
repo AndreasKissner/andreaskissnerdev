@@ -1,22 +1,26 @@
 @use 'variables' as v;
 
+@mixin respond-up($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
 @mixin container {
   width: 100%;
   max-width: v.$max-width;
   margin-inline: auto;
-  padding-inline: v.$space-md;
+  padding-inline: v.$space-sm;
+
+  @include respond-up(v.$bp-sm) {
+    padding-inline: v.$space-md;
+  }
 }
 
 @mixin focus-ring {
   &:focus-visible {
     outline: 2px solid var(--color-accent-fg);
     outline-offset: 3px;
-  }
-}
-
-@mixin respond-up($breakpoint) {
-  @media (min-width: $breakpoint) {
-    @content;
   }
 }
 

@@ -1,0 +1,26 @@
+<div
+  class="sticky-bar"
+  [class.sticky-bar--visible]="scrollState.isScrolled()"
+  [attr.aria-hidden]="!scrollState.isScrolled()"
+>
+  <div class="sticky-bar__container">
+    <a class="sticky-bar__brand" href="#top" [attr.tabindex]="scrollState.isScrolled() ? 0 : -1">
+      <app-logo-mark />
+      {{ 'NAV.DESIGN_BY' | translate }}
+    </a>
+
+    <p class="sticky-bar__status">
+      <app-live-indicator />
+      {{ 'HERO.AVAILABLE' | translate }} · {{ 'HERO.LOCAL_TIME' | translate: { time: availability.swissTime() } }}
+    </p>
+
+    <a
+      class="sticky-bar__cta"
+      href="#contact"
+      appMagnetic
+      [attr.tabindex]="scrollState.isScrolled() ? 0 : -1"
+    >
+      {{ 'HERO.CTA_PRIMARY' | translate }}
+    </a>
+  </div>
+</div>

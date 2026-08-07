@@ -11,7 +11,8 @@
     "LANGUAGE": "Choose language",
     "MENU_OPEN": "Menu",
     "MENU_CLOSE": "Close",
-    "THEME_TOGGLE": "Switch theme (current: {{mode}})"
+    "THEME_TOGGLE": "Switch theme (current: {{mode}})",
+    "DESIGN_BY": "Design by Andreas Kissner"
   },
   "THEME": {
     "SYSTEM": "Auto",
@@ -25,19 +26,32 @@
     "CTA_PRIMARY": "Start a project",
     "CTA_SECONDARY": "View portfolio",
     "AVAILABLE": "Available for new projects",
-    "LOCAL_TIME": "{{time}} (CH)"
+    "LOCAL_TIME": "{{time}} (CH)",
+    "CONSOLE_TITLE": "status.live",
+    "CONSOLE_AVAILABLE_LABEL": "available",
+    "CONSOLE_LOAD_TIME_LABEL": "load time",
+    "CONSOLE_THEME_LABEL": "theme",
+    "CONSOLE_LANG_LABEL": "language",
+    "CONSOLE_LOCAL_TIME_LABEL": "local time",
+    "CONSOLE_YES": "yes",
+    "CONSOLE_NO": "no",
+    "CONSOLE_MEASURING": "measuring …"
   },
   "SERVICES": {
     "TITLE": "What I offer",
     "INTRO": "From first idea to running application.",
     "ITEM_1_TITLE": "Websites & web apps",
     "ITEM_1_TEXT": "Built from scratch, not from a template — fitted to your business, not a mould.",
+    "ITEM_1_DETAIL": "From concept to go-live: structure, copy polish and technical build from a single hand. No page builder, no off-the-shelf theme.",
     "ITEM_2_TITLE": "Redesign & relaunch",
     "ITEM_2_TEXT": "Modernise an existing site: faster, clearer, easier for your customers to understand — accessible to WCAG standards and fully data-protection compliant.",
+    "ITEM_2_DETAIL": "I take over existing content, clear out what no longer works, and rebuild on a clean technical foundation — without you starting from zero.",
     "ITEM_3_TITLE": "Digital tools",
     "ITEM_3_TEXT": "Management tools, customer portals and forms that reflect real workflows, not just good looks.",
+    "ITEM_3_DETAIL": "From customer management to a customer portal: tools that genuinely simplify your day-to-day, not just a feature checklist.",
     "ITEM_4_TITLE": "Privacy & operations",
-    "ITEM_4_TEXT": "Set up to Swiss data protection standards, documented clearly, maintainable long-term."
+    "ITEM_4_TEXT": "Set up to Swiss data protection standards, documented clearly, maintainable long-term.",
+    "ITEM_4_DETAIL": "Server location, data minimisation, imprint and privacy policy — considered from day one, not bolted on afterwards."
   },
   "WORK": {
     "TITLE": "Selected work",
@@ -59,6 +73,14 @@
   "CONTACT": {
     "TITLE": "Contact",
     "INTRO": "Tell me briefly about your project — I'll get back to you soon.",
+    "STEP_OF": "Question {{current}} of {{total}}",
+    "Q_NAME": "What's your name?",
+    "Q_EMAIL": "Which email can I reach you at?",
+    "Q_MESSAGE": "What's your project about?",
+    "REVIEW_TITLE": "Does this look right?",
+    "NEXT": "Next",
+    "BACK": "Back",
+    "EDIT": "Edit",
     "NAME_LABEL": "Name",
     "EMAIL_LABEL": "Email",
     "MESSAGE_LABEL": "Message",
@@ -74,6 +96,7 @@
   "PALETTE": {
     "TITLE": "Command palette",
     "HINT": "↑↓ navigate · Enter select · Esc close",
+    "CLOSE": "Close",
     "SERVICES": "Go to: Services",
     "WORK": "Go to: Work",
     "CONTACT": "Go to: Contact",

@@ -1,24 +1,53 @@
-<header class="header">
+<header class="header" [class.header--hidden]="scrollState.isScrolled()">
   <div class="header__container">
-    <a class="header__brand" href="#top">{{ 'NAV.BRAND' | translate }}</a>
+    <a class="header__brand" href="#top">
+      <app-logo-mark />
+      {{ 'NAV.BRAND' | translate }}
+    </a>
 
     <div class="header__controls">
       <button
         type="button"
-        class="header__palette-hint"
+        class="header__icon-btn"
         [attr.aria-label]="'PALETTE.TITLE' | translate"
+        [attr.title]="'PALETTE.TITLE' | translate"
         (click)="commandPalette.open()"
       >
-        <span aria-hidden="true">Ctrl K</span>
+        <span class="header__icon header__icon--mask header__icon--lupe" aria-hidden="true"></span>
       </button>
 
       <button
         type="button"
-        class="header__theme-toggle"
+        class="header__icon-btn"
         [attr.aria-label]="'NAV.THEME_TOGGLE' | translate: { mode: ('THEME.' + themeService.preference().toUpperCase() | translate) }"
+        [attr.title]="'THEME.' + themeService.preference().toUpperCase() | translate"
         (click)="cycleTheme()"
       >
-        {{ 'THEME.' + themeService.preference().toUpperCase() | translate }}
+        @switch (themeService.preference()) {
+          @case ('light') {
+            <svg class="header__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <line x1="12" y1="2" x2="12" y2="5" />
+              <line x1="12" y1="19" x2="12" y2="22" />
+              <line x1="2" y1="12" x2="5" y2="12" />
+              <line x1="19" y1="12" x2="22" y2="12" />
+              <line x1="4.6" y1="4.6" x2="6.7" y2="6.7" />
+              <line x1="17.3" y1="17.3" x2="19.4" y2="19.4" />
+              <line x1="4.6" y1="19.4" x2="6.7" y2="17.3" />
+              <line x1="17.3" y1="6.7" x2="19.4" y2="4.6" />
+            </svg>
+          }
+          @case ('dark') {
+            <span class="header__icon header__icon--mask header__icon--moon" aria-hidden="true"></span>
+          }
+          @default {
+            <svg class="header__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="12" rx="1.5" />
+              <line x1="8" y1="20" x2="16" y2="20" />
+              <line x1="12" y1="16" x2="12" y2="20" />
+            </svg>
+          }
+        }
       </button>
 
       <button
@@ -38,16 +67,41 @@
       [class.header__nav--open]="isMenuOpen()"
       [attr.aria-label]="'NAV.BRAND' | translate"
     >
-      <a class="header__nav-link" href="#services" (click)="closeMenu()">{{ 'NAV.SERVICES' | translate }}</a>
-      <a class="header__nav-link" href="#work" (click)="closeMenu()">{{ 'NAV.WORK' | translate }}</a>
-      <a class="header__nav-link" href="#contact" (click)="closeMenu()">{{ 'NAV.CONTACT' | translate }}</a>
-      <a class="header__nav-link" href="https://andreas-kissner.cloud" target="_blank" rel="noopener">
-        {{ 'NAV.PORTFOLIO' | translate }}
-      </a>
+      <div class="header__nav-links">
+        <span class="header__nav-blob" #navBlob aria-hidden="true"></span>
+        @for (link of navLinks; track link.labelKey; let i = $index) {
+          @if (link.external) {
+            <a
+              #navLink
+              class="header__nav-link"
+              [href]="link.href"
+              target="_blank"
+              rel="noopener"
+              (mouseenter)="setHoveredNav(i)"
+              (mouseleave)="setHoveredNav(null)"
+            >
+              {{ link.labelKey | translate }}
+            </a>
+          } @else {
+            <a
+              #navLink
+              class="header__nav-link"
+              [href]="link.href"
+              (click)="closeMenu()"
+              (mouseenter)="setHoveredNav(i)"
+              (mouseleave)="setHoveredNav(null)"
+            >
+              {{ link.labelKey | translate }}
+            </a>
+          }
+        }
+      </div>
 
       <div class="header__lang" role="group" [attr.aria-label]="'NAV.LANGUAGE' | translate">
+        <span class="header__lang-fill" #langFill aria-hidden="true"></span>
         @for (language of languageOptions; track language) {
           <button
+            #langBtn
             type="button"
             class="header__lang-button"
             [class.header__lang-button--active]="languageService.activeLanguage() === language"

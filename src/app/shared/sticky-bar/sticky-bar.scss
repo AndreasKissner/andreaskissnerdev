@@ -1,0 +1,81 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/mixins' as m;
+
+.sticky-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  background-color: color-mix(in srgb, var(--color-bg) 85%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+  transform: translateY(-100%);
+  transition: transform 250ms ease;
+
+  &--visible {
+    transform: translateY(0);
+  }
+
+  @include m.reduced-motion {
+    transition: none;
+  }
+}
+
+.sticky-bar__container {
+  @include m.container;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: v.$space-sm;
+  padding-block: v.$space-sm;
+}
+
+.sticky-bar__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+
+  @include m.focus-ring;
+}
+
+.sticky-bar__status {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-family: v.$font-mono;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+
+  @include m.respond-up(v.$bp-md) {
+    display: flex;
+  }
+}
+
+.sticky-bar__cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 18px;
+  border-radius: v.$radius-sm;
+  background-color: var(--color-accent);
+  color: var(--color-on-accent);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition:
+    transform 200ms ease-out,
+    background-color 150ms ease;
+
+  @include m.focus-ring;
+
+  &:hover {
+    background-color: var(--color-accent-strong);
+  }
+}

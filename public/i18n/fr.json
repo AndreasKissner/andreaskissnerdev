@@ -11,7 +11,8 @@
     "LANGUAGE": "Choisir la langue",
     "MENU_OPEN": "Menu",
     "MENU_CLOSE": "Fermer",
-    "THEME_TOGGLE": "Changer de thème (actuel : {{mode}})"
+    "THEME_TOGGLE": "Changer de thème (actuel : {{mode}})",
+    "DESIGN_BY": "Design par Andreas Kissner"
   },
   "THEME": {
     "SYSTEM": "Auto",
@@ -25,19 +26,32 @@
     "CTA_PRIMARY": "Demander un projet",
     "CTA_SECONDARY": "Voir le portfolio",
     "AVAILABLE": "Disponible pour de nouveaux projets",
-    "LOCAL_TIME": "{{time}} (CH)"
+    "LOCAL_TIME": "{{time}} (CH)",
+    "CONSOLE_TITLE": "status.live",
+    "CONSOLE_AVAILABLE_LABEL": "disponible",
+    "CONSOLE_LOAD_TIME_LABEL": "chargement",
+    "CONSOLE_THEME_LABEL": "thème",
+    "CONSOLE_LANG_LABEL": "langue",
+    "CONSOLE_LOCAL_TIME_LABEL": "heure locale",
+    "CONSOLE_YES": "oui",
+    "CONSOLE_NO": "non",
+    "CONSOLE_MEASURING": "mesure en cours …"
   },
   "SERVICES": {
     "TITLE": "Mes prestations",
     "INTRO": "De la première idée à l'application en production.",
     "ITEM_1_TITLE": "Sites & applications web",
     "ITEM_1_TEXT": "Développés sur mesure plutôt que sur modèle — adaptés à votre activité, pas à un template.",
+    "ITEM_1_DETAIL": "De la conception à la mise en ligne : structure, finition des textes et réalisation technique en une seule main. Pas de constructeur de sites, pas de thème standard.",
     "ITEM_2_TITLE": "Refonte & modernisation",
     "ITEM_2_TEXT": "Moderniser un site existant : plus rapide, plus clair, plus compréhensible pour votre clientèle — accessible selon les WCAG et conforme à la protection des données.",
+    "ITEM_2_DETAIL": "Je reprends les contenus existants, je fais le tri dans ce qui ne fonctionne plus et je reconstruis sur une base technique propre — sans que vous deviez repartir de zéro.",
     "ITEM_3_TITLE": "Outils numériques",
     "ITEM_3_TEXT": "Outils de gestion, portails clients et formulaires qui reflètent de vrais processus, pas juste une belle vitrine.",
+    "ITEM_3_DETAIL": "De la gestion des clients au portail client : des outils qui simplifient vraiment votre quotidien, pas juste une liste de fonctionnalités.",
     "ITEM_4_TITLE": "Protection des données & exploitation",
-    "ITEM_4_TEXT": "Mis en place selon les standards suisses de protection des données, documenté clairement, maintenable sur le long terme."
+    "ITEM_4_TEXT": "Mis en place selon les standards suisses de protection des données, documenté clairement, maintenable sur le long terme.",
+    "ITEM_4_DETAIL": "Localisation des serveurs, minimisation des données, mentions légales et politique de confidentialité — pensées dès le départ, pas ajoutées après coup."
   },
   "WORK": {
     "TITLE": "Références",
@@ -59,6 +73,14 @@
   "CONTACT": {
     "TITLE": "Contact",
     "INTRO": "Parlez-moi brièvement de votre projet — je vous réponds rapidement.",
+    "STEP_OF": "Question {{current}} sur {{total}}",
+    "Q_NAME": "Comment vous appelez-vous ?",
+    "Q_EMAIL": "À quelle adresse e-mail puis-je vous joindre ?",
+    "Q_MESSAGE": "De quoi s'agit-il pour votre projet ?",
+    "REVIEW_TITLE": "Tout est correct ?",
+    "NEXT": "Suivant",
+    "BACK": "Retour",
+    "EDIT": "Modifier",
     "NAME_LABEL": "Nom",
     "EMAIL_LABEL": "E-mail",
     "MESSAGE_LABEL": "Message",
@@ -71,9 +93,16 @@
     "ERROR_MIN_LENGTH": "Merci de détailler un peu plus.",
     "PRIVACY_NOTICE": "En envoyant ce formulaire, vous acceptez le traitement de vos données conformément à la {{link}}."
   },
+  "EASTER": {
+    "TAKE_OFF": "🚀 Décollage",
+    "TITLE": "404",
+    "MESSAGE": "Cette page s'est perdue en orbite. Votre projet, lui, atterrira en toute sécurité.",
+    "BACK": "Retour sur Terre"
+  },
   "PALETTE": {
     "TITLE": "Palette de commandes",
     "HINT": "↑↓ naviguer · Entrée sélectionner · Échap fermer",
+    "CLOSE": "Fermer",
     "SERVICES": "Aller à : Prestations",
     "WORK": "Aller à : Références",
     "CONTACT": "Aller à : Contact",

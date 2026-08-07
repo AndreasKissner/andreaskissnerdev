@@ -2,8 +2,12 @@
 @use '../../../styles/abstracts/mixins' as m;
 
 .services {
-  padding-block: v.$space-xl;
+  padding-block: v.$space-lg;
   border-bottom: 1px solid var(--color-border);
+
+  @include m.respond-up(v.$bp-lg) {
+    padding-block: v.$space-xl;
+  }
 }
 
 .services__container {
@@ -35,15 +39,66 @@
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: v.$radius-md;
+  transition: border-color 150ms ease;
+
+  @include m.focus-ring;
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--color-accent-fg);
+  }
+}
+
+.services__item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: v.$space-sm;
+  margin: 0 0 v.$space-xs;
 }
 
 .services__item-title {
   font-size: 1.05rem;
-  margin: 0 0 v.$space-xs;
+  margin: 0;
+}
+
+.services__item-info {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--color-text-muted);
 }
 
 .services__item-text {
   color: var(--color-text-muted);
   margin: 0;
   font-size: 0.95rem;
+}
+
+.services__item-detail-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  margin-top: v.$space-xs;
+  opacity: 0;
+  transition:
+    grid-template-rows 250ms ease,
+    opacity 200ms ease;
+
+  .services__item:hover &,
+  .services__item:focus-visible &,
+  .services__item:focus-within & {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+
+  @include m.reduced-motion {
+    transition: opacity 200ms ease;
+  }
+}
+
+.services__item-detail {
+  overflow: hidden;
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
 }

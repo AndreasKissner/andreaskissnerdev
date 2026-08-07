@@ -3,68 +3,127 @@
     <h2 class="contact__title" id="contact-title">{{ 'CONTACT.TITLE' | translate }}</h2>
     <p class="contact__intro">{{ 'CONTACT.INTRO' | translate }}</p>
 
+    <p class="contact__progress" aria-live="polite">
+      {{ 'CONTACT.STEP_OF' | translate: { current: currentStep() + 1, total: reviewStep + 1 } }}
+    </p>
+    <div class="contact__progress-track">
+      <div class="contact__progress-fill" [style.width.%]="((currentStep() + 1) / (reviewStep + 1)) * 100"></div>
+    </div>
+
     <form class="contact__form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
-      <div class="contact__field">
-        <label class="contact__label" for="contact-name">{{ 'CONTACT.NAME_LABEL' | translate }}</label>
-        <input
-          class="contact__input"
-          id="contact-name"
-          type="text"
-          formControlName="name"
-          autocomplete="name"
-          [attr.aria-invalid]="form.controls.name.touched && form.controls.name.invalid"
-          aria-describedby="contact-name-error"
-        />
-        @if (form.controls.name.touched && form.controls.name.invalid) {
-          <p class="contact__error" id="contact-name-error" role="alert">
-            {{ 'CONTACT.ERROR_REQUIRED' | translate }}
-          </p>
-        }
-      </div>
+      @if (currentStep() === 0) {
+        <div class="contact__step">
+          <label class="contact__question" for="contact-name">{{ 'CONTACT.Q_NAME' | translate }}</label>
+          <input
+            class="contact__input"
+            id="contact-name"
+            type="text"
+            formControlName="name"
+            autocomplete="name"
+            (keydown.enter)="$event.preventDefault(); nextStep()"
+            [attr.aria-invalid]="form.controls.name.touched && form.controls.name.invalid"
+            aria-describedby="contact-name-error"
+          />
+          @if (form.controls.name.touched && form.controls.name.invalid) {
+            <p class="contact__error" id="contact-name-error" role="alert">
+              {{ 'CONTACT.ERROR_REQUIRED' | translate }}
+            </p>
+          }
+        </div>
+      }
 
-      <div class="contact__field">
-        <label class="contact__label" for="contact-email">{{ 'CONTACT.EMAIL_LABEL' | translate }}</label>
-        <input
-          class="contact__input"
-          id="contact-email"
-          type="email"
-          formControlName="email"
-          autocomplete="email"
-          [attr.aria-invalid]="form.controls.email.touched && form.controls.email.invalid"
-          aria-describedby="contact-email-error"
-        />
-        @if (form.controls.email.touched && form.controls.email.invalid) {
-          <p class="contact__error" id="contact-email-error" role="alert">
-            {{ (form.controls.email.hasError('required') ? 'CONTACT.ERROR_REQUIRED' : 'CONTACT.ERROR_EMAIL') | translate }}
-          </p>
-        }
-      </div>
+      @if (currentStep() === 1) {
+        <div class="contact__step">
+          <label class="contact__question" for="contact-email">{{ 'CONTACT.Q_EMAIL' | translate }}</label>
+          <input
+            class="contact__input"
+            id="contact-email"
+            type="email"
+            formControlName="email"
+            autocomplete="email"
+            (keydown.enter)="$event.preventDefault(); nextStep()"
+            [attr.aria-invalid]="form.controls.email.touched && form.controls.email.invalid"
+            aria-describedby="contact-email-error"
+          />
+          @if (form.controls.email.touched && form.controls.email.invalid) {
+            <p class="contact__error" id="contact-email-error" role="alert">
+              {{ (form.controls.email.hasError('required') ? 'CONTACT.ERROR_REQUIRED' : 'CONTACT.ERROR_EMAIL') | translate }}
+            </p>
+          }
+        </div>
+      }
 
-      <div class="contact__field">
-        <label class="contact__label" for="contact-message">{{ 'CONTACT.MESSAGE_LABEL' | translate }}</label>
-        <textarea
-          class="contact__input contact__input--textarea"
-          id="contact-message"
-          rows="5"
-          formControlName="message"
-          [attr.aria-invalid]="form.controls.message.touched && form.controls.message.invalid"
-          aria-describedby="contact-message-error"
-        ></textarea>
-        @if (form.controls.message.touched && form.controls.message.invalid) {
-          <p class="contact__error" id="contact-message-error" role="alert">
-            {{ (form.controls.message.hasError('required') ? 'CONTACT.ERROR_REQUIRED' : 'CONTACT.ERROR_MIN_LENGTH') | translate }}
-          </p>
-        }
-      </div>
+      @if (currentStep() === 2) {
+        <div class="contact__step">
+          <label class="contact__question" for="contact-message">{{ 'CONTACT.Q_MESSAGE' | translate }}</label>
+          <textarea
+            class="contact__input contact__input--textarea"
+            id="contact-message"
+            rows="5"
+            formControlName="message"
+            [attr.aria-invalid]="form.controls.message.touched && form.controls.message.invalid"
+            aria-describedby="contact-message-error"
+          ></textarea>
+          @if (form.controls.message.touched && form.controls.message.invalid) {
+            <p class="contact__error" id="contact-message-error" role="alert">
+              {{ (form.controls.message.hasError('required') ? 'CONTACT.ERROR_REQUIRED' : 'CONTACT.ERROR_MIN_LENGTH') | translate }}
+            </p>
+          }
+        </div>
+      }
+
+      @if (currentStep() === reviewStep) {
+        <div class="contact__step contact__review">
+          <p class="contact__question">{{ 'CONTACT.REVIEW_TITLE' | translate }}</p>
+
+          <dl class="contact__review-list">
+            <div class="contact__review-row">
+              <dt>{{ 'CONTACT.NAME_LABEL' | translate }}</dt>
+              <dd>{{ form.controls.name.value }}</dd>
+              <button type="button" class="contact__review-edit" (click)="editStep(0)">
+                {{ 'CONTACT.EDIT' | translate }}
+              </button>
+            </div>
+            <div class="contact__review-row">
+              <dt>{{ 'CONTACT.EMAIL_LABEL' | translate }}</dt>
+              <dd>{{ form.controls.email.value }}</dd>
+              <button type="button" class="contact__review-edit" (click)="editStep(1)">
+                {{ 'CONTACT.EDIT' | translate }}
+              </button>
+            </div>
+            <div class="contact__review-row">
+              <dt>{{ 'CONTACT.MESSAGE_LABEL' | translate }}</dt>
+              <dd>{{ form.controls.message.value }}</dd>
+              <button type="button" class="contact__review-edit" (click)="editStep(2)">
+                {{ 'CONTACT.EDIT' | translate }}
+              </button>
+            </div>
+          </dl>
+        </div>
+      }
 
       <div class="contact__honeypot" aria-hidden="true">
         <label for="contact-website">Website</label>
         <input id="contact-website" type="text" formControlName="honeypot" tabindex="-1" autocomplete="off" />
       </div>
 
-      <button class="contact__submit" type="submit" [disabled]="status() === 'sending'">
-        {{ (status() === 'sending' ? 'CONTACT.SENDING' : 'CONTACT.SUBMIT') | translate }}
-      </button>
+      <div class="contact__nav">
+        @if (currentStep() > 0) {
+          <button type="button" class="contact__back" (click)="prevStep()">
+            {{ 'CONTACT.BACK' | translate }}
+          </button>
+        }
+
+        @if (currentStep() < reviewStep) {
+          <button type="button" class="contact__submit" appMagnetic (click)="nextStep()">
+            {{ 'CONTACT.NEXT' | translate }}
+          </button>
+        } @else {
+          <button class="contact__submit" type="submit" [disabled]="status() === 'sending'" appMagnetic>
+            {{ (status() === 'sending' ? 'CONTACT.SENDING' : 'CONTACT.SUBMIT') | translate }}
+          </button>
+        }
+      </div>
 
       <p class="contact__privacy">{{ 'CONTACT.PRIVACY_NOTICE' | translate }}</p>
 

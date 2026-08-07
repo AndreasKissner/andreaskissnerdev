@@ -7,6 +7,8 @@ import { WorkComponent } from './sections/work/work';
 import { ContactComponent } from './sections/contact/contact';
 import { FooterComponent } from './sections/footer/footer';
 import { CommandPaletteComponent } from './shared/command-palette/command-palette';
+import { StickyBarComponent } from './shared/sticky-bar/sticky-bar';
+import { EasterEggComponent } from './shared/easter-egg/easter-egg';
 import { LanguageService } from './core/language.service';
 
 @Component({
@@ -19,7 +21,9 @@ import { LanguageService } from './core/language.service';
     WorkComponent,
     ContactComponent,
     FooterComponent,
-    CommandPaletteComponent
+    CommandPaletteComponent,
+    StickyBarComponent,
+    EasterEggComponent
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'

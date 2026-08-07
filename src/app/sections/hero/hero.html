@@ -1,29 +1,64 @@
 <section class="hero" id="top" aria-labelledby="hero-title">
   <div class="hero__container">
-    <p class="hero__eyebrow">
-      <span class="hero__eyebrow-dot" aria-hidden="true"></span>
-      {{ 'HERO.EYEBROW' | translate }}
-    </p>
-
-    @if (availability.isAvailable()) {
-      <p class="hero__status">
-        <span class="hero__status-dot" aria-hidden="true"></span>
-        {{ 'HERO.AVAILABLE' | translate }} · {{ 'HERO.LOCAL_TIME' | translate: { time: availability.swissTime() } }}
+    <div class="hero__content">
+      <p class="hero__eyebrow">
+        <span class="hero__eyebrow-dot" aria-hidden="true"></span>
+        {{ 'HERO.EYEBROW' | translate }}
       </p>
-    }
-    <h1 class="hero__title" id="hero-title">{{ 'HERO.TITLE' | translate }}</h1>
-    <p class="hero__subtitle">{{ 'HERO.SUBTITLE' | translate }}</p>
 
-    <div class="hero__actions">
-      <a class="hero__cta hero__cta--primary" href="#contact">{{ 'HERO.CTA_PRIMARY' | translate }}</a>
-      <a
-        class="hero__cta hero__cta--secondary"
-        href="https://andreas-kissner.cloud"
-        target="_blank"
-        rel="noopener"
-      >
-        {{ 'HERO.CTA_SECONDARY' | translate }}
-      </a>
+      <h1 class="hero__title" id="hero-title">{{ 'HERO.TITLE' | translate }}</h1>
+      <p class="hero__subtitle">{{ 'HERO.SUBTITLE' | translate }}</p>
+
+      <a class="hero__cta" href="#contact" appMagnetic>{{ 'HERO.CTA_PRIMARY' | translate }}</a>
+    </div>
+
+    <div class="hero__console">
+      <div class="hero__console-header">
+        <p class="hero__console-title" aria-hidden="true">
+          <app-live-indicator />
+          {{ 'HERO.CONSOLE_TITLE' | translate }}
+        </p>
+
+        <button
+          type="button"
+          class="hero__console-launch"
+          [attr.aria-label]="'EASTER.TAKE_OFF' | translate"
+          [attr.title]="'EASTER.TAKE_OFF' | translate"
+          (click)="easterEgg.launch()"
+        >
+          <svg class="hero__console-launch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2.5c2.8 1.7 4.5 4.8 4.5 8.5 0 2-.5 3.8-1.4 5.3l-3.1 3.2-3.1-3.2C7.99 14.8 7.5 13 7.5 11c0-3.7 1.7-6.8 4.5-8.5z" />
+            <circle cx="12" cy="10.5" r="1.6" />
+            <path d="M8.6 15.5 6 17.2c-.5.35-.8.9-.8 1.5v1.8l2-.9c.5-.22.85-.68.95-1.22l.45-2.2z" />
+            <path d="M15.4 15.5 18 17.2c.5.35.8.9.8 1.5v1.8l-2-.9c-.5-.22-.85-.68-.95-1.22l-.45-2.2z" />
+          </svg>
+        </button>
+      </div>
+
+      <dl class="hero__console-list" aria-hidden="true">
+        <div class="hero__console-row">
+          <dt>{{ 'HERO.CONSOLE_AVAILABLE_LABEL' | translate }}</dt>
+          <dd>{{ (availability.isAvailable() ? 'HERO.CONSOLE_YES' : 'HERO.CONSOLE_NO') | translate }}</dd>
+        </div>
+        <div class="hero__console-row">
+          <dt>{{ 'HERO.CONSOLE_LOAD_TIME_LABEL' | translate }}</dt>
+          <dd>
+            {{ performance.loadTimeMs() !== null ? (performance.loadTimeMs() + ' ms') : ('HERO.CONSOLE_MEASURING' | translate) }}
+          </dd>
+        </div>
+        <div class="hero__console-row">
+          <dt>{{ 'HERO.CONSOLE_THEME_LABEL' | translate }}</dt>
+          <dd>{{ themeService.preference() }}</dd>
+        </div>
+        <div class="hero__console-row">
+          <dt>{{ 'HERO.CONSOLE_LANG_LABEL' | translate }}</dt>
+          <dd>{{ languageService.activeLanguage() }}</dd>
+        </div>
+        <div class="hero__console-row">
+          <dt>{{ 'HERO.CONSOLE_LOCAL_TIME_LABEL' | translate }}</dt>
+          <dd>{{ availability.swissTime() }}</dd>
+        </div>
+      </dl>
     </div>
   </div>
 </section>

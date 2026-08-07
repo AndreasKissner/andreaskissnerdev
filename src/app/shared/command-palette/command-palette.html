@@ -9,7 +9,12 @@
     tabindex="-1"
     #dialog
   >
-    <p class="command-palette__hint">{{ 'PALETTE.HINT' | translate }}</p>
+    <div class="command-palette__header">
+      <p class="command-palette__hint">{{ 'PALETTE.HINT' | translate }}</p>
+      <button type="button" class="command-palette__close" [attr.aria-label]="'PALETTE.CLOSE' | translate" (click)="palette.close()">
+        ✕
+      </button>
+    </div>
 
     <ul class="command-palette__list" role="listbox" [attr.aria-label]="'PALETTE.TITLE' | translate">
       @for (command of palette.commands; track command.id; let i = $index) {

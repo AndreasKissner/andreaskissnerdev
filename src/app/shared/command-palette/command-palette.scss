@@ -26,11 +26,43 @@
   }
 }
 
+.command-palette__header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: v.$space-sm;
+}
+
 .command-palette__hint {
-  margin: 0 0 v.$space-sm;
+  display: none;
+  margin: 0;
   font-size: 0.8rem;
   color: var(--color-text-muted);
   font-family: v.$font-mono;
+
+  @include m.respond-up(v.$bp-md) {
+    display: block;
+    margin-right: auto;
+  }
+}
+
+.command-palette__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: none;
+  border: none;
+  border-radius: v.$radius-sm;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+
+  @include m.focus-ring;
+
+  &:hover {
+    color: var(--color-text);
+  }
 }
 
 .command-palette__list {

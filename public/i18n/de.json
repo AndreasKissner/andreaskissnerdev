@@ -11,7 +11,8 @@
     "LANGUAGE": "Sprache wählen",
     "MENU_OPEN": "Menü",
     "MENU_CLOSE": "Schliessen",
-    "THEME_TOGGLE": "Theme wechseln (aktuell: {{mode}})"
+    "THEME_TOGGLE": "Theme wechseln (aktuell: {{mode}})",
+    "DESIGN_BY": "Design von Andreas Kissner"
   },
   "THEME": {
     "SYSTEM": "Auto",
@@ -25,19 +26,32 @@
     "CTA_PRIMARY": "Projekt anfragen",
     "CTA_SECONDARY": "Portfolio ansehen",
     "AVAILABLE": "Verfügbar für neue Projekte",
-    "LOCAL_TIME": "{{time}} Uhr (CH)"
+    "LOCAL_TIME": "{{time}} Uhr (CH)",
+    "CONSOLE_TITLE": "status.live",
+    "CONSOLE_AVAILABLE_LABEL": "verfügbar",
+    "CONSOLE_LOAD_TIME_LABEL": "ladezeit",
+    "CONSOLE_THEME_LABEL": "theme",
+    "CONSOLE_LANG_LABEL": "sprache",
+    "CONSOLE_LOCAL_TIME_LABEL": "ortszeit",
+    "CONSOLE_YES": "ja",
+    "CONSOLE_NO": "nein",
+    "CONSOLE_MEASURING": "wird gemessen …"
   },
   "SERVICES": {
     "TITLE": "Was ich anbiete",
     "INTRO": "Von der ersten Idee bis zur laufenden Anwendung.",
     "ITEM_1_TITLE": "Websites & Webapps",
     "ITEM_1_TEXT": "Individuell entwickelt statt von der Stange — passend zu Ihrem Geschäft, nicht zu einer Vorlage.",
+    "ITEM_1_DETAIL": "Von der Konzeption bis zum Go-Live: Struktur, Text-Feinschliff und technische Umsetzung aus einer Hand. Kein Baukasten, kein Theme von der Stange.",
     "ITEM_2_TITLE": "Redesign & Relaunch",
     "ITEM_2_TEXT": "Bestehende Seite modernisieren: schneller, klarer, verständlicher für Ihre Kundschaft — barrierefrei nach WCAG und datenschutzkonform.",
+    "ITEM_2_DETAIL": "Ich übernehme bestehende Inhalte, räume auf, was nicht mehr trägt, und baue auf einer sauberen technischen Basis neu auf — ohne dass Sie bei null anfangen müssen.",
     "ITEM_3_TITLE": "Digitale Werkzeuge",
     "ITEM_3_TEXT": "Verwaltungstools, Kundenportale und Formulare, die echte Abläufe abbilden statt nur schön auszusehen.",
+    "ITEM_3_DETAIL": "Von der Kundenverwaltung bis zum Kundenportal: Werkzeuge, die Ihren Alltag tatsächlich vereinfachen, nicht nur eine Funktionsliste abhaken.",
     "ITEM_4_TITLE": "Datenschutz & Betrieb",
-    "ITEM_4_TEXT": "Sauber aufgesetzt nach Schweizer Datenschutzstandard, verständlich dokumentiert, langfristig wartbar."
+    "ITEM_4_TEXT": "Sauber aufgesetzt nach Schweizer Datenschutzstandard, verständlich dokumentiert, langfristig wartbar.",
+    "ITEM_4_DETAIL": "Server-Standort, Datensparsamkeit, Impressum und Datenschutzerklärung — von Anfang an mitgedacht, nicht nachträglich draufgeklebt."
   },
   "WORK": {
     "TITLE": "Referenzen",
@@ -59,6 +73,14 @@
   "CONTACT": {
     "TITLE": "Kontakt",
     "INTRO": "Erzählen Sie mir kurz von Ihrem Projekt — ich melde mich zeitnah zurück.",
+    "STEP_OF": "Frage {{current}} von {{total}}",
+    "Q_NAME": "Wie heissen Sie?",
+    "Q_EMAIL": "Unter welcher E-Mail erreiche ich Sie?",
+    "Q_MESSAGE": "Worum geht es bei Ihrem Projekt?",
+    "REVIEW_TITLE": "Passt das so?",
+    "NEXT": "Weiter",
+    "BACK": "Zurück",
+    "EDIT": "Bearbeiten",
     "NAME_LABEL": "Name",
     "EMAIL_LABEL": "E-Mail",
     "MESSAGE_LABEL": "Nachricht",
@@ -71,9 +93,16 @@
     "ERROR_MIN_LENGTH": "Bitte etwas ausführlicher.",
     "PRIVACY_NOTICE": "Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Angaben gemäss der Datenschutzerklärung zu."
   },
+  "EASTER": {
+    "TAKE_OFF": "🚀 Take off",
+    "TITLE": "404",
+    "MESSAGE": "Diese Seite ist im Orbit verloren gegangen. Ihr Projekt bringen wir trotzdem sicher auf den Boden.",
+    "BACK": "Zurück zur Erde"
+  },
   "PALETTE": {
     "TITLE": "Befehlspalette",
     "HINT": "↑↓ navigieren · Enter auswählen · Esc schliessen",
+    "CLOSE": "Schliessen",
     "SERVICES": "Zu: Angebot",
     "WORK": "Zu: Referenzen",
     "CONTACT": "Zu: Kontakt",

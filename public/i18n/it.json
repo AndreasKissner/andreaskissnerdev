@@ -11,7 +11,8 @@
     "LANGUAGE": "Scegli la lingua",
     "MENU_OPEN": "Menu",
     "MENU_CLOSE": "Chiudi",
-    "THEME_TOGGLE": "Cambia tema (attuale: {{mode}})"
+    "THEME_TOGGLE": "Cambia tema (attuale: {{mode}})",
+    "DESIGN_BY": "Design di Andreas Kissner"
   },
   "THEME": {
     "SYSTEM": "Auto",
@@ -25,19 +26,32 @@
     "CTA_PRIMARY": "Richiedi un progetto",
     "CTA_SECONDARY": "Vedi il portfolio",
     "AVAILABLE": "Disponibile per nuovi progetti",
-    "LOCAL_TIME": "{{time}} (CH)"
+    "LOCAL_TIME": "{{time}} (CH)",
+    "CONSOLE_TITLE": "status.live",
+    "CONSOLE_AVAILABLE_LABEL": "disponibile",
+    "CONSOLE_LOAD_TIME_LABEL": "caricamento",
+    "CONSOLE_THEME_LABEL": "tema",
+    "CONSOLE_LANG_LABEL": "lingua",
+    "CONSOLE_LOCAL_TIME_LABEL": "ora locale",
+    "CONSOLE_YES": "sì",
+    "CONSOLE_NO": "no",
+    "CONSOLE_MEASURING": "misurazione in corso …"
   },
   "SERVICES": {
     "TITLE": "Cosa offro",
     "INTRO": "Dalla prima idea all'applicazione in funzione.",
     "ITEM_1_TITLE": "Siti & applicazioni web",
     "ITEM_1_TEXT": "Sviluppati su misura e non da un modello standard — adatti alla vostra attività, non a un template.",
+    "ITEM_1_DETAIL": "Dalla progettazione al lancio: struttura, rifinitura dei testi e realizzazione tecnica da un'unica fonte. Nessun sito modulare, nessun tema standard.",
     "ITEM_2_TITLE": "Redesign & rilancio",
     "ITEM_2_TEXT": "Modernizzare un sito esistente: più veloce, più chiaro, più comprensibile per la vostra clientela — accessibile secondo le WCAG e conforme alla protezione dei dati.",
+    "ITEM_2_DETAIL": "Riprendo i contenuti esistenti, elimino ciò che non funziona più e ricostruisco su una base tecnica pulita — senza che dobbiate ripartire da zero.",
     "ITEM_3_TITLE": "Strumenti digitali",
     "ITEM_3_TEXT": "Strumenti di gestione, portali clienti e moduli che rispecchiano processi reali, non solo l'estetica.",
+    "ITEM_3_DETAIL": "Dalla gestione clienti al portale clienti: strumenti che semplificano davvero la vostra quotidianità, non solo una lista di funzioni.",
     "ITEM_4_TITLE": "Protezione dei dati & gestione",
-    "ITEM_4_TEXT": "Impostato secondo gli standard svizzeri di protezione dei dati, documentato in modo chiaro, mantenibile nel tempo."
+    "ITEM_4_TEXT": "Impostato secondo gli standard svizzeri di protezione dei dati, documentato in modo chiaro, mantenibile nel tempo.",
+    "ITEM_4_DETAIL": "Ubicazione dei server, minimizzazione dei dati, note legali e informativa sulla privacy — pensati fin dall'inizio, non aggiunti in seguito."
   },
   "WORK": {
     "TITLE": "Referenze",
@@ -59,6 +73,14 @@
   "CONTACT": {
     "TITLE": "Contatto",
     "INTRO": "Raccontatemi brevemente del vostro progetto — vi risponderò a breve.",
+    "STEP_OF": "Domanda {{current}} di {{total}}",
+    "Q_NAME": "Come si chiama?",
+    "Q_EMAIL": "A quale e-mail posso contattarvi?",
+    "Q_MESSAGE": "Di cosa si tratta il vostro progetto?",
+    "REVIEW_TITLE": "Va tutto bene così?",
+    "NEXT": "Avanti",
+    "BACK": "Indietro",
+    "EDIT": "Modifica",
     "NAME_LABEL": "Nome",
     "EMAIL_LABEL": "E-mail",
     "MESSAGE_LABEL": "Messaggio",
@@ -71,9 +93,16 @@
     "ERROR_MIN_LENGTH": "Aggiungete qualche dettaglio in più.",
     "PRIVACY_NOTICE": "Inviando il modulo accettate il trattamento dei vostri dati secondo la {{link}}."
   },
+  "EASTER": {
+    "TAKE_OFF": "🚀 Decollo",
+    "TITLE": "404",
+    "MESSAGE": "Questa pagina si è persa in orbita. Il vostro progetto, invece, atterrerà sano e salvo.",
+    "BACK": "Torna sulla Terra"
+  },
   "PALETTE": {
     "TITLE": "Palette dei comandi",
     "HINT": "↑↓ naviga · Invio seleziona · Esc chiudi",
+    "CLOSE": "Chiudi",
     "SERVICES": "Vai a: Servizi",
     "WORK": "Vai a: Referenze",
     "CONTACT": "Vai a: Contatto",

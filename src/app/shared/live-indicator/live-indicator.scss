@@ -1,0 +1,43 @@
+.live-indicator {
+  width: 32px;
+  height: 12px;
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+.live-indicator__track,
+.live-indicator__pulse {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.6;
+  vector-effect: non-scaling-stroke;
+}
+
+.live-indicator__track {
+  stroke: var(--color-success);
+  opacity: 0.25;
+}
+
+.live-indicator__pulse {
+  stroke: var(--color-success);
+  stroke-dasharray: 26 74;
+  animation: live-indicator-sweep 1.8s linear infinite;
+}
+
+@keyframes live-indicator-sweep {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .live-indicator__pulse {
+    animation: none;
+    stroke-dasharray: none;
+  }
+}
