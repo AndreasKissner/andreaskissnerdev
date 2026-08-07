@@ -1,0 +1,49 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/mixins' as m;
+
+.services {
+  padding-block: v.$space-xl;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.services__container {
+  @include m.container;
+}
+
+.services__title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin: 0 0 v.$space-xs;
+}
+
+.services__intro {
+  color: var(--color-text-muted);
+  margin: 0 0 v.$space-lg;
+  max-width: 640px;
+}
+
+.services__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: v.$space-md;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.services__item {
+  padding: v.$space-md;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: v.$radius-md;
+}
+
+.services__item-title {
+  font-size: 1.05rem;
+  margin: 0 0 v.$space-xs;
+}
+
+.services__item-text {
+  color: var(--color-text-muted);
+  margin: 0;
+  font-size: 0.95rem;
+}

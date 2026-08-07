@@ -1,0 +1,89 @@
+{
+  "A11Y": {
+    "SKIP_TO_CONTENT": "Zum Inhalt springen"
+  },
+  "NAV": {
+    "BRAND": "Andreas Kissner",
+    "SERVICES": "Angebot",
+    "WORK": "Referenzen",
+    "CONTACT": "Kontakt",
+    "PORTFOLIO": "Portfolio",
+    "LANGUAGE": "Sprache wählen",
+    "MENU_OPEN": "Menü",
+    "MENU_CLOSE": "Schliessen",
+    "THEME_TOGGLE": "Theme wechseln (aktuell: {{mode}})"
+  },
+  "THEME": {
+    "SYSTEM": "Auto",
+    "DARK": "Dunkel",
+    "LIGHT": "Hell"
+  },
+  "HERO": {
+    "EYEBROW": "Web Developer aus der Schweiz",
+    "TITLE": "Webauftritte, die für Ihr Geschäft arbeiten.",
+    "SUBTITLE": "Individuelle Websites und Webapps mit Angular — schnell, sicher, mobil optimiert und ohne Page-Builder-Kompromisse.",
+    "CTA_PRIMARY": "Projekt anfragen",
+    "CTA_SECONDARY": "Portfolio ansehen",
+    "AVAILABLE": "Verfügbar für neue Projekte",
+    "LOCAL_TIME": "{{time}} Uhr (CH)"
+  },
+  "SERVICES": {
+    "TITLE": "Was ich anbiete",
+    "INTRO": "Von der ersten Idee bis zur laufenden Anwendung.",
+    "ITEM_1_TITLE": "Websites & Webapps",
+    "ITEM_1_TEXT": "Individuell entwickelt statt von der Stange — passend zu Ihrem Geschäft, nicht zu einer Vorlage.",
+    "ITEM_2_TITLE": "Redesign & Relaunch",
+    "ITEM_2_TEXT": "Bestehende Seite modernisieren: schneller, klarer, verständlicher für Ihre Kundschaft — barrierefrei nach WCAG und datenschutzkonform.",
+    "ITEM_3_TITLE": "Digitale Werkzeuge",
+    "ITEM_3_TEXT": "Verwaltungstools, Kundenportale und Formulare, die echte Abläufe abbilden statt nur schön auszusehen.",
+    "ITEM_4_TITLE": "Datenschutz & Betrieb",
+    "ITEM_4_TEXT": "Sauber aufgesetzt nach Schweizer Datenschutzstandard, verständlich dokumentiert, langfristig wartbar."
+  },
+  "WORK": {
+    "TITLE": "Referenzen",
+    "INTRO": "Zwei Projekte, zwei völlig unterschiedliche Anforderungen.",
+    "SHM_TITLE": "Second Hand Manager",
+    "SHM_TEXT": "Eine Verwaltungsanwendung für Second-Hand- und Kommissionsläden: Kunden, Artikel, Provisionen, Finanzen und Kundenportal in einem System.",
+    "DUNE_TITLE": "D'une Main à l'Autre",
+    "DUNE_TEXT": "Webauftritt einer Second-Hand-Boutique im Jura — mit eigenem Redaktionssystem, damit die Inhaberin ihre Inhalte selbst pflegen kann.",
+    "SHM_DEMO_LABEL": "Live-Vorschau des Ablaufs — bei Hover oder Fokus abspielen",
+    "SHM_DEMO_STEP_1": "Artikel fotografieren",
+    "SHM_DEMO_STEP_2": "KI erkennt Artikel & schlägt Preis vor",
+    "SHM_DEMO_STEP_3": "Verkauft — Konsignant automatisch benachrichtigt"
+  },
+  "PORTFOLIO_CTA": {
+    "TITLE": "Mehr Projekte im Detail",
+    "TEXT": "Alle Arbeiten, Technik und Hintergründe finden Sie in meinem Portfolio.",
+    "CTA": "Zum Portfolio"
+  },
+  "CONTACT": {
+    "TITLE": "Kontakt",
+    "INTRO": "Erzählen Sie mir kurz von Ihrem Projekt — ich melde mich zeitnah zurück.",
+    "NAME_LABEL": "Name",
+    "EMAIL_LABEL": "E-Mail",
+    "MESSAGE_LABEL": "Nachricht",
+    "SUBMIT": "Nachricht senden",
+    "SENDING": "Wird gesendet …",
+    "SUCCESS": "Danke! Ihre Nachricht ist angekommen.",
+    "ERROR": "Das hat leider nicht geklappt. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt.",
+    "ERROR_REQUIRED": "Dieses Feld wird benötigt.",
+    "ERROR_EMAIL": "Bitte eine gültige E-Mail-Adresse eingeben.",
+    "ERROR_MIN_LENGTH": "Bitte etwas ausführlicher.",
+    "PRIVACY_NOTICE": "Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Angaben gemäss der Datenschutzerklärung zu."
+  },
+  "PALETTE": {
+    "TITLE": "Befehlspalette",
+    "HINT": "↑↓ navigieren · Enter auswählen · Esc schliessen",
+    "SERVICES": "Zu: Angebot",
+    "WORK": "Zu: Referenzen",
+    "CONTACT": "Zu: Kontakt",
+    "PORTFOLIO": "Portfolio öffnen",
+    "THEME": "Theme wechseln"
+  },
+  "FOOTER": {
+    "IMPRINT": "Impressum",
+    "PRIVACY": "Datenschutz",
+    "RIGHTS": "Alle Rechte vorbehalten.",
+    "LOAD_TIME": "Diese Seite lud in {{ms}} ms — ganz ohne WordPress."
+  }
+}

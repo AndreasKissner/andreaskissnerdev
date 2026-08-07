@@ -1,0 +1,81 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/mixins' as m;
+
+.work {
+  padding-block: v.$space-xl;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.work__container {
+  @include m.container;
+}
+
+.work__title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin: 0 0 v.$space-xs;
+}
+
+.work__intro {
+  color: var(--color-text-muted);
+  margin: 0 0 v.$space-lg;
+  max-width: 640px;
+}
+
+.work__list {
+  display: grid;
+  gap: v.$space-md;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-bottom: v.$space-lg;
+}
+
+.work__item {
+  padding: v.$space-md;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: v.$radius-md;
+}
+
+.work__item-title {
+  margin: 0 0 v.$space-xs;
+  font-size: 1.1rem;
+}
+
+.work__item-text {
+  color: var(--color-text-muted);
+  margin: 0 0 v.$space-sm;
+}
+
+.work__portfolio-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: v.$space-md;
+  padding: v.$space-md v.$space-lg;
+  border: 1px solid var(--color-accent-fg);
+  border-radius: v.$radius-md;
+  background-color: var(--color-surface-raised);
+}
+
+.work__portfolio-cta-title {
+  margin: 0 0 4px;
+  font-size: 1.1rem;
+}
+
+.work__portfolio-cta-text {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.work__portfolio-cta-link {
+  flex-shrink: 0;
+  display: inline-flex;
+  padding: 10px 20px;
+  border-radius: v.$radius-sm;
+  background-color: var(--color-accent);
+  color: var(--color-on-accent);
+  text-decoration: none;
+  font-weight: 600;
+
+  @include m.focus-ring;
+}

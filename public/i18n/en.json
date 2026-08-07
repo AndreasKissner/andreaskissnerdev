@@ -1,0 +1,89 @@
+{
+  "A11Y": {
+    "SKIP_TO_CONTENT": "Skip to content"
+  },
+  "NAV": {
+    "BRAND": "Andreas Kissner",
+    "SERVICES": "Services",
+    "WORK": "Work",
+    "CONTACT": "Contact",
+    "PORTFOLIO": "Portfolio",
+    "LANGUAGE": "Choose language",
+    "MENU_OPEN": "Menu",
+    "MENU_CLOSE": "Close",
+    "THEME_TOGGLE": "Switch theme (current: {{mode}})"
+  },
+  "THEME": {
+    "SYSTEM": "Auto",
+    "DARK": "Dark",
+    "LIGHT": "Light"
+  },
+  "HERO": {
+    "EYEBROW": "Web developer based in Switzerland",
+    "TITLE": "Websites that work for your business.",
+    "SUBTITLE": "Custom websites and web apps built with Angular — fast, secure, mobile-optimised, without page-builder compromises.",
+    "CTA_PRIMARY": "Start a project",
+    "CTA_SECONDARY": "View portfolio",
+    "AVAILABLE": "Available for new projects",
+    "LOCAL_TIME": "{{time}} (CH)"
+  },
+  "SERVICES": {
+    "TITLE": "What I offer",
+    "INTRO": "From first idea to running application.",
+    "ITEM_1_TITLE": "Websites & web apps",
+    "ITEM_1_TEXT": "Built from scratch, not from a template — fitted to your business, not a mould.",
+    "ITEM_2_TITLE": "Redesign & relaunch",
+    "ITEM_2_TEXT": "Modernise an existing site: faster, clearer, easier for your customers to understand — accessible to WCAG standards and fully data-protection compliant.",
+    "ITEM_3_TITLE": "Digital tools",
+    "ITEM_3_TEXT": "Management tools, customer portals and forms that reflect real workflows, not just good looks.",
+    "ITEM_4_TITLE": "Privacy & operations",
+    "ITEM_4_TEXT": "Set up to Swiss data protection standards, documented clearly, maintainable long-term."
+  },
+  "WORK": {
+    "TITLE": "Selected work",
+    "INTRO": "Two projects, two completely different sets of requirements.",
+    "SHM_TITLE": "Second Hand Manager",
+    "SHM_TEXT": "A management application for second-hand and consignment shops: customers, inventory, commissions, finances and a customer portal in one system.",
+    "DUNE_TITLE": "D'une Main à l'Autre",
+    "DUNE_TEXT": "Website for a second-hand boutique in the Jura region — with a built-in content management system so the owner can maintain content herself.",
+    "SHM_DEMO_LABEL": "Live preview of the workflow — hover or focus to play",
+    "SHM_DEMO_STEP_1": "Photograph the item",
+    "SHM_DEMO_STEP_2": "AI recognises it & suggests a price",
+    "SHM_DEMO_STEP_3": "Sold — consignor notified automatically"
+  },
+  "PORTFOLIO_CTA": {
+    "TITLE": "More projects in detail",
+    "TEXT": "All my work, the technical side and the background can be found in my portfolio.",
+    "CTA": "Go to portfolio"
+  },
+  "CONTACT": {
+    "TITLE": "Contact",
+    "INTRO": "Tell me briefly about your project — I'll get back to you soon.",
+    "NAME_LABEL": "Name",
+    "EMAIL_LABEL": "Email",
+    "MESSAGE_LABEL": "Message",
+    "SUBMIT": "Send message",
+    "SENDING": "Sending …",
+    "SUCCESS": "Thank you! Your message has arrived.",
+    "ERROR": "Something went wrong. Please try again or email me directly.",
+    "ERROR_REQUIRED": "This field is required.",
+    "ERROR_EMAIL": "Please enter a valid email address.",
+    "ERROR_MIN_LENGTH": "Please add a bit more detail.",
+    "PRIVACY_NOTICE": "By submitting, you agree to the processing of your data as described in the {{link}}."
+  },
+  "PALETTE": {
+    "TITLE": "Command palette",
+    "HINT": "↑↓ navigate · Enter select · Esc close",
+    "SERVICES": "Go to: Services",
+    "WORK": "Go to: Work",
+    "CONTACT": "Go to: Contact",
+    "PORTFOLIO": "Open portfolio",
+    "THEME": "Switch theme"
+  },
+  "FOOTER": {
+    "IMPRINT": "Imprint",
+    "PRIVACY": "Privacy policy",
+    "RIGHTS": "All rights reserved.",
+    "LOAD_TIME": "This page loaded in {{ms}} ms — no WordPress involved."
+  }
+}

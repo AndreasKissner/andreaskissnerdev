@@ -1,12 +1,36 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, effect, inject } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
+import { HeaderComponent } from './sections/header/header';
+import { HeroComponent } from './sections/hero/hero';
+import { ServicesComponent } from './sections/services/services';
+import { WorkComponent } from './sections/work/work';
+import { ContactComponent } from './sections/contact/contact';
+import { FooterComponent } from './sections/footer/footer';
+import { CommandPaletteComponent } from './shared/command-palette/command-palette';
+import { LanguageService } from './core/language.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [
+    TranslatePipe,
+    HeaderComponent,
+    HeroComponent,
+    ServicesComponent,
+    WorkComponent,
+    ContactComponent,
+    FooterComponent,
+    CommandPaletteComponent
+  ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('mypresentation');
+  private readonly languageService = inject(LanguageService);
+
+  constructor() {
+    this.languageService.init();
+    effect(() => {
+      document.documentElement.lang = this.languageService.activeLanguage();
+    });
+  }
 }

@@ -1,0 +1,29 @@
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="hero__container">
+    <p class="hero__eyebrow">
+      <span class="hero__eyebrow-dot" aria-hidden="true"></span>
+      {{ 'HERO.EYEBROW' | translate }}
+    </p>
+
+    @if (availability.isAvailable()) {
+      <p class="hero__status">
+        <span class="hero__status-dot" aria-hidden="true"></span>
+        {{ 'HERO.AVAILABLE' | translate }} · {{ 'HERO.LOCAL_TIME' | translate: { time: availability.swissTime() } }}
+      </p>
+    }
+    <h1 class="hero__title" id="hero-title">{{ 'HERO.TITLE' | translate }}</h1>
+    <p class="hero__subtitle">{{ 'HERO.SUBTITLE' | translate }}</p>
+
+    <div class="hero__actions">
+      <a class="hero__cta hero__cta--primary" href="#contact">{{ 'HERO.CTA_PRIMARY' | translate }}</a>
+      <a
+        class="hero__cta hero__cta--secondary"
+        href="https://andreas-kissner.cloud"
+        target="_blank"
+        rel="noopener"
+      >
+        {{ 'HERO.CTA_SECONDARY' | translate }}
+      </a>
+    </div>
+  </div>
+</section>

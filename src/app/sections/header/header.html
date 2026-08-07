@@ -1,0 +1,63 @@
+<header class="header">
+  <div class="header__container">
+    <a class="header__brand" href="#top">{{ 'NAV.BRAND' | translate }}</a>
+
+    <div class="header__controls">
+      <button
+        type="button"
+        class="header__palette-hint"
+        [attr.aria-label]="'PALETTE.TITLE' | translate"
+        (click)="commandPalette.open()"
+      >
+        <span aria-hidden="true">Ctrl K</span>
+      </button>
+
+      <button
+        type="button"
+        class="header__theme-toggle"
+        [attr.aria-label]="'NAV.THEME_TOGGLE' | translate: { mode: ('THEME.' + themeService.preference().toUpperCase() | translate) }"
+        (click)="cycleTheme()"
+      >
+        {{ 'THEME.' + themeService.preference().toUpperCase() | translate }}
+      </button>
+
+      <button
+        type="button"
+        class="header__toggle"
+        [attr.aria-expanded]="isMenuOpen()"
+        aria-controls="primary-navigation"
+        (click)="toggleMenu()"
+      >
+        <span class="header__toggle-label">{{ (isMenuOpen() ? 'NAV.MENU_CLOSE' : 'NAV.MENU_OPEN') | translate }}</span>
+      </button>
+    </div>
+
+    <nav
+      id="primary-navigation"
+      class="header__nav"
+      [class.header__nav--open]="isMenuOpen()"
+      [attr.aria-label]="'NAV.BRAND' | translate"
+    >
+      <a class="header__nav-link" href="#services" (click)="closeMenu()">{{ 'NAV.SERVICES' | translate }}</a>
+      <a class="header__nav-link" href="#work" (click)="closeMenu()">{{ 'NAV.WORK' | translate }}</a>
+      <a class="header__nav-link" href="#contact" (click)="closeMenu()">{{ 'NAV.CONTACT' | translate }}</a>
+      <a class="header__nav-link" href="https://andreas-kissner.cloud" target="_blank" rel="noopener">
+        {{ 'NAV.PORTFOLIO' | translate }}
+      </a>
+
+      <div class="header__lang" role="group" [attr.aria-label]="'NAV.LANGUAGE' | translate">
+        @for (language of languageOptions; track language) {
+          <button
+            type="button"
+            class="header__lang-button"
+            [class.header__lang-button--active]="languageService.activeLanguage() === language"
+            [attr.aria-current]="languageService.activeLanguage() === language ? 'true' : null"
+            (click)="selectLanguage(language)"
+          >
+            {{ language }}
+          </button>
+        }
+      </div>
+    </nav>
+  </div>
+</header>

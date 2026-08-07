@@ -1,0 +1,15 @@
+<section class="services" id="services" aria-labelledby="services-title">
+  <div class="services__container">
+    <h2 class="services__title" id="services-title">{{ 'SERVICES.TITLE' | translate }}</h2>
+    <p class="services__intro">{{ 'SERVICES.INTRO' | translate }}</p>
+
+    <ul class="services__list">
+      @for (item of items; track item.titleKey) {
+        <li class="services__item">
+          <h3 class="services__item-title">{{ item.titleKey | translate }}</h3>
+          <p class="services__item-text">{{ item.textKey | translate }}</p>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

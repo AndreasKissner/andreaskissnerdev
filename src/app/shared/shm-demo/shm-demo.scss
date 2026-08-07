@@ -1,0 +1,99 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/mixins' as m;
+
+.shm-demo {
+  border: 1px solid var(--color-border);
+  border-radius: v.$radius-sm;
+  padding: v.$space-sm;
+  margin-top: v.$space-sm;
+
+  @include m.focus-ring;
+}
+
+.shm-demo__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.shm-demo__step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0.35;
+}
+
+.shm-demo__step-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--color-border);
+  color: var(--color-bg);
+  font-size: 0.7rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.shm-demo__step-label {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.shm-demo:hover .shm-demo__step,
+.shm-demo:focus-within .shm-demo__step {
+  animation: shm-demo-fade 1.8s ease-in-out infinite;
+  animation-delay: var(--shm-demo-delay);
+}
+
+.shm-demo:hover .shm-demo__step-index,
+.shm-demo:focus-within .shm-demo__step-index {
+  animation: shm-demo-badge 1.8s ease-in-out infinite;
+  animation-delay: var(--shm-demo-delay);
+}
+
+@keyframes shm-demo-fade {
+  0%,
+  70%,
+  100% {
+    opacity: 0.35;
+  }
+
+  15%,
+  40% {
+    opacity: 1;
+  }
+}
+
+@keyframes shm-demo-badge {
+  0%,
+  70%,
+  100% {
+    background-color: var(--color-border);
+    color: var(--color-bg);
+  }
+
+  15%,
+  40% {
+    background-color: var(--color-accent);
+    color: var(--color-on-accent);
+  }
+}
+
+@include m.reduced-motion {
+  .shm-demo:hover .shm-demo__step,
+  .shm-demo:focus-within .shm-demo__step {
+    animation: none;
+    opacity: 1;
+  }
+
+  .shm-demo:hover .shm-demo__step-index,
+  .shm-demo:focus-within .shm-demo__step-index {
+    animation: none;
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "A11Y": {
+    "SKIP_TO_CONTENT": "Aller au contenu"
+  },
+  "NAV": {
+    "BRAND": "Andreas Kissner",
+    "SERVICES": "Prestations",
+    "WORK": "Références",
+    "CONTACT": "Contact",
+    "PORTFOLIO": "Portfolio",
+    "LANGUAGE": "Choisir la langue",
+    "MENU_OPEN": "Menu",
+    "MENU_CLOSE": "Fermer",
+    "THEME_TOGGLE": "Changer de thème (actuel : {{mode}})"
+  },
+  "THEME": {
+    "SYSTEM": "Auto",
+    "DARK": "Sombre",
+    "LIGHT": "Clair"
+  },
+  "HERO": {
+    "EYEBROW": "Développeur web en Suisse",
+    "TITLE": "Des sites web qui font avancer votre activité.",
+    "SUBTITLE": "Sites et applications web sur mesure avec Angular — rapides, sécurisés, optimisés pour mobile, sans les compromis d'un page-builder.",
+    "CTA_PRIMARY": "Demander un projet",
+    "CTA_SECONDARY": "Voir le portfolio",
+    "AVAILABLE": "Disponible pour de nouveaux projets",
+    "LOCAL_TIME": "{{time}} (CH)"
+  },
+  "SERVICES": {
+    "TITLE": "Mes prestations",
+    "INTRO": "De la première idée à l'application en production.",
+    "ITEM_1_TITLE": "Sites & applications web",
+    "ITEM_1_TEXT": "Développés sur mesure plutôt que sur modèle — adaptés à votre activité, pas à un template.",
+    "ITEM_2_TITLE": "Refonte & modernisation",
+    "ITEM_2_TEXT": "Moderniser un site existant : plus rapide, plus clair, plus compréhensible pour votre clientèle — accessible selon les WCAG et conforme à la protection des données.",
+    "ITEM_3_TITLE": "Outils numériques",
+    "ITEM_3_TEXT": "Outils de gestion, portails clients et formulaires qui reflètent de vrais processus, pas juste une belle vitrine.",
+    "ITEM_4_TITLE": "Protection des données & exploitation",
+    "ITEM_4_TEXT": "Mis en place selon les standards suisses de protection des données, documenté clairement, maintenable sur le long terme."
+  },
+  "WORK": {
+    "TITLE": "Références",
+    "INTRO": "Deux projets, deux exigences totalement différentes.",
+    "SHM_TITLE": "Second Hand Manager",
+    "SHM_TEXT": "Une application de gestion pour boutiques de seconde main et dépôt-vente : clients, articles, commissions, finances et portail client réunis dans un seul système.",
+    "DUNE_TITLE": "D'une Main à l'Autre",
+    "DUNE_TEXT": "Site web d'une boutique de seconde main dans le Jura — avec un système de gestion de contenu intégré, pour que la propriétaire gère elle-même ses contenus.",
+    "SHM_DEMO_LABEL": "Aperçu en direct du processus — au survol ou au focus",
+    "SHM_DEMO_STEP_1": "Photographier l'article",
+    "SHM_DEMO_STEP_2": "L'IA identifie l'article & propose un prix",
+    "SHM_DEMO_STEP_3": "Vendu — le déposant est notifié automatiquement"
+  },
+  "PORTFOLIO_CTA": {
+    "TITLE": "Plus de projets en détail",
+    "TEXT": "Tous mes travaux, la technique et le contexte se trouvent dans mon portfolio.",
+    "CTA": "Voir le portfolio"
+  },
+  "CONTACT": {
+    "TITLE": "Contact",
+    "INTRO": "Parlez-moi brièvement de votre projet — je vous réponds rapidement.",
+    "NAME_LABEL": "Nom",
+    "EMAIL_LABEL": "E-mail",
+    "MESSAGE_LABEL": "Message",
+    "SUBMIT": "Envoyer le message",
+    "SENDING": "Envoi en cours …",
+    "SUCCESS": "Merci ! Votre message est bien arrivé.",
+    "ERROR": "Une erreur s'est produite. Merci de réessayer ou de m'écrire directement.",
+    "ERROR_REQUIRED": "Ce champ est requis.",
+    "ERROR_EMAIL": "Merci d'indiquer une adresse e-mail valide.",
+    "ERROR_MIN_LENGTH": "Merci de détailler un peu plus.",
+    "PRIVACY_NOTICE": "En envoyant ce formulaire, vous acceptez le traitement de vos données conformément à la {{link}}."
+  },
+  "PALETTE": {
+    "TITLE": "Palette de commandes",
+    "HINT": "↑↓ naviguer · Entrée sélectionner · Échap fermer",
+    "SERVICES": "Aller à : Prestations",
+    "WORK": "Aller à : Références",
+    "CONTACT": "Aller à : Contact",
+    "PORTFOLIO": "Ouvrir le portfolio",
+    "THEME": "Changer de thème"
+  },
+  "FOOTER": {
+    "IMPRINT": "Mentions légales",
+    "PRIVACY": "Protection des données",
+    "RIGHTS": "Tous droits réservés.",
+    "LOAD_TIME": "Cette page a chargé en {{ms}} ms — sans WordPress."
+  }
+}

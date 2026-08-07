@@ -1,0 +1,118 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/mixins' as m;
+
+.hero {
+  padding-block: v.$space-2xl v.$space-xl;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.hero__container {
+  @include m.container;
+  max-width: 760px;
+}
+
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-muted);
+  font-family: v.$font-mono;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: v.$space-xs;
+}
+
+.hero__eyebrow-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  box-shadow: 0 0 12px var(--color-accent-glow);
+}
+
+.hero__title {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 v.$space-md;
+}
+
+.hero__subtitle {
+  font-size: 1.15rem;
+  color: var(--color-text-muted);
+  max-width: 520px;
+  margin: 0 0 v.$space-md;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: v.$space-sm;
+  margin-bottom: v.$space-lg;
+}
+
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 28px;
+  border-radius: v.$radius-sm;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  transition:
+    transform 150ms ease,
+    box-shadow 150ms ease,
+    background-color 150ms ease,
+    border-color 150ms ease;
+
+  @include m.focus-ring;
+
+  &--primary {
+    background-color: var(--color-accent);
+    color: var(--color-on-accent);
+    box-shadow: 0 0 0 1px var(--color-accent-glow);
+
+    &:hover {
+      background-color: var(--color-accent-strong);
+      box-shadow: 0 8px 24px var(--color-accent-glow);
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &--secondary {
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+
+    &:hover {
+      border-color: var(--color-accent-fg);
+      color: var(--color-accent-fg);
+    }
+  }
+
+  @include m.reduced-motion {
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+.hero__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: v.$font-mono;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.hero__status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-success);
+}

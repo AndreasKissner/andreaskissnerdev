@@ -1,0 +1,51 @@
+// Dark is the default brand look. Light is an opt-in, contrast-verified alternative.
+// All pairs below meet WCAG 2.2 AA: 4.5:1 for text, 3:1 for UI-component borders.
+:root {
+  --color-bg: #0b0d10;
+  --color-surface: #14171c;
+  --color-surface-raised: #1c2027;
+  --color-text: #ede9e2;
+  --color-text-muted: #9a978f;
+  --color-accent: #ff5a1f;
+  --color-accent-strong: #ff3d00;
+  --color-accent-fg: #ff5a1f;
+  --color-accent-glow: rgba(255, 90, 31, 0.35);
+  --color-on-accent: #0b0d10;
+  --color-border: #60667a;
+  --color-success: #4caf8e;
+  --color-error: #e05a4f;
+}
+
+:root[data-theme='light'] {
+  --color-bg: #f5f3ee;
+  --color-surface: #ffffff;
+  --color-surface-raised: #fff4ec;
+  --color-text: #201c17;
+  --color-text-muted: #5c5952;
+  --color-accent: #ff5a1f;
+  --color-accent-strong: #e8460a;
+  --color-accent-fg: #c23e00;
+  --color-accent-glow: rgba(194, 62, 0, 0.25);
+  --color-on-accent: #150d08;
+  --color-border: #8a8578;
+  --color-success: #1f7a54;
+  --color-error: #b3261e;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) {
+    --color-bg: #f5f3ee;
+    --color-surface: #ffffff;
+    --color-surface-raised: #fff4ec;
+    --color-text: #201c17;
+    --color-text-muted: #5c5952;
+    --color-accent: #ff5a1f;
+    --color-accent-strong: #e8460a;
+    --color-accent-fg: #c23e00;
+    --color-accent-glow: rgba(194, 62, 0, 0.25);
+    --color-on-accent: #150d08;
+    --color-border: #8a8578;
+    --color-success: #1f7a54;
+    --color-error: #b3261e;
+  }
+}

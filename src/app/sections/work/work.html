@@ -1,0 +1,29 @@
+<section class="work" id="work" aria-labelledby="work-title">
+  <div class="work__container">
+    <h2 class="work__title" id="work-title">{{ 'WORK.TITLE' | translate }}</h2>
+    <p class="work__intro">{{ 'WORK.INTRO' | translate }}</p>
+
+    <div class="work__list">
+      <article class="work__item">
+        <h3 class="work__item-title">{{ 'WORK.SHM_TITLE' | translate }}</h3>
+        <p class="work__item-text">{{ 'WORK.SHM_TEXT' | translate }}</p>
+        <app-shm-demo />
+      </article>
+
+      <article class="work__item">
+        <h3 class="work__item-title">{{ 'WORK.DUNE_TITLE' | translate }}</h3>
+        <p class="work__item-text">{{ 'WORK.DUNE_TEXT' | translate }}</p>
+      </article>
+    </div>
+
+    <div class="work__portfolio-cta">
+      <div>
+        <h3 class="work__portfolio-cta-title">{{ 'PORTFOLIO_CTA.TITLE' | translate }}</h3>
+        <p class="work__portfolio-cta-text">{{ 'PORTFOLIO_CTA.TEXT' | translate }}</p>
+      </div>
+      <a class="work__portfolio-cta-link" href="https://andreas-kissner.cloud" target="_blank" rel="noopener">
+        {{ 'PORTFOLIO_CTA.CTA' | translate }}
+      </a>
+    </div>
+  </div>
+</section>

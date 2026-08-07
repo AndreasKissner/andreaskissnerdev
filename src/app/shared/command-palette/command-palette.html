@@ -1,0 +1,32 @@
+@if (palette.isOpen()) {
+  <div class="command-palette__backdrop" (click)="palette.close()"></div>
+
+  <div
+    class="command-palette__dialog"
+    role="dialog"
+    aria-modal="true"
+    [attr.aria-label]="'PALETTE.TITLE' | translate"
+    tabindex="-1"
+    #dialog
+  >
+    <p class="command-palette__hint">{{ 'PALETTE.HINT' | translate }}</p>
+
+    <ul class="command-palette__list" role="listbox" [attr.aria-label]="'PALETTE.TITLE' | translate">
+      @for (command of palette.commands; track command.id; let i = $index) {
+        <li role="presentation">
+          <button
+            type="button"
+            role="option"
+            class="command-palette__item"
+            [class.command-palette__item--active]="palette.activeIndex() === i"
+            [attr.aria-selected]="palette.activeIndex() === i"
+            (mouseenter)="palette.activeIndex.set(i)"
+            (click)="palette.activeIndex.set(i); palette.runActive()"
+          >
+            {{ command.labelKey | translate }}
+          </button>
+        </li>
+      }
+    </ul>
+  </div>
+}

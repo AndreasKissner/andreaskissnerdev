@@ -1,0 +1,79 @@
+<section class="contact" id="contact" aria-labelledby="contact-title">
+  <div class="contact__container">
+    <h2 class="contact__title" id="contact-title">{{ 'CONTACT.TITLE' | translate }}</h2>
+    <p class="contact__intro">{{ 'CONTACT.INTRO' | translate }}</p>
+
+    <form class="contact__form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <div class="contact__field">
+        <label class="contact__label" for="contact-name">{{ 'CONTACT.NAME_LABEL' | translate }}</label>
+        <input
+          class="contact__input"
+          id="contact-name"
+          type="text"
+          formControlName="name"
+          autocomplete="name"
+          [attr.aria-invalid]="form.controls.name.touched && form.controls.name.invalid"
+          aria-describedby="contact-name-error"
+        />
+        @if (form.controls.name.touched && form.controls.name.invalid) {
+          <p class="contact__error" id="contact-name-error" role="alert">
+            {{ 'CONTACT.ERROR_REQUIRED' | translate }}
+          </p>
+        }
+      </div>
+
+      <div class="contact__field">
+        <label class="contact__label" for="contact-email">{{ 'CONTACT.EMAIL_LABEL' | translate }}</label>
+        <input
+          class="contact__input"
+          id="contact-email"
+          type="email"
+          formControlName="email"
+          autocomplete="email"
+          [attr.aria-invalid]="form.controls.email.touched && form.controls.email.invalid"
+          aria-describedby="contact-email-error"
+        />
+        @if (form.controls.email.touched && form.controls.email.invalid) {
+          <p class="contact__error" id="contact-email-error" role="alert">
+            {{ (form.controls.email.hasError('required') ? 'CONTACT.ERROR_REQUIRED' : 'CONTACT.ERROR_EMAIL') | translate }}
+          </p>
+        }
+      </div>
+
+      <div class="contact__field">
+        <label class="contact__label" for="contact-message">{{ 'CONTACT.MESSAGE_LABEL' | translate }}</label>
+        <textarea
+          class="contact__input contact__input--textarea"
+          id="contact-message"
+          rows="5"
+          formControlName="message"
+          [attr.aria-invalid]="form.controls.message.touched && form.controls.message.invalid"
+          aria-describedby="contact-message-error"
+        ></textarea>
+        @if (form.controls.message.touched && form.controls.message.invalid) {
+          <p class="contact__error" id="contact-message-error" role="alert">
+            {{ (form.controls.message.hasError('required') ? 'CONTACT.ERROR_REQUIRED' : 'CONTACT.ERROR_MIN_LENGTH') | translate }}
+          </p>
+        }
+      </div>
+
+      <div class="contact__honeypot" aria-hidden="true">
+        <label for="contact-website">Website</label>
+        <input id="contact-website" type="text" formControlName="honeypot" tabindex="-1" autocomplete="off" />
+      </div>
+
+      <button class="contact__submit" type="submit" [disabled]="status() === 'sending'">
+        {{ (status() === 'sending' ? 'CONTACT.SENDING' : 'CONTACT.SUBMIT') | translate }}
+      </button>
+
+      <p class="contact__privacy">{{ 'CONTACT.PRIVACY_NOTICE' | translate }}</p>
+
+      @if (status() === 'success') {
+        <p class="contact__status contact__status--success" role="status">{{ 'CONTACT.SUCCESS' | translate }}</p>
+      }
+      @if (status() === 'error') {
+        <p class="contact__status contact__status--error" role="alert">{{ 'CONTACT.ERROR' | translate }}</p>
+      }
+    </form>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+// Colors live as CSS custom properties (styles/_theme.scss) so they can switch
+// between dark and light at runtime. This file holds structural tokens only.
+$font-body:
+  'Inter',
+  system-ui,
+  -apple-system,
+  sans-serif;
+$font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+$space-xs: 8px;
+$space-sm: 16px;
+$space-md: 24px;
+$space-lg: 40px;
+$space-xl: 64px;
+$space-2xl: 96px;
+
+$radius-sm: 4px;
+$radius-md: 8px;
+
+$border-width: 1px;
+
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+
+$max-width: 1180px;

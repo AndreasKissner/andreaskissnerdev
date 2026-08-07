@@ -1,0 +1,89 @@
+{
+  "A11Y": {
+    "SKIP_TO_CONTENT": "Vai al contenuto"
+  },
+  "NAV": {
+    "BRAND": "Andreas Kissner",
+    "SERVICES": "Servizi",
+    "WORK": "Referenze",
+    "CONTACT": "Contatto",
+    "PORTFOLIO": "Portfolio",
+    "LANGUAGE": "Scegli la lingua",
+    "MENU_OPEN": "Menu",
+    "MENU_CLOSE": "Chiudi",
+    "THEME_TOGGLE": "Cambia tema (attuale: {{mode}})"
+  },
+  "THEME": {
+    "SYSTEM": "Auto",
+    "DARK": "Scuro",
+    "LIGHT": "Chiaro"
+  },
+  "HERO": {
+    "EYEBROW": "Sviluppatore web in Svizzera",
+    "TITLE": "Siti web che lavorano per la vostra attività.",
+    "SUBTITLE": "Siti e applicazioni web su misura con Angular — veloci, sicuri, ottimizzati per mobile, senza i compromessi di un page-builder.",
+    "CTA_PRIMARY": "Richiedi un progetto",
+    "CTA_SECONDARY": "Vedi il portfolio",
+    "AVAILABLE": "Disponibile per nuovi progetti",
+    "LOCAL_TIME": "{{time}} (CH)"
+  },
+  "SERVICES": {
+    "TITLE": "Cosa offro",
+    "INTRO": "Dalla prima idea all'applicazione in funzione.",
+    "ITEM_1_TITLE": "Siti & applicazioni web",
+    "ITEM_1_TEXT": "Sviluppati su misura e non da un modello standard — adatti alla vostra attività, non a un template.",
+    "ITEM_2_TITLE": "Redesign & rilancio",
+    "ITEM_2_TEXT": "Modernizzare un sito esistente: più veloce, più chiaro, più comprensibile per la vostra clientela — accessibile secondo le WCAG e conforme alla protezione dei dati.",
+    "ITEM_3_TITLE": "Strumenti digitali",
+    "ITEM_3_TEXT": "Strumenti di gestione, portali clienti e moduli che rispecchiano processi reali, non solo l'estetica.",
+    "ITEM_4_TITLE": "Protezione dei dati & gestione",
+    "ITEM_4_TEXT": "Impostato secondo gli standard svizzeri di protezione dei dati, documentato in modo chiaro, mantenibile nel tempo."
+  },
+  "WORK": {
+    "TITLE": "Referenze",
+    "INTRO": "Due progetti, due esigenze completamente diverse.",
+    "SHM_TITLE": "Second Hand Manager",
+    "SHM_TEXT": "Un'applicazione gestionale per negozi dell'usato e conto vendita: clienti, articoli, provvigioni, finanze e portale clienti in un unico sistema.",
+    "DUNE_TITLE": "D'une Main à l'Autre",
+    "DUNE_TEXT": "Sito web di una boutique dell'usato nel Giura — con sistema di gestione contenuti integrato, così la titolare aggiorna i contenuti da sola.",
+    "SHM_DEMO_LABEL": "Anteprima dal vivo del processo — al passaggio del mouse o al focus",
+    "SHM_DEMO_STEP_1": "Fotografare l'articolo",
+    "SHM_DEMO_STEP_2": "L'IA riconosce l'articolo e propone un prezzo",
+    "SHM_DEMO_STEP_3": "Venduto — il conferente viene notificato automaticamente"
+  },
+  "PORTFOLIO_CTA": {
+    "TITLE": "Altri progetti nel dettaglio",
+    "TEXT": "Tutti i miei lavori, la tecnica e il contesto si trovano nel mio portfolio.",
+    "CTA": "Vai al portfolio"
+  },
+  "CONTACT": {
+    "TITLE": "Contatto",
+    "INTRO": "Raccontatemi brevemente del vostro progetto — vi risponderò a breve.",
+    "NAME_LABEL": "Nome",
+    "EMAIL_LABEL": "E-mail",
+    "MESSAGE_LABEL": "Messaggio",
+    "SUBMIT": "Invia messaggio",
+    "SENDING": "Invio in corso …",
+    "SUCCESS": "Grazie! Il vostro messaggio è arrivato.",
+    "ERROR": "Qualcosa è andato storto. Riprovate o scrivetemi direttamente.",
+    "ERROR_REQUIRED": "Questo campo è obbligatorio.",
+    "ERROR_EMAIL": "Inserite un indirizzo e-mail valido.",
+    "ERROR_MIN_LENGTH": "Aggiungete qualche dettaglio in più.",
+    "PRIVACY_NOTICE": "Inviando il modulo accettate il trattamento dei vostri dati secondo la {{link}}."
+  },
+  "PALETTE": {
+    "TITLE": "Palette dei comandi",
+    "HINT": "↑↓ naviga · Invio seleziona · Esc chiudi",
+    "SERVICES": "Vai a: Servizi",
+    "WORK": "Vai a: Referenze",
+    "CONTACT": "Vai a: Contatto",
+    "PORTFOLIO": "Apri il portfolio",
+    "THEME": "Cambia tema"
+  },
+  "FOOTER": {
+    "IMPRINT": "Note legali",
+    "PRIVACY": "Privacy",
+    "RIGHTS": "Tutti i diritti riservati.",
+    "LOAD_TIME": "Questa pagina si è caricata in {{ms}} ms — senza WordPress."
+  }
+}
