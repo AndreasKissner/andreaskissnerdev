@@ -3,33 +3,135 @@
     <h2 class="work__title" id="work-title">{{ 'WORK.TITLE' | translate }}</h2>
     <p class="work__intro">{{ 'WORK.INTRO' | translate }}</p>
 
-    <div class="work__list">
-      <article class="work__item scroll-reveal">
-        <h3 class="work__item-title">{{ 'WORK.SHM_TITLE' | translate }}</h3>
-        <p class="work__item-text">{{ 'WORK.SHM_TEXT' | translate }}</p>
-        <app-shm-demo />
-      </article>
+    <div class="work__carousel">
+      <button
+        type="button"
+        class="work__nav work__nav--prev"
+        (click)="step(-1)"
+        [attr.aria-label]="'WORK.PREV' | translate"
+      >
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M15 18l-6-6 6-6" />
+        </svg>
+      </button>
 
-      <article class="work__item scroll-reveal">
-        <h3 class="work__item-title">{{ 'WORK.DUNE_TITLE' | translate }}</h3>
-        <p class="work__item-text">{{ 'WORK.DUNE_TEXT' | translate }}</p>
-      </article>
+      <div class="work__stage">
+        <ol class="work__track" role="list">
+          <li
+            class="work__slide"
+            role="listitem"
+            [class.work__slide--active]="offsetFor(0) === 0"
+            [class.work__slide--prev]="offsetFor(0) === -1"
+            [class.work__slide--next]="offsetFor(0) === 1"
+            [class.work__slide--hidden]="offsetFor(0) < -1 || offsetFor(0) > 1"
+            [attr.aria-hidden]="offsetFor(0) !== 0"
+          >
+            <article class="work__item">
+              <h3 class="work__item-title">{{ 'WORK.SHM_TITLE' | translate }}</h3>
+              <p class="work__item-text">{{ 'WORK.SHM_TEXT' | translate }}</p>
+              <app-shm-demo />
+              <a
+                class="work__item-link"
+                href="https://second-hand-manager.com"
+                target="_blank"
+                rel="noopener"
+                appMagnetic
+              >
+                {{ 'WORK.VISIT_PROJECT' | translate }}
+              </a>
+            </article>
+          </li>
+
+          <li
+            class="work__slide"
+            role="listitem"
+            [class.work__slide--active]="offsetFor(1) === 0"
+            [class.work__slide--prev]="offsetFor(1) === -1"
+            [class.work__slide--next]="offsetFor(1) === 1"
+            [class.work__slide--hidden]="offsetFor(1) < -1 || offsetFor(1) > 1"
+            [attr.aria-hidden]="offsetFor(1) !== 0"
+          >
+            <article class="work__item">
+              <div class="work__item-header">
+                <h3 class="work__item-title">{{ 'WORK.DUNE_TITLE' | translate }}</h3>
+                <button
+                  class="work__item-info-btn"
+                  aria-label="Learn about content management systems"
+                  (click)="openCmsModal()"
+                >
+                  <span class="work__item-info-btn-ring" aria-hidden="true"></span>
+                  <span class="work__item-info-btn-mark" aria-hidden="true">i</span>
+                </button>
+              </div>
+              <p class="work__item-text">{{ 'WORK.DUNE_TEXT' | translate }}</p>
+              <a
+                class="work__item-link"
+                href="https://dune-main-a-lautre.ch"
+                target="_blank"
+                rel="noopener"
+                appMagnetic
+              >
+                {{ 'WORK.VISIT_PROJECT' | translate }}
+              </a>
+            </article>
+          </li>
+
+          <li
+            class="work__slide"
+            role="listitem"
+            [class.work__slide--active]="offsetFor(2) === 0"
+            [class.work__slide--prev]="offsetFor(2) === -1"
+            [class.work__slide--next]="offsetFor(2) === 1"
+            [class.work__slide--hidden]="offsetFor(2) < -1 || offsetFor(2) > 1"
+            [attr.aria-hidden]="offsetFor(2) !== 0"
+          >
+            <article class="work__item work__item--cta">
+              <h3 class="work__item-title">{{ 'PORTFOLIO_CTA.TITLE' | translate }}</h3>
+              <p class="work__item-text">{{ 'PORTFOLIO_CTA.TEXT' | translate }}</p>
+              <a
+                class="work__item-cta-link"
+                href="https://andreas-kissner.cloud"
+                target="_blank"
+                rel="noopener"
+                appMagnetic
+              >
+                {{ 'PORTFOLIO_CTA.CTA' | translate }}
+              </a>
+            </article>
+          </li>
+        </ol>
+      </div>
+
+      <button
+        type="button"
+        class="work__nav work__nav--next"
+        (click)="step(1)"
+        [attr.aria-label]="'WORK.NEXT' | translate"
+      >
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 18l6-6-6-6" />
+        </svg>
+      </button>
     </div>
 
-    <div class="work__portfolio-cta scroll-reveal">
-      <div>
-        <h3 class="work__portfolio-cta-title">{{ 'PORTFOLIO_CTA.TITLE' | translate }}</h3>
-        <p class="work__portfolio-cta-text">{{ 'PORTFOLIO_CTA.TEXT' | translate }}</p>
-      </div>
-      <a
-        class="work__portfolio-cta-link"
-        href="https://andreas-kissner.cloud"
-        target="_blank"
-        rel="noopener"
-        appMagnetic
-      >
-        {{ 'PORTFOLIO_CTA.CTA' | translate }}
-      </a>
+    <div class="work__dots" role="tablist" [attr.aria-label]="'WORK.CAROUSEL_LABEL' | translate">
+      @for (i of [0, 1, 2]; track i) {
+        <button
+          type="button"
+          class="work__dot"
+          [class.work__dot--active]="activeIndex() === i"
+          (click)="goToSlide(i)"
+          [attr.aria-current]="activeIndex() === i ? 'true' : null"
+          [attr.aria-label]="'WORK.SLIDE' | translate: { n: i + 1 }"
+        ></button>
+      }
     </div>
   </div>
+
+  <app-info-modal
+    [isOpen]="isCmsModalOpen()"
+    titleKey="WORK.DUNE_CMS_TITLE"
+    textKey="WORK.DUNE_CMS_INFO"
+    (onClose)="closeCmsModal()"
+  />
 </section>

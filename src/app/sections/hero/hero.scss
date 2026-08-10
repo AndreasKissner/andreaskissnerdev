@@ -117,8 +117,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 26px;
-  height: 26px;
+  width: 44px;
+  height: 44px;
   flex-shrink: 0;
   background: none;
   border: none;
@@ -126,25 +126,100 @@
   color: var(--color-text-muted);
   transition:
     color 150ms ease,
-    transform 150ms ease;
+    transform 150ms ease,
+    filter 150ms ease;
 
   @include m.focus-ring;
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     color: var(--color-accent-fg);
     transform: translateY(-2px);
+    filter: drop-shadow(0 3px 8px var(--color-accent-glow));
   }
 
   @include m.reduced-motion {
-    &:hover {
+    &:hover,
+    &:focus-visible {
       transform: none;
+      filter: none;
     }
   }
 }
 
 .hero__console-launch-icon {
-  width: 18px;
-  height: 18px;
+  width: 26px;
+  height: 29px;
+  overflow: visible;
+}
+
+.hero__console-launch-flame {
+  transform-origin: 12px 19px;
+  transform: scaleY(0);
+  opacity: 0;
+  transition:
+    transform 200ms ease,
+    opacity 200ms ease;
+}
+
+.hero__console-launch-body {
+  transform-origin: 12px 10px;
+}
+
+.hero__console-launch:hover .hero__console-launch-flame,
+.hero__console-launch:focus-visible .hero__console-launch-flame {
+  opacity: 1;
+  animation: hero-rocket-flame-flicker 220ms ease-in-out infinite alternate;
+}
+
+.hero__console-launch:hover .hero__console-launch-body,
+.hero__console-launch:focus-visible .hero__console-launch-body {
+  animation: hero-rocket-shake 180ms ease-in-out infinite;
+}
+
+@keyframes hero-rocket-flame-flicker {
+  0% {
+    transform: scaleY(0.8) scaleX(0.9);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scaleY(1.2) scaleX(1.05);
+    opacity: 1;
+  }
+}
+
+@keyframes hero-rocket-shake {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+
+  25% {
+    transform: translateX(-0.4px) rotate(-1deg);
+  }
+
+  75% {
+    transform: translateX(0.4px) rotate(1deg);
+  }
+}
+
+@include m.reduced-motion {
+  .hero__console-launch-flame {
+    transition: opacity 200ms ease;
+  }
+
+  .hero__console-launch:hover .hero__console-launch-flame,
+  .hero__console-launch:focus-visible .hero__console-launch-flame {
+    animation: none;
+    opacity: 1;
+    transform: scaleY(1);
+  }
+
+  .hero__console-launch:hover .hero__console-launch-body,
+  .hero__console-launch:focus-visible .hero__console-launch-body {
+    animation: none;
+  }
 }
 
 .hero__console-list {

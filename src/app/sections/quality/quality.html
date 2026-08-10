@@ -1,0 +1,320 @@
+<section class="quality" id="quality" aria-labelledby="quality-title">
+  <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+    <defs>
+      <filter id="quality-filter-deuteranopia">
+        <feColorMatrix
+          type="matrix"
+          values="0.625 0.375 0   0 0
+                  0.7   0.3   0   0 0
+                  0     0.3   0.7 0 0
+                  0     0     0   1 0"
+        />
+      </filter>
+      <filter id="quality-filter-protanopia">
+        <feColorMatrix
+          type="matrix"
+          values="0.567 0.433 0     0 0
+                  0.558 0.442 0     0 0
+                  0     0.242 0.758 0 0
+                  0     0     0     1 0"
+        />
+      </filter>
+      <filter id="quality-filter-tritanopia">
+        <feColorMatrix
+          type="matrix"
+          values="0.95 0.05  0     0 0
+                  0    0.433 0.567 0 0
+                  0    0.475 0.525 0 0
+                  0    0     0     1 0"
+        />
+      </filter>
+      <filter id="quality-filter-grayscale">
+        <feColorMatrix type="saturate" values="0" />
+      </filter>
+    </defs>
+  </svg>
+
+  <div class="quality__container">
+    <h2 class="quality__title" id="quality-title">{{ 'QUALITY.TITLE' | translate }}</h2>
+    <p class="quality__intro">{{ 'QUALITY.INTRO' | translate }}</p>
+
+    <div class="quality__book">
+      <div class="quality__spread" [class.quality__spread--active]="spreadIndex() === 0">
+        <article class="quality__card scroll-reveal">
+          <div
+            class="quality__filter-target"
+            [style.filter]="activeFilter() !== 'none' ? 'url(#quality-filter-' + activeFilter() + ')' : null"
+          >
+            <div class="quality__card-header">
+              <h3 class="quality__card-title">{{ 'QUALITY.A11Y_TITLE' | translate }}</h3>
+              <button
+                class="quality__info-btn"
+                aria-label="Learn how this simulation works"
+                (click)="openA11yInfo()"
+              >
+                <span class="quality__info-btn-ring" aria-hidden="true"></span>
+                <span class="quality__info-btn-mark" aria-hidden="true">i</span>
+              </button>
+            </div>
+            <p class="quality__card-text">{{ 'QUALITY.A11Y_TEXT' | translate }}</p>
+
+            <div class="quality__preview">
+              <p class="quality__preview-eyebrow">{{ 'QUALITY.A11Y_MOCK_EYEBROW' | translate }}</p>
+              <p class="quality__preview-title">{{ 'QUALITY.A11Y_MOCK_TITLE' | translate }}</p>
+              <span class="quality__preview-cta">{{ 'QUALITY.A11Y_MOCK_CTA' | translate }}</span>
+              <div class="quality__preview-swatches" aria-hidden="true">
+                <span class="quality__preview-swatch quality__preview-swatch--red"></span>
+                <span class="quality__preview-swatch quality__preview-swatch--green"></span>
+                <span class="quality__preview-swatch quality__preview-swatch--blue"></span>
+                <span class="quality__preview-swatch quality__preview-swatch--purple"></span>
+                <span class="quality__preview-swatch quality__preview-swatch--yellow"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="quality__filter-picker" role="group" [attr.aria-label]="'QUALITY.A11Y_TITLE' | translate">
+            @for (filter of filterOptions; track filter) {
+              <button
+                type="button"
+                class="quality__filter-chip"
+                [class.quality__filter-chip--active]="activeFilter() === filter"
+                (click)="selectFilter(filter)"
+              >
+                {{ ('QUALITY.FILTER_' + filter.toUpperCase()) | translate }}
+              </button>
+            }
+          </div>
+        </article>
+
+        <article class="quality__card scroll-reveal">
+          <div class="quality__card-header">
+            <h3 class="quality__card-title">{{ 'QUALITY.SPEED_TITLE' | translate }}</h3>
+            <button
+              class="quality__info-btn"
+              aria-label="Learn why load time differs"
+              (click)="openSpeedInfo()"
+            >
+              <span class="quality__info-btn-ring" aria-hidden="true"></span>
+              <span class="quality__info-btn-mark" aria-hidden="true">i</span>
+            </button>
+          </div>
+          <p class="quality__card-text">{{ 'QUALITY.SPEED_TEXT' | translate }}</p>
+
+          <div class="quality__speed-stat" aria-live="polite">
+            @if (performance.loadTimeMs(); as ms) {
+              <span class="quality__speed-value">{{ ms }}</span>
+              <span class="quality__speed-unit">ms</span>
+            } @else {
+              <span class="quality__speed-measuring">{{ 'HERO.CONSOLE_MEASURING' | translate }}</span>
+            }
+          </div>
+
+          <p class="quality__footnote">{{ 'QUALITY.SPEED_FOOTNOTE' | translate }}</p>
+        </article>
+      </div>
+
+      <div class="quality__spread" [class.quality__spread--active]="spreadIndex() === 1">
+        <article class="quality__card scroll-reveal">
+          <div class="quality__card-header">
+            <h3 class="quality__card-title">{{ 'QUALITY.WCAG_TITLE' | translate }}</h3>
+            <button
+              class="quality__info-btn"
+              aria-label="Learn how this WCAG check works"
+              (click)="openWcagInfo()"
+            >
+              <span class="quality__info-btn-ring" aria-hidden="true"></span>
+              <span class="quality__info-btn-mark" aria-hidden="true">i</span>
+            </button>
+          </div>
+          <p class="quality__card-text">{{ 'QUALITY.WCAG_TEXT' | translate }}</p>
+
+          <div class="quality__tab-demo">
+            <p class="quality__tab-demo-hint">{{ 'QUALITY.WCAG_TAB_HINT' | translate }}</p>
+            <div class="quality__tab-demo-row">
+              <button type="button" class="quality__tab-chip">1</button>
+              <button type="button" class="quality__tab-chip">2</button>
+              <button type="button" class="quality__tab-chip">3</button>
+              <button type="button" class="quality__tab-chip">4</button>
+            </div>
+          </div>
+
+          <div class="quality__contrast-checker">
+            <div class="quality__contrast-input-row">
+              <label class="quality__contrast-label" for="quality-text-color">
+                {{ 'QUALITY.WCAG_TEXT_COLOR' | translate }}
+              </label>
+              <input
+                id="quality-text-color"
+                type="color"
+                class="quality__contrast-input"
+                [value]="textColor()"
+                (input)="setTextColor($any($event.target).value)"
+              />
+            </div>
+            <div class="quality__contrast-input-row">
+              <label class="quality__contrast-label" for="quality-bg-color">
+                {{ 'QUALITY.WCAG_BG_COLOR' | translate }}
+              </label>
+              <input
+                id="quality-bg-color"
+                type="color"
+                class="quality__contrast-input"
+                [value]="bgColor()"
+                (input)="setBgColor($any($event.target).value)"
+              />
+            </div>
+
+            <div
+              class="quality__contrast-sample"
+              [style.color]="textColor()"
+              [style.background-color]="bgColor()"
+            >
+              {{ 'QUALITY.WCAG_SAMPLE_TEXT' | translate }}
+            </div>
+
+            <p class="quality__contrast-ratio">
+              {{ ratio().toFixed(1) }}:1 —
+              <span
+                class="quality__contrast-verdict"
+                [class.quality__contrast-verdict--pass]="passesAA()"
+                [class.quality__contrast-verdict--fail]="!passesAA()"
+              >
+                {{ (passesAA() ? 'QUALITY.WCAG_PASS' : 'QUALITY.WCAG_FAIL') | translate }}
+              </span>
+            </p>
+          </div>
+        </article>
+
+        <article class="quality__card scroll-reveal">
+          <div class="quality__card-header">
+            <h3 class="quality__card-title">{{ 'QUALITY.PRIVACY_TITLE' | translate }}</h3>
+            <button
+              class="quality__info-btn"
+              aria-label="Learn why this matters"
+              (click)="openPrivacyInfo()"
+            >
+              <span class="quality__info-btn-ring" aria-hidden="true"></span>
+              <span class="quality__info-btn-mark" aria-hidden="true">i</span>
+            </button>
+          </div>
+          <p class="quality__card-text">{{ 'QUALITY.PRIVACY_TEXT' | translate }}</p>
+
+          <ul class="quality__privacy-list">
+            <li class="quality__privacy-item">
+              <svg class="quality__privacy-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              {{ 'QUALITY.PRIVACY_POINT_1' | translate }}
+            </li>
+            <li class="quality__privacy-item">
+              <svg class="quality__privacy-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              {{ 'QUALITY.PRIVACY_POINT_2' | translate }}
+            </li>
+            <li class="quality__privacy-item">
+              <svg class="quality__privacy-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              {{ 'QUALITY.PRIVACY_POINT_3' | translate }}
+            </li>
+          </ul>
+
+          <p class="quality__footnote">{{ 'QUALITY.PRIVACY_CLIFFHANGER' | translate }}</p>
+        </article>
+      </div>
+
+      <div class="quality__spread" [class.quality__spread--active]="spreadIndex() === 2">
+        <article class="quality__card quality__card--wide scroll-reveal">
+          <h3 class="quality__card-title">{{ 'QUALITY.DOMAIN_TITLE' | translate }}</h3>
+          <p class="quality__card-text">{{ 'QUALITY.DOMAIN_TEXT' | translate }}</p>
+
+          <ul class="quality__privacy-list">
+            <li class="quality__privacy-item">
+              <svg class="quality__privacy-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              {{ 'QUALITY.DOMAIN_POINT_1' | translate }}
+            </li>
+            <li class="quality__privacy-item">
+              <svg class="quality__privacy-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              {{ 'QUALITY.DOMAIN_POINT_2' | translate }}
+            </li>
+            <li class="quality__privacy-item">
+              <svg class="quality__privacy-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              {{ 'QUALITY.DOMAIN_POINT_3' | translate }}
+            </li>
+            <li class="quality__privacy-item">
+              <svg class="quality__privacy-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              {{ 'QUALITY.DOMAIN_POINT_4' | translate }}
+            </li>
+          </ul>
+
+          <p class="quality__footnote">{{ 'QUALITY.DOMAIN_FOOTNOTE' | translate }}</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="quality__book-nav">
+      <button
+        type="button"
+        class="quality__book-nav-btn"
+        [disabled]="spreadIndex() === 0"
+        (click)="goToSpread(spreadIndex() - 1)"
+        [attr.aria-label]="'QUALITY.PREV_PAGE' | translate"
+      >
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M15 18l-6-6 6-6" />
+        </svg>
+      </button>
+
+      <span class="quality__book-page-count">{{ spreadIndex() + 1 }} / {{ spreadCount }}</span>
+
+      <button
+        type="button"
+        class="quality__book-nav-btn"
+        [disabled]="spreadIndex() === spreadCount - 1"
+        (click)="goToSpread(spreadIndex() + 1)"
+        [attr.aria-label]="'QUALITY.NEXT_PAGE' | translate"
+      >
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 18l6-6-6-6" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <app-info-modal
+    [isOpen]="isA11yInfoOpen()"
+    titleKey="QUALITY.A11Y_INFO_TITLE"
+    textKey="QUALITY.A11Y_INFO_TEXT"
+    (onClose)="closeA11yInfo()"
+  />
+
+  <app-info-modal
+    [isOpen]="isWcagInfoOpen()"
+    titleKey="QUALITY.WCAG_INFO_TITLE"
+    textKey="QUALITY.WCAG_INFO_TEXT"
+    (onClose)="closeWcagInfo()"
+  />
+
+  <app-info-modal
+    [isOpen]="isSpeedInfoOpen()"
+    titleKey="QUALITY.SPEED_INFO_TITLE"
+    textKey="QUALITY.SPEED_INFO_TEXT"
+    (onClose)="closeSpeedInfo()"
+  />
+
+  <app-info-modal
+    [isOpen]="isPrivacyInfoOpen()"
+    titleKey="QUALITY.PRIVACY_INFO_TITLE"
+    textKey="QUALITY.PRIVACY_INFO_TEXT"
+    (onClose)="closePrivacyInfo()"
+  />
+</section>

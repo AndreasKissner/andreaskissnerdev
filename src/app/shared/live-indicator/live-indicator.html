@@ -1,4 +1,29 @@
 <svg class="live-indicator" viewBox="0 0 48 16" aria-hidden="true">
+  <defs>
+    <filter [attr.id]="glowFilterId" x="-60%" y="-150%" width="220%" height="400%">
+      <feGaussianBlur stdDeviation="1.1" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
   <path class="live-indicator__track" d="M0 8 H10 L13 3 L17 13 L20 8 H26 L29 5 L32 11 L35 8 H48" />
-  <path class="live-indicator__pulse" d="M0 8 H10 L13 3 L17 13 L20 8 H26 L29 5 L32 11 L35 8 H48" />
+
+  <path
+    class="live-indicator__pulse"
+    d="M0 8 H10 L13 3 L17 13 L20 8 H26 L29 5 L32 11 L35 8 H48"
+    [attr.filter]="'url(#' + glowFilterId + ')'"
+  />
+
+  <circle class="live-indicator__head" r="1.6" [attr.filter]="'url(#' + glowFilterId + ')'">
+    @if (!prefersReducedMotion) {
+      <animateMotion
+        dur="1.8s"
+        repeatCount="indefinite"
+        path="M0 8 H10 L13 3 L17 13 L20 8 H26 L29 5 L32 11 L35 8 H48"
+      />
+    }
+  </circle>
 </svg>

@@ -3,7 +3,10 @@
     @for (key of stepKeys; track key; let i = $index) {
       <li class="shm-demo__step" [style.--shm-demo-delay.ms]="i * 350">
         <span class="shm-demo__step-index">{{ i + 1 }}</span>
-        <span class="shm-demo__step-label">{{ key | translate }}</span>
+        <div class="shm-demo__step-content">
+          <span class="shm-demo__step-label">{{ key | translate }}</span>
+          <span class="shm-demo__step-scan" aria-hidden="true"></span>
+        </div>
       </li>
     }
   </ol>

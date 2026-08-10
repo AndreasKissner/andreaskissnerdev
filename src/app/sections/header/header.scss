@@ -121,11 +121,6 @@
     mask-image: url('/img/lupe.png');
     -webkit-mask-image: url('/img/lupe.png');
   }
-
-  &--moon {
-    mask-image: url('/img/moon.png');
-    -webkit-mask-image: url('/img/moon.png');
-  }
 }
 
 .header__toggle {
@@ -180,7 +175,7 @@
   left: 0;
   height: 100%;
   background-color: var(--color-accent-glow);
-  border-radius: 999px;
+  border-radius: 4px;
   opacity: 0;
   pointer-events: none;
   z-index: 0;

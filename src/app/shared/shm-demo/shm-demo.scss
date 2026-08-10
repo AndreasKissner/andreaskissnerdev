@@ -23,7 +23,6 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  opacity: 0.35;
 }
 
 .shm-demo__step-index {
@@ -40,14 +39,34 @@
   flex-shrink: 0;
 }
 
-.shm-demo__step-label {
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
+.shm-demo__step-content {
+  width: fit-content;
+  max-width: 100%;
 }
 
-.shm-demo:hover .shm-demo__step,
-.shm-demo:focus-within .shm-demo__step {
-  animation: shm-demo-fade 1.8s ease-in-out infinite;
+.shm-demo__step-label {
+  font-size: 0.85rem;
+  color: var(--color-text);
+}
+
+.shm-demo__step-scan {
+  display: block;
+  height: 2px;
+  margin-top: 6px;
+  border-radius: 1px;
+  background-color: var(--color-accent);
+  box-shadow: 0 0 8px var(--color-accent-glow);
+  transform: scaleX(0);
+  transform-origin: left;
+  opacity: 0;
+  transition:
+    transform 500ms ease,
+    opacity 300ms ease;
+}
+
+.shm-demo:hover .shm-demo__step-label,
+.shm-demo:focus-within .shm-demo__step-label {
+  animation: shm-demo-label 1.8s ease-in-out infinite;
   animation-delay: var(--shm-demo-delay);
 }
 
@@ -57,16 +76,23 @@
   animation-delay: var(--shm-demo-delay);
 }
 
-@keyframes shm-demo-fade {
+.shm-demo:hover .shm-demo__step-scan,
+.shm-demo:focus-within .shm-demo__step-scan {
+  animation: shm-demo-scan-reveal 1.8s ease-in-out infinite;
+  animation-delay: var(--shm-demo-delay);
+}
+
+@keyframes shm-demo-label {
   0%,
   70%,
   100% {
-    opacity: 0.35;
+    font-weight: 400;
   }
 
   15%,
   40% {
-    opacity: 1;
+    color: var(--color-accent-fg);
+    font-weight: 600;
   }
 }
 
@@ -85,15 +111,35 @@
   }
 }
 
-@include m.reduced-motion {
-  .shm-demo:hover .shm-demo__step,
-  .shm-demo:focus-within .shm-demo__step {
-    animation: none;
+@keyframes shm-demo-scan-reveal {
+  0%,
+  70%,
+  100% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+
+  15%,
+  40% {
+    transform: scaleX(1);
     opacity: 1;
+  }
+}
+
+@include m.reduced-motion {
+  .shm-demo:hover .shm-demo__step-label,
+  .shm-demo:focus-within .shm-demo__step-label {
+    animation: none;
+    color: var(--color-text);
   }
 
   .shm-demo:hover .shm-demo__step-index,
   .shm-demo:focus-within .shm-demo__step-index {
+    animation: none;
+  }
+
+  .shm-demo:hover .shm-demo__step-scan,
+  .shm-demo:focus-within .shm-demo__step-scan {
     animation: none;
   }
 }

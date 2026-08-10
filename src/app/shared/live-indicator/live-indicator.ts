@@ -1,8 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
+let instanceCounter = 0;
+
 /**
- * Small animated heartbeat-line icon used to signal "live" status,
- * replacing a plain dot with something more distinctive.
+ * Animated EKG-style heartbeat-line icon used to signal "live" status,
+ * with a glowing traveling pulse head instead of a plain dot.
  */
 @Component({
   selector: 'app-live-indicator',
@@ -10,4 +12,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './live-indicator.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LiveIndicatorComponent {}
+export class LiveIndicatorComponent {
+  protected readonly glowFilterId = `live-indicator-glow-${instanceCounter++}`;
+  protected readonly prefersReducedMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  ).matches;
+}

@@ -6,14 +6,7 @@
     <ul class="services__list">
       @for (item of items; track item.titleKey) {
         <li class="services__item scroll-reveal" tabindex="0">
-          <div class="services__item-header">
-            <h3 class="services__item-title">{{ item.titleKey | translate }}</h3>
-            <svg class="services__item-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="9" />
-              <line x1="12" y1="11" x2="12" y2="16.5" />
-              <circle cx="12" cy="7.7" r="0.9" fill="currentColor" stroke="none" />
-            </svg>
-          </div>
+          <h3 class="services__item-title">{{ item.titleKey | translate }}</h3>
           <p class="services__item-text">{{ item.textKey | translate }}</p>
           <div class="services__item-detail-wrap">
             <p class="services__item-detail">{{ item.detailKey | translate }}</p>

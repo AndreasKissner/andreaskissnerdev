@@ -3,6 +3,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { HeaderComponent } from './sections/header/header';
 import { HeroComponent } from './sections/hero/hero';
 import { ServicesComponent } from './sections/services/services';
+import { QualityComponent } from './sections/quality/quality';
 import { WorkComponent } from './sections/work/work';
 import { ContactComponent } from './sections/contact/contact';
 import { FooterComponent } from './sections/footer/footer';
@@ -18,6 +19,7 @@ import { LanguageService } from './core/language.service';
     HeaderComponent,
     HeroComponent,
     ServicesComponent,
+    QualityComponent,
     WorkComponent,
     ContactComponent,
     FooterComponent,
