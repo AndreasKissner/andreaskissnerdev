@@ -51,7 +51,15 @@
     "ITEM_3_DETAIL": "De la gestion des clients au portail client : des outils qui simplifient vraiment votre quotidien, pas juste une liste de fonctionnalités.",
     "ITEM_4_TITLE": "Protection des données & exploitation",
     "ITEM_4_TEXT": "Mis en place selon les standards suisses de protection des données, documenté clairement, maintenable sur le long terme.",
-    "ITEM_4_DETAIL": "Localisation des serveurs, minimisation des données, mentions légales et politique de confidentialité — pensées dès le départ, pas ajoutées après coup."
+    "ITEM_4_DETAIL": "Localisation des serveurs, minimisation des données, mentions légales et politique de confidentialité — pensées dès le départ, pas ajoutées après coup.",
+    "VIEW_PROJECTS": "Voir mes projets",
+    "PREV": "Offre précédente",
+    "NEXT": "Offre suivante",
+    "PAUSE": "Mettre la rotation en pause",
+    "PLAY": "Reprendre la rotation",
+    "ITEM_5_TITLE": "SEO & visibilité",
+    "ITEM_5_TEXT": "Pour que votre site ne soit pas seulement beau, mais aussi trouvé.",
+    "ITEM_5_DETAIL": "Structure propre, temps de chargement rapides, contenus pertinents et bases techniques — pensés dès le départ, pas ajoutés après coup."
   },
   "QUALITY": {
     "TITLE": "Une qualité que l'on voit",

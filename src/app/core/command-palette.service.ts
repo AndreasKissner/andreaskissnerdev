@@ -7,7 +7,7 @@ export interface PaletteCommand {
   readonly run: () => void;
 }
 
-const PORTFOLIO_URL = 'https://andreas-kissner.cloud';
+const PORTFOLIO_URL = 'https://www.andreas-kissner.cloud/#portfolio';
 
 /**
  * Holds the command list and open/closed state for the keyboard command palette.

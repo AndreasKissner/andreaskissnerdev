@@ -51,7 +51,15 @@
     "ITEM_3_DETAIL": "Dalla gestione clienti al portale clienti: strumenti che semplificano davvero la vostra quotidianità, non solo una lista di funzioni.",
     "ITEM_4_TITLE": "Protezione dei dati & gestione",
     "ITEM_4_TEXT": "Impostato secondo gli standard svizzeri di protezione dei dati, documentato in modo chiaro, mantenibile nel tempo.",
-    "ITEM_4_DETAIL": "Ubicazione dei server, minimizzazione dei dati, note legali e informativa sulla privacy — pensati fin dall'inizio, non aggiunti in seguito."
+    "ITEM_4_DETAIL": "Ubicazione dei server, minimizzazione dei dati, note legali e informativa sulla privacy — pensati fin dall'inizio, non aggiunti in seguito.",
+    "VIEW_PROJECTS": "Vedi i miei progetti",
+    "PREV": "Offerta precedente",
+    "NEXT": "Offerta successiva",
+    "PAUSE": "Metti in pausa la rotazione",
+    "PLAY": "Riprendi la rotazione",
+    "ITEM_5_TITLE": "SEO & visibilità",
+    "ITEM_5_TEXT": "Perché il vostro sito non sia solo bello, ma anche trovato.",
+    "ITEM_5_DETAIL": "Struttura pulita, tempi di caricamento rapidi, contenuti pertinenti e basi tecniche — pensati fin dall'inizio, non aggiunti in seguito."
   },
   "QUALITY": {
     "TITLE": "Qualità che si vede",

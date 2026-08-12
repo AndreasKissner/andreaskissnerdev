@@ -30,7 +30,7 @@ const NAV_LINKS: readonly NavLink[] = [
   { labelKey: 'NAV.SERVICES', href: '#services', sectionId: 'services', external: false },
   { labelKey: 'NAV.WORK', href: '#work', sectionId: 'work', external: false },
   { labelKey: 'NAV.CONTACT', href: '#contact', sectionId: 'contact', external: false },
-  { labelKey: 'NAV.PORTFOLIO', href: 'https://andreas-kissner.cloud', sectionId: null, external: true }
+  { labelKey: 'NAV.PORTFOLIO', href: 'https://www.andreas-kissner.cloud/#portfolio', sectionId: null, external: true }
 ];
 
 /**

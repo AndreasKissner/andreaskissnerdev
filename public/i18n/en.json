@@ -51,7 +51,15 @@
     "ITEM_3_DETAIL": "From customer management to a customer portal: tools that genuinely simplify your day-to-day, not just a feature checklist.",
     "ITEM_4_TITLE": "Privacy & operations",
     "ITEM_4_TEXT": "Set up to Swiss data protection standards, documented clearly, maintainable long-term.",
-    "ITEM_4_DETAIL": "Server location, data minimisation, imprint and privacy policy — considered from day one, not bolted on afterwards."
+    "ITEM_4_DETAIL": "Server location, data minimisation, imprint and privacy policy — considered from day one, not bolted on afterwards.",
+    "VIEW_PROJECTS": "View my projects",
+    "PREV": "Previous service",
+    "NEXT": "Next service",
+    "PAUSE": "Pause rotation",
+    "PLAY": "Resume rotation",
+    "ITEM_5_TITLE": "SEO & visibility",
+    "ITEM_5_TEXT": "So your website doesn't just look good — it gets found.",
+    "ITEM_5_DETAIL": "Clean structure, fast load times, meaningful content and technical fundamentals — considered from day one, not bolted on afterwards."
   },
   "QUALITY": {
     "TITLE": "Quality you can see",

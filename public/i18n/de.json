@@ -51,7 +51,15 @@
     "ITEM_3_DETAIL": "Von der Kundenverwaltung bis zum Kundenportal: Werkzeuge, die Ihren Alltag tatsächlich vereinfachen, nicht nur eine Funktionsliste abhaken.",
     "ITEM_4_TITLE": "Datenschutz & Betrieb",
     "ITEM_4_TEXT": "Sauber aufgesetzt nach Schweizer Datenschutzstandard, verständlich dokumentiert, langfristig wartbar.",
-    "ITEM_4_DETAIL": "Server-Standort, Datensparsamkeit, Impressum und Datenschutzerklärung — von Anfang an mitgedacht, nicht nachträglich draufgeklebt."
+    "ITEM_4_DETAIL": "Server-Standort, Datensparsamkeit, Impressum und Datenschutzerklärung — von Anfang an mitgedacht, nicht nachträglich draufgeklebt.",
+    "VIEW_PROJECTS": "Zu meinen Projekten",
+    "PREV": "Vorheriges Angebot",
+    "NEXT": "Nächstes Angebot",
+    "PAUSE": "Drehung pausieren",
+    "PLAY": "Drehung fortsetzen",
+    "ITEM_5_TITLE": "SEO & Sichtbarkeit",
+    "ITEM_5_TEXT": "Damit Ihre Website nicht nur gut aussieht, sondern auch gefunden wird.",
+    "ITEM_5_DETAIL": "Saubere Struktur, schnelle Ladezeiten, sinnvolle Inhalte und technische Grundlagen — von Anfang an mitgedacht, nicht nachträglich draufgeklebt."
   },
   "QUALITY": {
     "TITLE": "Qualität, die man sieht",
