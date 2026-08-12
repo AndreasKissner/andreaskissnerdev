@@ -5,11 +5,84 @@
 
     <ul class="services__list">
       @for (item of items; track item.titleKey) {
-        <li class="services__item scroll-reveal" tabindex="0">
-          <h3 class="services__item-title">{{ item.titleKey | translate }}</h3>
-          <p class="services__item-text">{{ item.textKey | translate }}</p>
-          <div class="services__item-detail-wrap">
-            <p class="services__item-detail">{{ item.detailKey | translate }}</p>
+        <li class="services__item-wrap scroll-reveal" appTilt>
+          <div class="services__item" tabindex="0">
+            <h3 class="services__item-title">{{ item.titleKey | translate }}</h3>
+            <p class="services__item-text">{{ item.textKey | translate }}</p>
+
+            <div class="services__item-stage">
+              <div class="services__item-illustration" aria-hidden="true">
+                @switch (item.illustration) {
+                  @case ('websites-slider') {
+                    <div class="services__item-slider">
+                      @for (i of sliderImages; track i) {
+                        <div class="services__item-slide" [class.services__item-slide--active]="sliderIndex() === i">
+                          @switch (i) {
+                            @case (0) {
+                              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="10" y="8" width="44" height="30" rx="2" />
+                                <line x1="24" y1="46" x2="40" y2="46" />
+                                <line x1="32" y1="38" x2="32" y2="46" />
+                              </svg>
+                            }
+                            @case (1) {
+                              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="20" y="6" width="24" height="52" rx="4" />
+                                <line x1="28" y1="52" x2="36" y2="52" />
+                              </svg>
+                            }
+                            @case (2) {
+                              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="14" y="8" width="36" height="48" rx="4" />
+                                <circle cx="32" cy="50" r="1.4" fill="currentColor" stroke="none" />
+                              </svg>
+                            }
+                            @case (3) {
+                              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="6" y="10" width="52" height="40" rx="3" />
+                                <line x1="6" y1="20" x2="58" y2="20" />
+                                <circle cx="12" cy="15" r="1.2" fill="currentColor" stroke="none" />
+                                <circle cx="17" cy="15" r="1.2" fill="currentColor" stroke="none" />
+                                <circle cx="22" cy="15" r="1.2" fill="currentColor" stroke="none" />
+                                <line x1="14" y1="28" x2="34" y2="28" />
+                                <line x1="14" y1="34" x2="46" y2="34" />
+                                <line x1="14" y1="40" x2="40" y2="40" />
+                              </svg>
+                            }
+                          }
+                        </div>
+                      }
+                    </div>
+                  }
+                  @case ('redesign') {
+                    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M48 20a18 18 0 1 0 4 18" />
+                      <path d="M48 10v10h-10" />
+                    </svg>
+                  }
+                  @case ('tools') {
+                    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="14" y1="46" x2="14" y2="18" />
+                      <circle cx="14" cy="30" r="4" />
+                      <line x1="32" y1="46" x2="32" y2="14" />
+                      <circle cx="32" cy="24" r="4" />
+                      <line x1="50" y1="46" x2="50" y2="22" />
+                      <circle cx="50" cy="34" r="4" />
+                    </svg>
+                  }
+                  @case ('privacy') {
+                    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M32 8 12 15v14c0 14 8.5 21.5 20 27 11.5-5.5 20-13 20-27V15L32 8z" />
+                      <path d="M23 32l6 6 12-12" />
+                    </svg>
+                  }
+                }
+              </div>
+
+              <div class="services__item-detail-wrap">
+                <p class="services__item-detail">{{ item.detailKey | translate }}</p>
+              </div>
+            </div>
           </div>
         </li>
       }

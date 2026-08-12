@@ -100,7 +100,7 @@
 
 .quality__book-page-count {
   font-family: v.$font-mono;
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: var(--color-text-muted);
   min-width: 48px;
   text-align: center;
@@ -142,7 +142,7 @@
   align-items: center;
   gap: v.$space-sm;
   color: var(--color-text);
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .quality__privacy-icon {
@@ -177,8 +177,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
+  width: 26px;
+  height: 26px;
   background: none;
   border: 1px solid var(--color-border);
   border-radius: 6px;
@@ -202,7 +202,7 @@
 
 .quality__info-btn-mark {
   font-family: v.$font-mono;
-  font-size: 0.7rem;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 1;
 }
@@ -261,7 +261,7 @@
   margin: 0 0 6px;
   color: var(--color-text-muted);
   font-family: v.$font-mono;
-  font-size: 0.7rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -280,7 +280,7 @@
   background-color: var(--color-accent);
   color: var(--color-on-accent);
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 1rem;
 }
 
 .quality__preview-swatches {
@@ -329,7 +329,7 @@
   border-radius: v.$radius-sm;
   background: none;
   color: var(--color-text-muted);
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition:
@@ -384,7 +384,7 @@
 .quality__footnote {
   margin: 0;
   color: var(--color-text-muted);
-  font-size: 0.75rem;
+  font-size: 1rem;
 }
 
 .quality__tab-demo {
@@ -398,7 +398,7 @@
 .quality__tab-demo-hint {
   margin: 0 0 v.$space-sm;
   color: var(--color-text-muted);
-  font-size: 0.85rem;
+  font-size: 1rem;
 }
 
 .quality__tab-demo-row {
@@ -435,7 +435,7 @@
 }
 
 .quality__contrast-label {
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: var(--color-text-muted);
 }
 
@@ -461,7 +461,7 @@
 .quality__contrast-ratio {
   margin: 0;
   font-family: v.$font-mono;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .quality__contrast-verdict {

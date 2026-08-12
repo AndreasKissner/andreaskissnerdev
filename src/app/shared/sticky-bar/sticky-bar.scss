@@ -37,7 +37,7 @@
   align-items: center;
   gap: 8px;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 1rem;
   text-decoration: none;
   letter-spacing: -0.01em;
   color: var(--color-text);
@@ -51,7 +51,7 @@
   gap: 8px;
   margin: 0;
   font-family: v.$font-mono;
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: var(--color-text-muted);
 
   @include m.respond-up(v.$bp-md) {
@@ -68,7 +68,7 @@
   color: var(--color-on-accent);
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 1rem;
   transition:
     transform 200ms ease-out,
     background-color 150ms ease;

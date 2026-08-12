@@ -27,18 +27,10 @@
   gap: 8px;
   color: var(--color-text-muted);
   font-family: v.$font-mono;
-  font-size: 0.8rem;
+  font-size: 1rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-bottom: v.$space-sm;
-}
-
-.hero__eyebrow-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--color-accent);
-  box-shadow: 0 0 12px var(--color-accent-glow);
 }
 
 .hero__title {
@@ -91,7 +83,7 @@
   border-radius: v.$radius-md;
   padding: v.$space-md;
   font-family: v.$font-mono;
-  font-size: 0.85rem;
+  font-size: 1rem;
 }
 
 .hero__console-header {
@@ -110,7 +102,7 @@
   color: var(--color-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  font-size: 0.75rem;
+  font-size: 1rem;
 }
 
 .hero__console-launch {

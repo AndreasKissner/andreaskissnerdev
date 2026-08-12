@@ -22,14 +22,14 @@
 
 .footer__copyright {
   color: var(--color-text-muted);
-  font-size: 0.85rem;
+  font-size: 1rem;
   margin: 0;
 }
 
 .footer__perf {
   color: var(--color-text-muted);
   font-family: v.$font-mono;
-  font-size: 0.75rem;
+  font-size: 1rem;
   margin: 0;
 }
 
@@ -41,7 +41,7 @@
 .footer__link {
   color: var(--color-text-muted);
   text-decoration: none;
-  font-size: 0.85rem;
+  font-size: 1rem;
 
   &:hover {
     color: var(--color-text);
