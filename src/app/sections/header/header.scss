@@ -250,7 +250,6 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
   background-color: var(--color-accent-glow);
   border-radius: 4px;
   opacity: 0;
@@ -259,6 +258,7 @@
   transition:
     transform 300ms ease,
     width 300ms ease,
+    height 300ms ease,
     opacity 200ms ease;
 
   @include m.reduced-motion {

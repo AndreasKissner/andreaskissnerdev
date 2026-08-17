@@ -21,7 +21,7 @@ import { LogoMarkComponent } from '../../shared/logo-mark/logo-mark';
 
 const LANGUAGE_OPTIONS: readonly AppLanguage[] = ['de', 'fr', 'it', 'en'];
 const ACCENT_OPTIONS: readonly AccentId[] = ['orange', 'blue', 'green'];
-const SECTION_IDS = ['services', 'work', 'contact'] as const;
+const SECTION_IDS = ['services', 'pricing', 'work', 'contact'] as const;
 
 interface NavLink {
   readonly labelKey: string;
@@ -32,6 +32,7 @@ interface NavLink {
 
 const NAV_LINKS: readonly NavLink[] = [
   { labelKey: 'NAV.SERVICES', href: '#services', sectionId: 'services', external: false },
+  { labelKey: 'NAV.PRICING', href: '#pricing', sectionId: 'pricing', external: false },
   { labelKey: 'NAV.WORK', href: '#work', sectionId: 'work', external: false },
   { labelKey: 'NAV.CONTACT', href: '#contact', sectionId: 'contact', external: false },
   { labelKey: 'NAV.PORTFOLIO', href: 'https://www.andreas-kissner.cloud/#portfolio', sectionId: null, external: true }
@@ -153,7 +154,7 @@ export class HeaderComponent {
       return;
     }
     blob.style.opacity = '1';
-    this.applyIndicatorPosition(blob, links[index].nativeElement);
+    this.applyIndicatorPosition2d(blob, links[index].nativeElement);
   }
 
   private activeNavIndex(): number | null {
@@ -178,5 +179,12 @@ export class HeaderComponent {
   private applyIndicatorPosition(indicator: HTMLElement, target: HTMLElement): void {
     indicator.style.transform = `translateX(${target.offsetLeft}px)`;
     indicator.style.width = `${target.offsetWidth}px`;
+  }
+
+  /** Positions an indicator on both axes, needed once the nav row can wrap onto a second line. */
+  private applyIndicatorPosition2d(indicator: HTMLElement, target: HTMLElement): void {
+    indicator.style.transform = `translate(${target.offsetLeft}px, ${target.offsetTop}px)`;
+    indicator.style.width = `${target.offsetWidth}px`;
+    indicator.style.height = `${target.offsetHeight}px`;
   }
 }

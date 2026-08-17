@@ -1,0 +1,81 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/mixins' as m;
+
+.pricing {
+  position: relative;
+  padding-block: v.$space-lg;
+
+  @include m.respond-up(v.$bp-lg) {
+    padding-block: v.$space-xl;
+  }
+}
+
+.pricing__container {
+  @include m.container;
+}
+
+.pricing__title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin: 0 0 v.$space-xs;
+}
+
+.pricing__intro {
+  color: var(--color-text-muted);
+  margin: 0 0 v.$space-lg;
+  max-width: 640px;
+}
+
+.pricing__card {
+  max-width: 420px;
+  padding: v.$space-lg;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: v.$radius-md;
+}
+
+.pricing__amount {
+  font-family: v.$font-heading;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 700;
+  margin: 0;
+}
+
+.pricing__amount-label {
+  color: var(--color-text-muted);
+  margin: 0 0 v.$space-md;
+}
+
+.pricing__note {
+  color: var(--color-text-muted);
+  margin: 0 0 v.$space-md;
+}
+
+.pricing__cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 28px;
+  border-radius: v.$radius-sm;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  background-color: var(--color-accent);
+  color: var(--color-on-accent);
+  box-shadow: 0 0 0 1px var(--color-accent-glow);
+  transition:
+    transform 200ms ease-out,
+    box-shadow 150ms ease,
+    background-color 150ms ease;
+
+  @include m.focus-ring;
+
+  &:hover {
+    background-color: var(--color-accent-strong);
+    box-shadow: 0 8px 24px var(--color-accent-glow);
+  }
+
+  @include m.reduced-motion {
+    &:hover {
+      transform: none;
+    }
+  }
+}

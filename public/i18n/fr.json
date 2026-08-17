@@ -14,6 +14,7 @@
   "NAV": {
     "BRAND": "Andreas Kissner",
     "SERVICES": "Prestations",
+    "PRICING": "Tarifs",
     "WORK": "Références",
     "CONTACT": "Contact",
     "PORTFOLIO": "Portfolio",
@@ -86,6 +87,14 @@
     "ITEM_9_TITLE": "Conseil & intégration IA",
     "ITEM_9_TEXT": "Pour savoir où l'IA a vraiment du sens dans votre activité, et comment l'intégrer.",
     "ITEM_9_DETAIL": "De l'évaluation des outils IA adaptés à votre activité jusqu'à leur intégration dans votre site ou votre application, chatbots, assistants de recherche ou contenus générés automatiquement."
+  },
+  "PRICING": {
+    "TITLE": "Combien ça coûte ?",
+    "INTRO": "Transparent plutôt que \"prix sur demande\".",
+    "AMOUNT": "dès CHF 900.—",
+    "AMOUNT_LABEL": "site simple (one-pager)",
+    "NOTE": "Le prix exact dépend de l'ampleur du projet. Le plus simple est un court échange sans engagement, ainsi je sais exactement ce dont vous avez besoin, et vous obtenez un prix honnête plutôt qu'une estimation approximative.",
+    "CTA": "Prendre contact, sans engagement"
   },
   "QUALITY": {
     "TITLE": "Une qualité que l'on voit",
@@ -202,6 +211,7 @@
     "HINT": "↑↓ naviguer · Entrée sélectionner · Échap fermer",
     "CLOSE": "Fermer",
     "SERVICES": "Aller à : Prestations",
+    "PRICING": "Aller à : Tarifs",
     "WORK": "Aller à : Références",
     "CONTACT": "Aller à : Contact",
     "PORTFOLIO": "Ouvrir le portfolio",

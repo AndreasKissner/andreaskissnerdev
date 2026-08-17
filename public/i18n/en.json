@@ -14,6 +14,7 @@
   "NAV": {
     "BRAND": "Andreas Kissner",
     "SERVICES": "Services",
+    "PRICING": "Pricing",
     "WORK": "Work",
     "CONTACT": "Contact",
     "PORTFOLIO": "Portfolio",
@@ -86,6 +87,14 @@
     "ITEM_9_TITLE": "AI consulting & integration",
     "ITEM_9_TEXT": "So you know where AI actually makes sense in your business, and how to build it in.",
     "ITEM_9_DETAIL": "From assessing which AI tools fit your business to integrating them into your website or web app, think chatbots, search assistants or automatically generated content."
+  },
+  "PRICING": {
+    "TITLE": "What does it cost?",
+    "INTRO": "Transparent instead of \"price on request\".",
+    "AMOUNT": "from CHF 900.—",
+    "AMOUNT_LABEL": "simple website (one-pager)",
+    "NOTE": "The exact price depends on scope. The easiest way is a short, no-obligation conversation, that way I know exactly what you need, and you get an honest price instead of a rough guess.",
+    "CTA": "Get in touch, no obligation"
   },
   "QUALITY": {
     "TITLE": "Quality you can see",
@@ -196,6 +205,7 @@
     "HINT": "↑↓ navigate · Enter select · Esc close",
     "CLOSE": "Close",
     "SERVICES": "Go to: Services",
+    "PRICING": "Go to: Pricing",
     "WORK": "Go to: Work",
     "CONTACT": "Go to: Contact",
     "PORTFOLIO": "Open portfolio",

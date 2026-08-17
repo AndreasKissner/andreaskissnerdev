@@ -14,6 +14,7 @@
   "NAV": {
     "BRAND": "Andreas Kissner",
     "SERVICES": "Angebot",
+    "PRICING": "Preise",
     "WORK": "Referenzen",
     "CONTACT": "Kontakt",
     "PORTFOLIO": "Projekte",
@@ -86,6 +87,14 @@
     "ITEM_9_TITLE": "KI-Beratung & Integration",
     "ITEM_9_TEXT": "Damit Sie wissen, wo KI in Ihrem Geschäft wirklich Sinn ergibt, und wie sie sich einbauen lässt.",
     "ITEM_9_DETAIL": "Von der Einschätzung, welche KI-Tools zu Ihrem Business passen, bis zur Integration in Ihre Website oder Webapp, etwa Chatbots, Suchassistenten oder automatisiert erstellte Inhalte."
+  },
+  "PRICING": {
+    "TITLE": "Was kostet das?",
+    "INTRO": "Transparent statt \"Preis auf Anfrage\".",
+    "AMOUNT": "ab CHF 900.—",
+    "AMOUNT_LABEL": "einfache Website (One-Pager)",
+    "NOTE": "Der genaue Preis hängt vom Umfang ab. Am einfachsten ist ein kurzes, unverbindliches Gespräch, so weiss ich genau, was Sie brauchen, und Sie bekommen einen ehrlichen Preis statt einer groben Schätzung.",
+    "CTA": "Unverbindlich anfragen"
   },
   "QUALITY": {
     "TITLE": "Qualität, die man sieht",
@@ -202,6 +211,7 @@
     "HINT": "↑↓ navigieren · Enter auswählen · Esc schliessen",
     "CLOSE": "Schliessen",
     "SERVICES": "Zu: Angebot",
+    "PRICING": "Zu: Preise",
     "WORK": "Zu: Referenzen",
     "CONTACT": "Zu: Kontakt",
     "PORTFOLIO": "Projekte öffnen",

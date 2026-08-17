@@ -20,6 +20,7 @@ export class CommandPaletteService {
 
   readonly commands: readonly PaletteCommand[] = [
     { id: 'services', labelKey: 'PALETTE.SERVICES', run: () => this.scrollTo('services') },
+    { id: 'pricing', labelKey: 'PALETTE.PRICING', run: () => this.scrollTo('pricing') },
     { id: 'work', labelKey: 'PALETTE.WORK', run: () => this.scrollTo('work') },
     { id: 'contact', labelKey: 'PALETTE.CONTACT', run: () => this.scrollTo('contact') },
     { id: 'portfolio', labelKey: 'PALETTE.PORTFOLIO', run: () => this.openPortfolio() },
