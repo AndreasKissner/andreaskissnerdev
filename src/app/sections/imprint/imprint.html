@@ -1,0 +1,37 @@
+<section class="imprint" id="imprint" aria-labelledby="imprint-title">
+  <div class="imprint__container">
+    <a class="imprint__back-link" routerLink="/">{{ 'A11Y.BACK_TO_HOME' | translate }}</a>
+    <h1 class="imprint__title" id="imprint-title">{{ 'IMPRINT.TITLE' | translate }}</h1>
+
+    <h2 class="imprint__heading">{{ 'IMPRINT.PROVIDER_TITLE' | translate }}</h2>
+    <p class="imprint__text">
+      {{ 'IMPRINT.NAME' | translate }}<br />
+      {{ 'IMPRINT.ADDRESS_LINE_1' | translate }}<br />
+      {{ 'IMPRINT.ADDRESS_LINE_2' | translate }}<br />
+      {{ 'IMPRINT.ADDRESS_COUNTRY' | translate }}
+    </p>
+
+    <h2 class="imprint__heading">{{ 'IMPRINT.CONTACT_TITLE' | translate }}</h2>
+    <dl class="imprint__contact-list">
+      <div class="imprint__contact-row">
+        <dt>{{ 'IMPRINT.EMAIL_LABEL' | translate }}</dt>
+        <dd><a href="mailto:{{ 'IMPRINT.EMAIL_VALUE' | translate }}">{{ 'IMPRINT.EMAIL_VALUE' | translate }}</a></dd>
+      </div>
+      <div class="imprint__contact-row">
+        <dt>{{ 'IMPRINT.WEBSITE_LABEL' | translate }}</dt>
+        <dd><a href="https://{{ 'IMPRINT.WEBSITE_VALUE' | translate }}" target="_blank" rel="noopener">{{ 'IMPRINT.WEBSITE_VALUE' | translate }}</a></dd>
+      </div>
+      <div class="imprint__contact-row">
+        <dt>{{ 'IMPRINT.PHONE_LABEL' | translate }}</dt>
+        <dd><a href="tel:{{ 'IMPRINT.PHONE_VALUE' | translate }}">{{ 'IMPRINT.PHONE_VALUE' | translate }}</a></dd>
+      </div>
+    </dl>
+
+    <h2 class="imprint__heading">{{ 'IMPRINT.COMPANY_INFO_TITLE' | translate }}</h2>
+    <p class="imprint__text">{{ 'IMPRINT.COMPANY_INFO_TEXT' | translate }}</p>
+
+    <h2 class="imprint__heading">{{ 'IMPRINT.RESPONSIBLE_TITLE' | translate }}</h2>
+    <p class="imprint__text">{{ 'IMPRINT.RESPONSIBLE_TEXT' | translate }}</p>
+  </div>
+  <app-section-divider />
+</section>

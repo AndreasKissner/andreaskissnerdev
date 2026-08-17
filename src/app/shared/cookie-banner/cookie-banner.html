@@ -1,0 +1,41 @@
+@if (isVisible()) {
+  <div class="cookie-banner" role="dialog" aria-modal="false" [attr.aria-label]="'COOKIE_BANNER.TITLE' | translate">
+    <div class="cookie-banner__card">
+      <svg class="cookie-banner__wave" viewBox="0 0 20 10" aria-hidden="true">
+        <path d="M1 5c1.5-3 3.5-3 5 0s3.5 3 5 0 3.5-3 5-3 2.5 1.5 3 3" />
+      </svg>
+
+      <div class="cookie-banner__body">
+        <div class="cookie-banner__title-row">
+          <p class="cookie-banner__title">{{ 'COOKIE_BANNER.TITLE' | translate }}</p>
+          <button
+            type="button"
+            class="cookie-banner__info-btn"
+            [attr.aria-label]="'COOKIE_BANNER.INFO_LABEL' | translate"
+            (click)="openInfo()"
+          >
+            <span class="cookie-banner__info-btn-ring" aria-hidden="true"></span>
+            <span class="cookie-banner__info-btn-mark" aria-hidden="true">i</span>
+          </button>
+        </div>
+        <p class="cookie-banner__text">{{ 'COOKIE_BANNER.TEXT' | translate }}</p>
+      </div>
+
+      <div class="cookie-banner__actions">
+        <button type="button" class="cookie-banner__decline" (click)="decline()">
+          {{ 'COOKIE_BANNER.DECLINE' | translate }}
+        </button>
+        <button type="button" class="cookie-banner__accept" (click)="accept()">
+          {{ 'COOKIE_BANNER.ACCEPT' | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <app-info-modal
+    [isOpen]="isInfoOpen()"
+    titleKey="COOKIE_BANNER.INFO_TITLE"
+    textKey="COOKIE_BANNER.INFO_TEXT"
+    (onClose)="closeInfo()"
+  />
+}

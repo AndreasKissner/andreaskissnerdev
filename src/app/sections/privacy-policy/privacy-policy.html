@@ -1,0 +1,36 @@
+<section class="privacy-policy" id="privacy" aria-labelledby="privacy-policy-title">
+  <div class="privacy-policy__container">
+    <a class="privacy-policy__back-link" routerLink="/">{{ 'A11Y.BACK_TO_HOME' | translate }}</a>
+    <h1 class="privacy-policy__title" id="privacy-policy-title">{{ 'PRIVACY_POLICY.TITLE' | translate }}</h1>
+    <p class="privacy-policy__placeholder-note">{{ 'PRIVACY_POLICY.PLACEHOLDER_NOTE' | translate }}</p>
+
+    <h2 class="privacy-policy__heading">{{ 'PRIVACY_POLICY.CONTROLLER_TITLE' | translate }}</h2>
+    <p class="privacy-policy__text">{{ 'PRIVACY_POLICY.CONTROLLER_TEXT' | translate }}</p>
+
+    <h2 class="privacy-policy__heading">{{ 'PRIVACY_POLICY.DATA_TITLE' | translate }}</h2>
+    <p class="privacy-policy__text">{{ 'PRIVACY_POLICY.DATA_TEXT' | translate }}</p>
+
+    <h2 class="privacy-policy__heading">{{ 'PRIVACY_POLICY.CONTACT_FORM_TITLE' | translate }}</h2>
+    <p class="privacy-policy__text">{{ 'PRIVACY_POLICY.CONTACT_FORM_TEXT' | translate }}</p>
+
+    <h2 class="privacy-policy__heading">{{ 'PRIVACY_POLICY.COOKIES_TITLE' | translate }}</h2>
+    <p class="privacy-policy__text">{{ 'PRIVACY_POLICY.COOKIES_TEXT' | translate }}</p>
+    <p class="privacy-policy__consent-status">
+      {{ 'PRIVACY_POLICY.CONSENT_STATUS_LABEL' | translate }}
+      <span
+        class="privacy-policy__consent-badge"
+        [class.privacy-policy__consent-badge--granted]="consent.status() === 'granted'"
+        [class.privacy-policy__consent-badge--denied]="consent.status() === 'denied'"
+      >
+        {{ (consent.status() === 'granted' ? 'PRIVACY_POLICY.CONSENT_GRANTED' : consent.status() === 'denied' ? 'PRIVACY_POLICY.CONSENT_DENIED' : 'PRIVACY_POLICY.CONSENT_UNDECIDED') | translate }}
+      </span>
+    </p>
+    <button type="button" class="privacy-policy__settings-btn" id="privacy-cookies" (click)="changeCookieSettings()">
+      {{ 'PRIVACY_POLICY.CHANGE_SETTINGS' | translate }}
+    </button>
+
+    <h2 class="privacy-policy__heading">{{ 'PRIVACY_POLICY.RIGHTS_TITLE' | translate }}</h2>
+    <p class="privacy-policy__text">{{ 'PRIVACY_POLICY.RIGHTS_TEXT' | translate }}</p>
+  </div>
+  <app-section-divider />
+</section>

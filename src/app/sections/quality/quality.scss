@@ -3,7 +3,7 @@
 
 .quality {
   padding-block: v.$space-lg;
-  border-bottom: 1px solid var(--color-border);
+  @include m.wave-divider;
 
   @include m.respond-up(v.$bp-lg) {
     padding-block: v.$space-xl;

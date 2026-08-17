@@ -218,9 +218,19 @@
               </svg>
               {{ 'QUALITY.PRIVACY_POINT_3' | translate }}
             </li>
+            <li class="quality__privacy-item">
+              <svg class="quality__privacy-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              {{ 'QUALITY.PRIVACY_POINT_4' | translate }}
+            </li>
+            <li class="quality__privacy-item">
+              <svg class="quality__privacy-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              {{ 'QUALITY.PRIVACY_POINT_5' | translate }}
+            </li>
           </ul>
-
-          <p class="quality__footnote">{{ 'QUALITY.PRIVACY_CLIFFHANGER' | translate }}</p>
         </article>
       </div>
 
@@ -317,4 +327,5 @@
     textKey="QUALITY.PRIVACY_INFO_TEXT"
     (onClose)="closePrivacyInfo()"
   />
+  <app-section-divider />
 </section>

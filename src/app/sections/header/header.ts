@@ -3,20 +3,24 @@ import {
   Component,
   ElementRef,
   HostListener,
+  PLATFORM_ID,
   effect,
   inject,
   signal,
   viewChild,
   viewChildren
 } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
 import { LanguageService, type AppLanguage } from '../../core/language.service';
 import { ThemeService } from '../../core/theme.service';
 import { CommandPaletteService } from '../../core/command-palette.service';
 import { ScrollStateService } from '../../core/scroll-state.service';
+import { AccentColorService, type AccentId } from '../../core/accent-color.service';
 import { LogoMarkComponent } from '../../shared/logo-mark/logo-mark';
 
 const LANGUAGE_OPTIONS: readonly AppLanguage[] = ['de', 'fr', 'it', 'en'];
+const ACCENT_OPTIONS: readonly AccentId[] = ['orange', 'blue', 'green'];
 const SECTION_IDS = ['services', 'work', 'contact'] as const;
 
 interface NavLink {
@@ -49,7 +53,9 @@ export class HeaderComponent {
   protected readonly themeService = inject(ThemeService);
   protected readonly commandPalette = inject(CommandPaletteService);
   protected readonly scrollState = inject(ScrollStateService);
+  protected readonly accentColor = inject(AccentColorService);
   protected readonly languageOptions = LANGUAGE_OPTIONS;
+  protected readonly accentOptions = ACCENT_OPTIONS;
   protected readonly navLinks = NAV_LINKS;
   protected readonly isMenuOpen = signal(false);
 
@@ -102,12 +108,20 @@ export class HeaderComponent {
     this.themeService.toggle();
   }
 
+  /** Returns the swatch color shown on a given accent dot, matching the active theme. */
+  protected accentDotColor(accent: AccentId): string {
+    return this.accentColor.dotColor(accent);
+  }
+
   /** Marks a nav link as hovered so the blob follows the cursor. */
   protected setHoveredNav(index: number | null): void {
     this.hoveredNavIndex.set(index);
   }
 
   private observeSections(): void {
+    if (!isPlatformBrowser(inject(PLATFORM_ID))) {
+      return;
+    }
     const observer = new IntersectionObserver((entries) => this.handleSectionIntersection(entries), {
       rootMargin: '-45% 0px -45% 0px',
       threshold: 0

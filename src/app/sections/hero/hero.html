@@ -8,10 +8,12 @@
       <h1 class="hero__title" id="hero-title">{{ 'HERO.TITLE' | translate }}</h1>
       <p class="hero__subtitle">{{ 'HERO.SUBTITLE' | translate }}</p>
 
-      <a class="hero__cta" href="#contact" appMagnetic>{{ 'HERO.CTA_PRIMARY' | translate }}</a>
+      <img class="hero__seal" src="img/logoround.webp" alt="" width="96" height="96" />
     </div>
 
     <div class="hero__console">
+      <img class="hero__console-map" src="img/suiss.webp" alt="" aria-hidden="true" />
+
       <div class="hero__console-header">
         <p class="hero__console-title" aria-hidden="true">
           <app-live-indicator />
@@ -48,30 +50,72 @@
         </button>
       </div>
 
-      <dl class="hero__console-list" aria-hidden="true">
-        <div class="hero__console-row">
-          <dt>{{ 'HERO.CONSOLE_AVAILABLE_LABEL' | translate }}</dt>
-          <dd>{{ (availability.isAvailable() ? 'HERO.CONSOLE_YES' : 'HERO.CONSOLE_NO') | translate }}</dd>
+      <div class="hero__console-grid">
+        <dl class="hero__console-list" aria-hidden="true">
+          <div class="hero__console-row hero__console-row--available">
+            <dt>{{ 'HERO.CONSOLE_AVAILABLE_LABEL' | translate }}</dt>
+            <dd>{{ (availability.isAvailable() ? 'HERO.CONSOLE_YES' : 'HERO.CONSOLE_NO') | translate }}</dd>
+          </div>
+          <div class="hero__console-row hero__console-row--load">
+            <dt>{{ 'HERO.CONSOLE_LOAD_TIME_LABEL' | translate }}</dt>
+            <dd>
+              {{ performance.loadTimeMs() !== null ? (performance.loadTimeMs() + ' ms') : ('HERO.CONSOLE_MEASURING' | translate) }}
+            </dd>
+            <div class="hero__console-bar">
+              <span class="hero__console-bar-fill" [style.width.%]="loadBarPercent()"></span>
+            </div>
+          </div>
+          <div class="hero__console-row hero__console-row--theme">
+            <dt>{{ 'HERO.CONSOLE_THEME_LABEL' | translate }}</dt>
+            <dd><span class="hero__console-swatch"></span>{{ themeService.preference() }}</dd>
+          </div>
+          <div class="hero__console-row hero__console-row--lang">
+            <dt>{{ 'HERO.CONSOLE_LANG_LABEL' | translate }}</dt>
+            <dd>{{ languageService.activeLanguage() }}</dd>
+          </div>
+          <div class="hero__console-row hero__console-row--time">
+            <dt>{{ 'HERO.CONSOLE_LOCAL_TIME_LABEL' | translate }}</dt>
+            <dd>{{ availability.swissTime() }}</dd>
+          </div>
+        </dl>
+
+        <div
+          class="hero__console-row hero__console-row--tracking"
+          role="link"
+          tabindex="0"
+          aria-hidden="false"
+          [attr.aria-label]="'HERO.CONSOLE_TRACKING_LABEL' | translate"
+          (click)="goToCookieSettings()"
+          (keydown.enter)="goToCookieSettings()"
+        >
+          <div class="hero__console-tracking-header">
+            <span class="hero__console-tracking-label">{{ 'HERO.CONSOLE_TRACKING_LABEL' | translate }}</span>
+            <button
+              type="button"
+              class="hero__console-tracking-info-btn"
+              [attr.aria-label]="'COOKIE_BANNER.INFO_LABEL' | translate"
+              (click)="openCookieInfo($event)"
+            >
+              <span class="hero__console-tracking-info-mark" aria-hidden="true">i</span>
+            </button>
+          </div>
+          <span
+            class="hero__console-tracking-value"
+            [class.hero__console-tracking-value--granted]="consent.status() === 'granted'"
+            [class.hero__console-tracking-value--denied]="consent.status() === 'denied'"
+          >
+            {{ (consent.status() === 'granted' ? 'PRIVACY_POLICY.CONSENT_GRANTED' : consent.status() === 'denied' ? 'PRIVACY_POLICY.CONSENT_DENIED' : 'PRIVACY_POLICY.CONSENT_UNDECIDED') | translate }}
+          </span>
         </div>
-        <div class="hero__console-row">
-          <dt>{{ 'HERO.CONSOLE_LOAD_TIME_LABEL' | translate }}</dt>
-          <dd>
-            {{ performance.loadTimeMs() !== null ? (performance.loadTimeMs() + ' ms') : ('HERO.CONSOLE_MEASURING' | translate) }}
-          </dd>
-        </div>
-        <div class="hero__console-row">
-          <dt>{{ 'HERO.CONSOLE_THEME_LABEL' | translate }}</dt>
-          <dd>{{ themeService.preference() }}</dd>
-        </div>
-        <div class="hero__console-row">
-          <dt>{{ 'HERO.CONSOLE_LANG_LABEL' | translate }}</dt>
-          <dd>{{ languageService.activeLanguage() }}</dd>
-        </div>
-        <div class="hero__console-row">
-          <dt>{{ 'HERO.CONSOLE_LOCAL_TIME_LABEL' | translate }}</dt>
-          <dd>{{ availability.swissTime() }}</dd>
-        </div>
-      </dl>
+      </div>
+
+      <app-info-modal
+        [isOpen]="isCookieInfoOpen()"
+        titleKey="COOKIE_BANNER.INFO_TITLE"
+        textKey="COOKIE_BANNER.INFO_TEXT"
+        (onClose)="closeCookieInfo()"
+      />
     </div>
   </div>
+  <app-section-divider />
 </section>

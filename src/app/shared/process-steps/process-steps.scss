@@ -1,7 +1,7 @@
 @use '../../../styles/abstracts/variables' as v;
 @use '../../../styles/abstracts/mixins' as m;
 
-.shm-demo {
+.process-steps {
   border: 1px solid var(--color-border);
   border-radius: v.$radius-sm;
   padding: v.$space-sm;
@@ -10,7 +10,7 @@
   @include m.focus-ring;
 }
 
-.shm-demo__list {
+.process-steps__list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -19,13 +19,13 @@
   gap: 8px;
 }
 
-.shm-demo__step {
+.process-steps__step {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.shm-demo__step-index {
+.process-steps__step-index {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -39,17 +39,17 @@
   flex-shrink: 0;
 }
 
-.shm-demo__step-content {
+.process-steps__step-content {
   width: fit-content;
   max-width: 100%;
 }
 
-.shm-demo__step-label {
+.process-steps__step-label {
   font-size: 1rem;
   color: var(--color-text);
 }
 
-.shm-demo__step-scan {
+.process-steps__step-scan {
   display: block;
   height: 2px;
   margin-top: 6px;
@@ -64,25 +64,25 @@
     opacity 300ms ease;
 }
 
-.shm-demo:hover .shm-demo__step-label,
-.shm-demo:focus-within .shm-demo__step-label {
-  animation: shm-demo-label 1.8s ease-in-out infinite;
-  animation-delay: var(--shm-demo-delay);
+.process-steps:hover .process-steps__step-label,
+.process-steps:focus-within .process-steps__step-label {
+  animation: process-steps-label 1.8s ease-in-out infinite;
+  animation-delay: var(--process-steps-delay);
 }
 
-.shm-demo:hover .shm-demo__step-index,
-.shm-demo:focus-within .shm-demo__step-index {
-  animation: shm-demo-badge 1.8s ease-in-out infinite;
-  animation-delay: var(--shm-demo-delay);
+.process-steps:hover .process-steps__step-index,
+.process-steps:focus-within .process-steps__step-index {
+  animation: process-steps-badge 1.8s ease-in-out infinite;
+  animation-delay: var(--process-steps-delay);
 }
 
-.shm-demo:hover .shm-demo__step-scan,
-.shm-demo:focus-within .shm-demo__step-scan {
-  animation: shm-demo-scan-reveal 1.8s ease-in-out infinite;
-  animation-delay: var(--shm-demo-delay);
+.process-steps:hover .process-steps__step-scan,
+.process-steps:focus-within .process-steps__step-scan {
+  animation: process-steps-scan-reveal 1.8s ease-in-out infinite;
+  animation-delay: var(--process-steps-delay);
 }
 
-@keyframes shm-demo-label {
+@keyframes process-steps-label {
   0%,
   70%,
   100% {
@@ -96,7 +96,7 @@
   }
 }
 
-@keyframes shm-demo-badge {
+@keyframes process-steps-badge {
   0%,
   70%,
   100% {
@@ -111,7 +111,7 @@
   }
 }
 
-@keyframes shm-demo-scan-reveal {
+@keyframes process-steps-scan-reveal {
   0%,
   70%,
   100% {
@@ -127,19 +127,19 @@
 }
 
 @include m.reduced-motion {
-  .shm-demo:hover .shm-demo__step-label,
-  .shm-demo:focus-within .shm-demo__step-label {
+  .process-steps:hover .process-steps__step-label,
+  .process-steps:focus-within .process-steps__step-label {
     animation: none;
     color: var(--color-text);
   }
 
-  .shm-demo:hover .shm-demo__step-index,
-  .shm-demo:focus-within .shm-demo__step-index {
+  .process-steps:hover .process-steps__step-index,
+  .process-steps:focus-within .process-steps__step-index {
     animation: none;
   }
 
-  .shm-demo:hover .shm-demo__step-scan,
-  .shm-demo:focus-within .shm-demo__step-scan {
+  .process-steps:hover .process-steps__step-scan,
+  .process-steps:focus-within .process-steps__step-scan {
     animation: none;
   }
 }

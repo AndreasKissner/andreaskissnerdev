@@ -49,3 +49,22 @@
 
   @include m.focus-ring;
 }
+
+.footer__icon-link {
+  display: inline-flex;
+  align-items: center;
+  opacity: 0.85;
+  transition: opacity 150ms ease;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  @include m.focus-ring;
+}
+
+.footer__icon-img {
+  width: 28px;
+  height: 28px;
+  border-radius: v.$radius-sm;
+}

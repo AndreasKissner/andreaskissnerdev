@@ -14,7 +14,6 @@ let instanceCounter = 0;
 })
 export class LiveIndicatorComponent {
   protected readonly glowFilterId = `live-indicator-glow-${instanceCounter++}`;
-  protected readonly prefersReducedMotion = window.matchMedia(
-    '(prefers-reduced-motion: reduce)'
-  ).matches;
+  protected readonly prefersReducedMotion =
+    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }

@@ -3,7 +3,7 @@
 
 .work {
   padding-block: v.$space-lg;
-  border-bottom: 1px solid var(--color-border);
+  @include m.wave-divider;
 
   @include m.respond-up(v.$bp-lg) {
     padding-block: v.$space-xl;
@@ -71,18 +71,14 @@
   position: relative;
   flex: 1;
   min-width: 0;
-  height: 820px;
+  height: 800px;
   overflow-x: hidden;
   overflow-y: visible;
   perspective: 1200px;
   touch-action: pan-y;
 
-  @include m.respond-up(v.$bp-sm) {
-    height: 480px;
-  }
-
   @include m.respond-up(v.$bp-lg) {
-    height: 420px;
+    height: 580px;
   }
 }
 
@@ -278,7 +274,7 @@
 }
 
 .work__item--cta {
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   border-color: var(--color-accent-fg);
   background-color: var(--color-surface-raised);

@@ -5,6 +5,7 @@ import { ScrollStateService } from '../../core/scroll-state.service';
 import { MagneticDirective } from '../magnetic.directive';
 import { LogoMarkComponent } from '../logo-mark/logo-mark';
 import { LiveIndicatorComponent } from '../live-indicator/live-indicator';
+import { WaveIconComponent } from '../wave-icon/wave-icon';
 
 /**
  * Slim status bar that replaces the header once the hero is scrolled past,
@@ -12,7 +13,7 @@ import { LiveIndicatorComponent } from '../live-indicator/live-indicator';
  */
 @Component({
   selector: 'app-sticky-bar',
-  imports: [TranslatePipe, MagneticDirective, LogoMarkComponent, LiveIndicatorComponent],
+  imports: [TranslatePipe, MagneticDirective, LogoMarkComponent, LiveIndicatorComponent, WaveIconComponent],
   templateUrl: './sticky-bar.html',
   styleUrl: './sticky-bar.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

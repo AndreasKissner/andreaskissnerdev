@@ -2,18 +2,33 @@
   <div class="footer__container">
     <div class="footer__meta">
       <p class="footer__copyright">
-        &copy; {{ currentYear }} Andreas Kissner — {{ 'FOOTER.RIGHTS' | translate }}
+        &copy; {{ currentYear }} Andreas Kissner
+        <app-wave-icon />
+        {{ 'FOOTER.RIGHTS' | translate }}
       </p>
       @if (performance.loadTimeMs() !== null) {
-        <p class="footer__perf">{{ 'FOOTER.LOAD_TIME' | translate: { ms: performance.loadTimeMs() } }}</p>
+        <p class="footer__perf">
+          {{ 'FOOTER.LOAD_TIME_PREFIX' | translate: { ms: performance.loadTimeMs() } }}
+          <app-wave-icon />
+          {{ 'FOOTER.LOAD_TIME_SUFFIX' | translate }}
+        </p>
       }
     </div>
 
     <nav class="footer__links" [attr.aria-label]="'FOOTER.IMPRINT' | translate">
-      <a class="footer__link" href="#imprint">{{ 'FOOTER.IMPRINT' | translate }}</a>
-      <a class="footer__link" href="#privacy">{{ 'FOOTER.PRIVACY' | translate }}</a>
+      <a class="footer__link" routerLink="/impressum">{{ 'FOOTER.IMPRINT' | translate }}</a>
+      <a class="footer__link" routerLink="/datenschutz">{{ 'FOOTER.PRIVACY' | translate }}</a>
       <a class="footer__link" href="https://www.andreas-kissner.cloud/#portfolio" target="_blank" rel="noopener">
         {{ 'NAV.PORTFOLIO' | translate }}
+      </a>
+      <a
+        class="footer__icon-link"
+        href="https://www.linkedin.com/in/andreas-kissner-53557b347"
+        target="_blank"
+        rel="noopener"
+        aria-label="LinkedIn"
+      >
+        <img class="footer__icon-img" src="img/linkedin.webp" alt="" width="28" height="28" loading="lazy" />
       </a>
     </nav>
   </div>

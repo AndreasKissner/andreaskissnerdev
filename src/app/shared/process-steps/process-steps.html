@@ -1,0 +1,13 @@
+<div class="process-steps" tabindex="0" role="group" [attr.aria-label]="ariaLabelKey() | translate">
+  <ol class="process-steps__list">
+    @for (key of stepKeys(); track key; let i = $index) {
+      <li class="process-steps__step" [style.--process-steps-delay.ms]="i * 350">
+        <span class="process-steps__step-index">{{ i + 1 }}</span>
+        <div class="process-steps__step-content">
+          <span class="process-steps__step-label">{{ key | translate }}</span>
+          <span class="process-steps__step-scan" aria-hidden="true"></span>
+        </div>
+      </li>
+    }
+  </ol>
+</div>

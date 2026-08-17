@@ -29,7 +29,7 @@
             <article class="work__item">
               <h3 class="work__item-title">{{ 'WORK.SHM_TITLE' | translate }}</h3>
               <p class="work__item-text">{{ 'WORK.SHM_TEXT' | translate }}</p>
-              <app-shm-demo />
+              <app-process-steps [stepKeys]="shmStepKeys" ariaLabelKey="WORK.SHM_DEMO_LABEL" />
               <a
                 class="work__item-link"
                 href="https://second-hand-manager.com"
@@ -64,6 +64,7 @@
                 </button>
               </div>
               <p class="work__item-text">{{ 'WORK.DUNE_TEXT' | translate }}</p>
+              <app-process-steps [stepKeys]="duneStepKeys" ariaLabelKey="WORK.DUNE_DEMO_LABEL" />
               <a
                 class="work__item-link"
                 href="https://dune-main-a-lautre.ch"
@@ -88,6 +89,7 @@
             <article class="work__item work__item--cta">
               <h3 class="work__item-title">{{ 'PORTFOLIO_CTA.TITLE' | translate }}</h3>
               <p class="work__item-text">{{ 'PORTFOLIO_CTA.TEXT' | translate }}</p>
+              <app-process-steps [stepKeys]="portfolioStepKeys" ariaLabelKey="PORTFOLIO_CTA.DEMO_LABEL" />
               <a
                 class="work__item-cta-link"
                 href="https://www.andreas-kissner.cloud/#portfolio"
@@ -134,4 +136,5 @@
     textKey="WORK.DUNE_CMS_INFO"
     (onClose)="closeCmsModal()"
   />
+  <app-section-divider />
 </section>

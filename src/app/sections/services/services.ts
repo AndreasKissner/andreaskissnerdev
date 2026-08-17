@@ -9,16 +9,26 @@ import {
   viewChild
 } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
+import { SectionDividerComponent } from '../../shared/section-divider/section-divider';
 
 const SLIDER_INTERVAL_MS = 2400;
 const SLIDER_IMAGE_COUNT = 5;
-const CAROUSEL_RADIUS_PX = 420;
+const CAROUSEL_RADIUS_PX = 360;
 const AUTO_ROTATE_DEG_PER_FRAME = 0.12;
 const DRAG_SENSITIVITY = 0.5;
 const FRICTION = 0.94;
 const IDLE_VELOCITY_THRESHOLD = 0.01;
 
-type ServiceIllustration = 'websites-slider' | 'redesign' | 'tools' | 'privacy' | 'seo';
+type ServiceIllustration =
+  | 'websites-slider'
+  | 'redesign'
+  | 'tools'
+  | 'privacy'
+  | 'seo'
+  | 'maintenance'
+  | 'accessibility'
+  | 'automation'
+  | 'ai';
 
 interface ServiceItem {
   readonly titleKey: string;
@@ -32,7 +42,11 @@ const SERVICE_ITEMS: readonly ServiceItem[] = [
   { titleKey: 'SERVICES.ITEM_2_TITLE', textKey: 'SERVICES.ITEM_2_TEXT', detailKey: 'SERVICES.ITEM_2_DETAIL', illustration: 'redesign' },
   { titleKey: 'SERVICES.ITEM_3_TITLE', textKey: 'SERVICES.ITEM_3_TEXT', detailKey: 'SERVICES.ITEM_3_DETAIL', illustration: 'tools' },
   { titleKey: 'SERVICES.ITEM_4_TITLE', textKey: 'SERVICES.ITEM_4_TEXT', detailKey: 'SERVICES.ITEM_4_DETAIL', illustration: 'privacy' },
-  { titleKey: 'SERVICES.ITEM_5_TITLE', textKey: 'SERVICES.ITEM_5_TEXT', detailKey: 'SERVICES.ITEM_5_DETAIL', illustration: 'seo' }
+  { titleKey: 'SERVICES.ITEM_5_TITLE', textKey: 'SERVICES.ITEM_5_TEXT', detailKey: 'SERVICES.ITEM_5_DETAIL', illustration: 'seo' },
+  { titleKey: 'SERVICES.ITEM_6_TITLE', textKey: 'SERVICES.ITEM_6_TEXT', detailKey: 'SERVICES.ITEM_6_DETAIL', illustration: 'maintenance' },
+  { titleKey: 'SERVICES.ITEM_7_TITLE', textKey: 'SERVICES.ITEM_7_TEXT', detailKey: 'SERVICES.ITEM_7_DETAIL', illustration: 'accessibility' },
+  { titleKey: 'SERVICES.ITEM_8_TITLE', textKey: 'SERVICES.ITEM_8_TEXT', detailKey: 'SERVICES.ITEM_8_DETAIL', illustration: 'automation' },
+  { titleKey: 'SERVICES.ITEM_9_TITLE', textKey: 'SERVICES.ITEM_9_TEXT', detailKey: 'SERVICES.ITEM_9_DETAIL', illustration: 'ai' }
 ];
 
 /**
@@ -42,16 +56,16 @@ const SERVICE_ITEMS: readonly ServiceItem[] = [
  */
 @Component({
   selector: 'app-services',
-  imports: [TranslatePipe],
+  imports: [TranslatePipe, SectionDividerComponent],
   templateUrl: './services.html',
   styleUrl: './services.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ServicesComponent implements AfterViewInit {
   private readonly destroyRef = inject(DestroyRef);
-  private readonly prefersReducedMotion = window.matchMedia(
-    '(prefers-reduced-motion: reduce)'
-  ).matches;
+  private readonly isBrowser = typeof window !== 'undefined';
+  private readonly prefersReducedMotion =
+    this.isBrowser && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   protected readonly items = SERVICE_ITEMS;
   protected readonly sliderImages = Array.from({ length: SLIDER_IMAGE_COUNT }, (_, i) => i);
@@ -73,7 +87,7 @@ export class ServicesComponent implements AfterViewInit {
   private animationFrameId: number | null = null;
 
   constructor() {
-    if (this.prefersReducedMotion) {
+    if (!this.isBrowser || this.prefersReducedMotion) {
       return;
     }
     const intervalId = setInterval(() => this.advanceSlider(), SLIDER_INTERVAL_MS);
@@ -81,7 +95,7 @@ export class ServicesComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    if (this.prefersReducedMotion) {
+    if (!this.isBrowser || this.prefersReducedMotion) {
       return;
     }
     this.animationFrameId = requestAnimationFrame(() => this.animate());

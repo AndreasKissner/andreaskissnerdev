@@ -1,0 +1,201 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/mixins' as m;
+
+.cookie-banner {
+  position: fixed;
+  left: v.$space-sm;
+  right: v.$space-sm;
+  bottom: v.$space-sm;
+  z-index: 30;
+  display: flex;
+  justify-content: center;
+  animation: cookie-banner-rise 400ms ease-out;
+
+  @include m.respond-up(v.$bp-sm) {
+    left: v.$space-md;
+    right: v.$space-md;
+    bottom: v.$space-md;
+  }
+
+  @include m.reduced-motion {
+    animation: none;
+  }
+}
+
+@keyframes cookie-banner-rise {
+  from {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.cookie-banner__card {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-sm;
+  padding: v.$space-md;
+  background: linear-gradient(145deg, var(--color-surface-raised), var(--color-surface));
+  border: 1px solid var(--color-border);
+  border-radius: v.$radius-md;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 12px 32px rgba(0, 0, 0, 0.28);
+}
+
+.cookie-banner__wave {
+  width: 28px;
+  height: 12px;
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cookie-banner__title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: v.$space-sm;
+  margin-bottom: 4px;
+}
+
+.cookie-banner__title {
+  margin: 0;
+  font-weight: 700;
+}
+
+.cookie-banner__text {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+}
+
+.cookie-banner__info-btn {
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition:
+    color 150ms ease,
+    border-color 150ms ease,
+    transform 150ms ease;
+
+  @include m.focus-ring;
+
+  &:hover,
+  &:focus-visible,
+  &:active {
+    color: var(--color-accent-fg);
+    border-color: var(--color-accent-fg);
+    transform: translateY(-1px);
+  }
+}
+
+.cookie-banner__info-btn-mark {
+  font-family: v.$font-mono;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.cookie-banner__info-btn-ring {
+  position: absolute;
+  inset: -5px;
+  border: 1px solid var(--color-accent-fg);
+  border-radius: 8px;
+  opacity: 0;
+  transform: scale(0.75);
+  pointer-events: none;
+}
+
+.cookie-banner__info-btn:hover .cookie-banner__info-btn-ring,
+.cookie-banner__info-btn:focus-visible .cookie-banner__info-btn-ring,
+.cookie-banner__info-btn:active .cookie-banner__info-btn-ring {
+  animation: cookie-banner-info-ping 1.1s ease-out infinite;
+}
+
+@keyframes cookie-banner-info-ping {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.85);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+}
+
+@include m.reduced-motion {
+  .cookie-banner__info-btn:hover .cookie-banner__info-btn-ring,
+  .cookie-banner__info-btn:focus-visible .cookie-banner__info-btn-ring {
+    animation: none;
+    opacity: 0.5;
+    transform: scale(1);
+  }
+}
+
+.cookie-banner__actions {
+  display: flex;
+  gap: v.$space-sm;
+  flex-wrap: wrap;
+}
+
+.cookie-banner__decline,
+.cookie-banner__accept {
+  flex: 1;
+  padding: 10px 20px;
+  border-radius: v.$radius-sm;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    transform 150ms ease,
+    background-color 150ms ease;
+
+  @include m.focus-ring;
+}
+
+.cookie-banner__decline {
+  background: none;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+
+  &:hover {
+    border-color: var(--color-accent-fg);
+    color: var(--color-accent-fg);
+  }
+}
+
+.cookie-banner__accept {
+  border: none;
+  background-color: var(--color-accent);
+  color: var(--color-on-accent);
+
+  &:hover {
+    background-color: var(--color-accent-strong);
+    transform: translateY(-1px);
+  }
+
+  @include m.reduced-motion {
+    &:hover {
+      transform: none;
+    }
+  }
+}

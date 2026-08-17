@@ -1,4 +1,5 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, PLATFORM_ID, inject, signal } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 const REVEAL_SCROLL_PX = 480;
 
@@ -11,6 +12,9 @@ export class ScrollStateService {
   readonly isScrolled = signal(false);
 
   constructor() {
+    if (!isPlatformBrowser(inject(PLATFORM_ID))) {
+      return;
+    }
     window.addEventListener(
       'scroll',
       () => this.isScrolled.set(window.scrollY > REVEAL_SCROLL_PX),

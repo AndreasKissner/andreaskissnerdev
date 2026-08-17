@@ -11,7 +11,9 @@
 
     <p class="sticky-bar__status">
       <app-live-indicator />
-      {{ 'HERO.AVAILABLE' | translate }} · {{ 'HERO.LOCAL_TIME' | translate: { time: availability.swissTime() } }}
+      <span>{{ 'HERO.AVAILABLE' | translate }}</span>
+      <app-wave-icon />
+      <span>{{ 'HERO.LOCAL_TIME' | translate: { time: availability.swissTime() } }}</span>
     </p>
 
     <a

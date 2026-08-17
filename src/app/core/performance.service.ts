@@ -1,4 +1,5 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, PLATFORM_ID, inject, signal } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 /**
  * Measures the page's own load time via the Navigation Timing API,
@@ -9,6 +10,9 @@ export class PerformanceService {
   readonly loadTimeMs = signal<number | null>(null);
 
   constructor() {
+    if (!isPlatformBrowser(inject(PLATFORM_ID))) {
+      return;
+    }
     if (document.readyState === 'complete') {
       this.measure();
     } else {

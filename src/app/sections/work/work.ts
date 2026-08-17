@@ -1,10 +1,19 @@
 import { ChangeDetectionStrategy, Component, HostListener, signal } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
-import { ShmDemoComponent } from '../../shared/shm-demo/shm-demo';
+import { ProcessStepsComponent } from '../../shared/process-steps/process-steps';
 import { MagneticDirective } from '../../shared/magnetic.directive';
 import { InfoModalComponent } from '../../shared/info-modal/info-modal';
+import { SectionDividerComponent } from '../../shared/section-divider/section-divider';
 
 const SWIPE_THRESHOLD_PX = 40;
+
+const SHM_STEP_KEYS = ['WORK.SHM_DEMO_STEP_1', 'WORK.SHM_DEMO_STEP_2', 'WORK.SHM_DEMO_STEP_3'] as const;
+const DUNE_STEP_KEYS = ['WORK.DUNE_DEMO_STEP_1', 'WORK.DUNE_DEMO_STEP_2', 'WORK.DUNE_DEMO_STEP_3'] as const;
+const PORTFOLIO_STEP_KEYS = [
+  'PORTFOLIO_CTA.DEMO_STEP_1',
+  'PORTFOLIO_CTA.DEMO_STEP_2',
+  'PORTFOLIO_CTA.DEMO_STEP_3'
+] as const;
 
 /**
  * Work section: reference projects and portfolio link, presented as a
@@ -13,13 +22,16 @@ const SWIPE_THRESHOLD_PX = 40;
  */
 @Component({
   selector: 'app-work',
-  imports: [TranslatePipe, ShmDemoComponent, MagneticDirective, InfoModalComponent],
+  imports: [TranslatePipe, ProcessStepsComponent, MagneticDirective, InfoModalComponent, SectionDividerComponent],
   templateUrl: './work.html',
   styleUrl: './work.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WorkComponent {
   protected readonly slideCount = 3;
+  protected readonly shmStepKeys = SHM_STEP_KEYS;
+  protected readonly duneStepKeys = DUNE_STEP_KEYS;
+  protected readonly portfolioStepKeys = PORTFOLIO_STEP_KEYS;
   protected readonly activeIndex = signal(0);
   protected isCmsModalOpen = signal(false);
 

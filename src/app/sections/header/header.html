@@ -6,6 +6,23 @@
     </a>
 
     <div class="header__controls">
+      <div class="header__accent-nav" role="group" [attr.aria-label]="'NAV.ACCENT_COLOR' | translate">
+        @for (option of accentOptions; track option; let i = $index) {
+          <button
+            type="button"
+            class="header__accent-card"
+            [class.header__accent-card--active]="accentColor.accent() === option"
+            [style.--accent-dot-color]="accentDotColor(option)"
+            [style.--card-index]="i"
+            [attr.aria-label]="('NAV.ACCENT_' + option.toUpperCase()) | translate"
+            [attr.aria-pressed]="accentColor.accent() === option"
+            (click)="accentColor.setAccent(option)"
+          >
+            <span class="header__accent-card-fill" aria-hidden="true"></span>
+          </button>
+        }
+      </div>
+
       <button
         type="button"
         class="header__icon-btn"
@@ -99,20 +116,39 @@
         }
       </div>
 
-      <div class="header__lang" role="group" [attr.aria-label]="'NAV.LANGUAGE' | translate">
-        <span class="header__lang-fill" #langFill aria-hidden="true"></span>
-        @for (language of languageOptions; track language) {
-          <button
-            #langBtn
-            type="button"
-            class="header__lang-button"
-            [class.header__lang-button--active]="languageService.activeLanguage() === language"
-            [attr.aria-current]="languageService.activeLanguage() === language ? 'true' : null"
-            (click)="selectLanguage(language)"
-          >
-            {{ language }}
-          </button>
-        }
+      <div class="header__lang-row">
+        <div class="header__lang" role="group" [attr.aria-label]="'NAV.LANGUAGE' | translate">
+          <span class="header__lang-fill" #langFill aria-hidden="true"></span>
+          @for (language of languageOptions; track language) {
+            <button
+              #langBtn
+              type="button"
+              class="header__lang-button"
+              [class.header__lang-button--active]="languageService.activeLanguage() === language"
+              [attr.aria-current]="languageService.activeLanguage() === language ? 'true' : null"
+              (click)="selectLanguage(language)"
+            >
+              {{ language }}
+            </button>
+          }
+        </div>
+
+        <div class="header__accent-nav header__accent-nav--mobile" role="group" [attr.aria-label]="'NAV.ACCENT_COLOR' | translate">
+          @for (option of accentOptions; track option; let i = $index) {
+            <button
+              type="button"
+              class="header__accent-card"
+              [class.header__accent-card--active]="accentColor.accent() === option"
+              [style.--accent-dot-color]="accentDotColor(option)"
+              [style.--card-index]="i"
+              [attr.aria-label]="('NAV.ACCENT_' + option.toUpperCase()) | translate"
+              [attr.aria-pressed]="accentColor.accent() === option"
+              (click)="accentColor.setAccent(option)"
+            >
+              <span class="header__accent-card-fill" aria-hidden="true"></span>
+            </button>
+          }
+        </div>
       </div>
     </nav>
   </div>

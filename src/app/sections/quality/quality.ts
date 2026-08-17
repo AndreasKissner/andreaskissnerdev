@@ -3,6 +3,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { PerformanceService } from '../../core/performance.service';
 import { InfoModalComponent } from '../../shared/info-modal/info-modal';
 import { contrastRatio } from '../../shared/contrast';
+import { SectionDividerComponent } from '../../shared/section-divider/section-divider';
 
 const AA_TEXT_THRESHOLD = 4.5;
 
@@ -15,7 +16,7 @@ export type VisionFilter = 'none' | 'deuteranopia' | 'protanopia' | 'tritanopia'
  */
 @Component({
   selector: 'app-quality',
-  imports: [TranslatePipe, InfoModalComponent],
+  imports: [TranslatePipe, InfoModalComponent, SectionDividerComponent],
   templateUrl: './quality.html',
   styleUrl: './quality.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

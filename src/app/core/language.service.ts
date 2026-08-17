@@ -1,4 +1,5 @@
-import { Injectable, inject, signal } from '@angular/core';
+import { Injectable, PLATFORM_ID, inject, signal } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
 import { runWithViewTransition } from './view-transition';
 
@@ -14,6 +15,7 @@ const DEFAULT_LANGUAGE: AppLanguage = 'de';
 @Injectable({ providedIn: 'root' })
 export class LanguageService {
   private readonly translate = inject(TranslateService);
+  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
   readonly activeLanguage = signal<AppLanguage>(DEFAULT_LANGUAGE);
 
   /** Initializes the translate service with the detected or stored language. */
@@ -26,7 +28,9 @@ export class LanguageService {
   setLanguage(language: AppLanguage): void {
     this.translate.use(language);
     this.activeLanguage.set(language);
-    localStorage.setItem(STORAGE_KEY, language);
+    if (this.isBrowser) {
+      localStorage.setItem(STORAGE_KEY, language);
+    }
   }
 
   /** Switches the language via a View Transition, used for user-triggered switches. */
@@ -35,6 +39,9 @@ export class LanguageService {
   }
 
   private detectLanguage(): AppLanguage {
+    if (!this.isBrowser) {
+      return DEFAULT_LANGUAGE;
+    }
     const stored = localStorage.getItem(STORAGE_KEY) as AppLanguage | null;
     if (stored && SUPPORTED_LANGUAGES.includes(stored)) {
       return stored;

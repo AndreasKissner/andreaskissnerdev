@@ -1,5 +1,9 @@
 /** Applies a DOM-changing callback wrapped in a View Transition when the browser supports it. */
 export function runWithViewTransition(applyChange: () => void): void {
+  if (typeof window === 'undefined') {
+    applyChange();
+    return;
+  }
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (!document.startViewTransition || prefersReducedMotion) {
