@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { ContactService } from '../../core/contact.service';
 import { MagneticDirective } from '../../shared/magnetic.directive';
@@ -17,7 +18,7 @@ const REVIEW_STEP = STEP_FIELDS.length;
  */
 @Component({
   selector: 'app-contact',
-  imports: [ReactiveFormsModule, TranslatePipe, MagneticDirective, SectionDividerComponent],
+  imports: [ReactiveFormsModule, TranslatePipe, MagneticDirective, SectionDividerComponent, RouterLink],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

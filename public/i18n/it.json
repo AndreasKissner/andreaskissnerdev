@@ -151,7 +151,7 @@
     "SHM_TITLE": "Second Hand Manager",
     "SHM_TEXT": "Un'applicazione gestionale per negozi dell'usato e conto vendita: clienti, articoli, provvigioni, finanze e portale clienti in un unico sistema.",
     "DUNE_TITLE": "D'une Main à l'Autre",
-    "DUNE_TEXT": "Sito web di una boutique dell'usato nel Giura, con sistema di gestione contenuti integrato, la titolare pubblica da sola immagini e articoli online. Gli interessati contattano direttamente tramite un pulsante, senza integrazione di uno shop. Uno shop online completo resta possibile se necessario.",
+    "DUNE_TEXT": "Sito web di una boutique dell'usato nel Giura: grazie a un proprio sistema di gestione contenuti, la titolare pubblica da sola immagini e articoli online. Gli interessati contattano direttamente tramite un pulsante, senza integrazione di uno shop. Uno shop online completo resta possibile se necessario.",
     "DUNE_CMS_TITLE": "Sistema di gestione contenuti",
     "DUNE_CMS_INFO": "Un sistema di gestione contenuti (CMS) è personalizzato al 100% in base alle vostre esigenze, non un sistema standard. Potete accedere e modificare i contenuti del vostro sito web: testi, immagini, descrizioni, senza conoscenze tecniche. Salvate e il vostro sito è subito aggiornato. Nessuno sviluppatore necessario per ogni modifica.",
     "SHM_DEMO_LABEL": "Anteprima dal vivo del processo, al passaggio del mouse o al focus",
@@ -195,7 +195,7 @@
     "TITLE": "Contatto",
     "INTRO": "Lasciate qualche informazione veloce, vi rispondo a breve.",
     "STEP_OF": "Domanda {{current}} di {{total}}",
-    "Q_NAME": "Come si chiama?",
+    "Q_NAME": "Come vi chiamate?",
     "Q_EMAIL": "A quale e-mail posso contattarvi?",
     "Q_MESSAGE": "Il vostro messaggio per me",
     "REVIEW_TITLE": "Va tutto bene così?",
@@ -212,7 +212,9 @@
     "ERROR_REQUIRED": "Questo campo è obbligatorio.",
     "ERROR_EMAIL": "Inserite un indirizzo e-mail valido.",
     "ERROR_MIN_LENGTH": "Aggiungete qualche dettaglio in più.",
-    "PRIVACY_NOTICE": "Inviando il modulo accettate il trattamento dei vostri dati secondo la {{link}}."
+    "PRIVACY_NOTICE_PREFIX": "Inviando il modulo accettate il trattamento dei vostri dati secondo la",
+    "PRIVACY_NOTICE_LINK": "informativa sulla privacy.",
+    "PRIVACY_NOTICE_SUFFIX": ""
   },
   "EASTER": {
     "TAKE_OFF": "🚀 Decollo",
@@ -242,7 +244,7 @@
     "EMAIL_LABEL": "Email",
     "EMAIL_VALUE": "developer@andreas-kissner.cloud",
     "WEBSITE_LABEL": "Sito web",
-    "WEBSITE_VALUE": "andreaskissner.info",
+    "WEBSITE_VALUE": "andreaskissner.dev",
     "PHONE_LABEL": "Telefono",
     "PHONE_VALUE": "+41 76 749 67 13",
     "COMPANY_INFO_TITLE": "Informazioni sull'azienda",

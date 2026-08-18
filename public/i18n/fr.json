@@ -151,7 +151,7 @@
     "SHM_TITLE": "Second Hand Manager",
     "SHM_TEXT": "Une application de gestion pour boutiques de seconde main et dépôt-vente : clients, articles, commissions, finances et portail client réunis dans un seul système.",
     "DUNE_TITLE": "D'une Main à l'Autre",
-    "DUNE_TEXT": "Site web d'une boutique de seconde main dans le Jura, avec un système de gestion de contenu intégré, la propriétaire publie elle-même images et articles en ligne. Les intéressés contactent directement via un bouton, sans intégration de boutique. Une boutique en ligne complète reste possible si besoin.",
+    "DUNE_TEXT": "Site web d'une boutique de seconde main dans le Jura : grâce à son propre système de gestion de contenu, la propriétaire publie elle-même images et articles en ligne. Les intéressés contactent directement via un bouton, sans intégration de boutique. Une boutique en ligne complète reste possible si besoin.",
     "DUNE_CMS_TITLE": "Système de gestion de contenu",
     "DUNE_CMS_INFO": "Un système de gestion de contenu (CMS) est conçu à 100% selon vos besoins, pas un système standard. Vous pouvez vous connecter et modifier les contenus de votre site web : textes, images, descriptions, sans connaissances techniques. Enregistrez et votre site est à jour immédiatement. Aucun développeur nécessaire pour chaque modification.",
     "SHM_DEMO_LABEL": "Aperçu en direct du processus, au survol ou au focus",
@@ -212,7 +212,9 @@
     "ERROR_REQUIRED": "Ce champ est requis.",
     "ERROR_EMAIL": "Merci d'indiquer une adresse e-mail valide.",
     "ERROR_MIN_LENGTH": "Merci de détailler un peu plus.",
-    "PRIVACY_NOTICE": "En envoyant ce formulaire, vous acceptez le traitement de vos données conformément à la {{link}}."
+    "PRIVACY_NOTICE_PREFIX": "En envoyant ce formulaire, vous acceptez le traitement de vos données conformément à la",
+    "PRIVACY_NOTICE_LINK": "politique de confidentialité.",
+    "PRIVACY_NOTICE_SUFFIX": ""
   },
   "EASTER": {
     "TAKE_OFF": "🚀 Décollage",
@@ -242,7 +244,7 @@
     "EMAIL_LABEL": "E-mail",
     "EMAIL_VALUE": "developer@andreas-kissner.cloud",
     "WEBSITE_LABEL": "Site web",
-    "WEBSITE_VALUE": "andreaskissner.info",
+    "WEBSITE_VALUE": "andreaskissner.dev",
     "PHONE_LABEL": "Téléphone",
     "PHONE_VALUE": "+41 76 749 67 13",
     "COMPANY_INFO_TITLE": "Informations sur l'entreprise",

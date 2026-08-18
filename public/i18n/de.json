@@ -151,7 +151,7 @@
     "SHM_TITLE": "Second Hand Manager",
     "SHM_TEXT": "Eine Verwaltungsanwendung für Second-Hand- und Kommissionsläden: Kunden, Artikel, Provisionen, Finanzen und Kundenportal in einem System.",
     "DUNE_TITLE": "D'une Main à l'Autre",
-    "DUNE_TEXT": "Webauftritt einer Second-Hand-Boutique im Jura, mit eigenem Content Management System stellt die Inhaberin Bilder und Artikel selbst online. Interessenten fragen Artikel direkt per Kontakt-Button an, ganz ohne Shop-Integration. Ein eigener Online-Shop ist bei Bedarf ebenfalls möglich.",
+    "DUNE_TEXT": "Webauftritt einer Second-Hand-Boutique im Jura: Mit einem eigenen Content Management System stellt die Inhaberin Bilder und Artikel selbst online. Interessenten fragen Artikel direkt per Kontakt-Button an, ganz ohne Shop-Integration. Ein eigener Online-Shop ist bei Bedarf ebenfalls möglich.",
     "DUNE_CMS_TITLE": "Content Management System",
     "DUNE_CMS_INFO": "Ein Content Management System (CMS) wird zu 100% auf Ihre Bedürfnisse angepasst, nicht von der Stange. Sie können sich einloggen und die Inhalte Ihrer Website bearbeiten: Texte, Bilder, Beschreibungen, ohne technische Kenntnisse. Speichern, und sofort ist die Website aktuell. Kein Entwickler nötig für jede Änderung.",
     "SHM_DEMO_LABEL": "Live-Vorschau des Ablaufs, bei Hover oder Fokus abspielen",
@@ -212,7 +212,9 @@
     "ERROR_REQUIRED": "Dieses Feld wird benötigt.",
     "ERROR_EMAIL": "Bitte eine gültige E-Mail-Adresse eingeben.",
     "ERROR_MIN_LENGTH": "Bitte etwas ausführlicher.",
-    "PRIVACY_NOTICE": "Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Angaben gemäss der Datenschutzerklärung zu."
+    "PRIVACY_NOTICE_PREFIX": "Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Angaben gemäss der",
+    "PRIVACY_NOTICE_LINK": "Datenschutzerklärung",
+    "PRIVACY_NOTICE_SUFFIX": "zu."
   },
   "EASTER": {
     "TAKE_OFF": "🚀 Take off",
@@ -242,7 +244,7 @@
     "EMAIL_LABEL": "E-Mail",
     "EMAIL_VALUE": "developer@andreas-kissner.cloud",
     "WEBSITE_LABEL": "Website",
-    "WEBSITE_VALUE": "andreaskissner.info",
+    "WEBSITE_VALUE": "andreaskissner.dev",
     "PHONE_LABEL": "Telefon",
     "PHONE_VALUE": "+41 76 749 67 13",
     "COMPANY_INFO_TITLE": "Unternehmensinformationen",

@@ -125,7 +125,11 @@
         }
       </div>
 
-      <p class="contact__privacy">{{ 'CONTACT.PRIVACY_NOTICE' | translate }}</p>
+      <p class="contact__privacy">
+        {{ 'CONTACT.PRIVACY_NOTICE_PREFIX' | translate }}
+        <a routerLink="/datenschutz">{{ 'CONTACT.PRIVACY_NOTICE_LINK' | translate }}</a>
+        {{ 'CONTACT.PRIVACY_NOTICE_SUFFIX' | translate }}
+      </p>
 
       @if (status() === 'success') {
         <p class="contact__status contact__status--success" role="status">{{ 'CONTACT.SUCCESS' | translate }}</p>

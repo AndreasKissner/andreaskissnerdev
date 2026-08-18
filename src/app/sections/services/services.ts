@@ -12,7 +12,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { SectionDividerComponent } from '../../shared/section-divider/section-divider';
 
 const SLIDER_INTERVAL_MS = 2400;
-const SLIDER_IMAGE_COUNT = 5;
+const SLIDER_IMAGE_COUNT = 7;
 const CAROUSEL_RADIUS_PX = 360;
 const AUTO_ROTATE_DEG_PER_FRAME = 0.12;
 const DRAG_SENSITIVITY = 0.5;

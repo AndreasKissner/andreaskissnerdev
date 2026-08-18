@@ -151,7 +151,7 @@
     "SHM_TITLE": "Second Hand Manager",
     "SHM_TEXT": "A management application for second-hand and consignment shops: customers, inventory, commissions, finances and a customer portal in one system.",
     "DUNE_TITLE": "D'une Main à l'Autre",
-    "DUNE_TEXT": "Website for a second-hand boutique in the Jura region, with a built-in content management system, the owner publishes images and listings herself. Interested buyers reach out directly via a contact button, no shop integration required. A full online shop remains possible if needed.",
+    "DUNE_TEXT": "Website for a second-hand boutique in the Jura region: with a built-in content management system, the owner publishes images and listings herself. Interested buyers reach out directly via a contact button, no shop integration required. A full online shop remains possible if needed.",
     "DUNE_CMS_TITLE": "Content Management System",
     "DUNE_CMS_INFO": "A content management system (CMS) is built to 100% match your specific needs, not an off-the-shelf system. You can log in and edit your website's content: text, images, descriptions, without technical knowledge. Save and your site is immediately updated. No developer needed for every change.",
     "SHM_DEMO_LABEL": "Live preview of the workflow, hover or focus to play",
@@ -212,7 +212,15 @@
     "ERROR_REQUIRED": "This field is required.",
     "ERROR_EMAIL": "Please enter a valid email address.",
     "ERROR_MIN_LENGTH": "Please add a bit more detail.",
-    "PRIVACY_NOTICE": "By submitting, you agree to the processing of your data as described in the {{link}}."
+    "PRIVACY_NOTICE_PREFIX": "By submitting, you agree to the processing of your data as described in the",
+    "PRIVACY_NOTICE_LINK": "privacy policy.",
+    "PRIVACY_NOTICE_SUFFIX": ""
+  },
+  "EASTER": {
+    "TAKE_OFF": "🚀 Take off",
+    "TITLE": "404",
+    "MESSAGE": "This page got lost in orbit. Your project, though, will land safely.",
+    "BACK": "Back to Earth"
   },
   "PALETTE": {
     "TITLE": "Command palette",
@@ -236,7 +244,7 @@
     "EMAIL_LABEL": "Email",
     "EMAIL_VALUE": "developer@andreas-kissner.cloud",
     "WEBSITE_LABEL": "Website",
-    "WEBSITE_VALUE": "andreaskissner.info",
+    "WEBSITE_VALUE": "andreaskissner.dev",
     "PHONE_LABEL": "Phone",
     "PHONE_VALUE": "+41 76 749 67 13",
     "COMPANY_INFO_TITLE": "Company information",
