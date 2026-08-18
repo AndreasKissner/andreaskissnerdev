@@ -6,8 +6,8 @@ import { ConsentService } from '../../core/consent.service';
 import { SeoService } from '../../core/seo.service';
 
 /**
- * Privacy policy section required under nDSG/GDPR. Placeholder copy until
- * the final legal text is provided.
+ * Privacy policy section required under nDSG/GDPR, covering hosting,
+ * the contact form and consent-gated Google Analytics.
  */
 @Component({
   selector: 'app-privacy-policy',

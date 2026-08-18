@@ -16,6 +16,8 @@ import { SeoService } from '../../core/seo.service';
 })
 export class HomeComponent {
   constructor() {
-    inject(SeoService).setPage('SEO.HOME_TITLE', 'SEO.HOME_DESCRIPTION');
+    const seo = inject(SeoService);
+    seo.setPage('SEO.HOME_TITLE', 'SEO.HOME_DESCRIPTION');
+    seo.injectPersonSchema();
   }
 }
