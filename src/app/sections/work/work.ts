@@ -83,7 +83,8 @@ export class WorkComponent {
   protected readonly portfolioStepKeys = PORTFOLIO_STEP_KEYS;
   protected readonly isCmsModalOpen = signal(false);
 
-  private readonly prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  private readonly isBrowser = typeof window !== 'undefined';
+  private readonly prefersReducedMotion = this.isBrowser && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   private readonly scene = viewChild<ElementRef<HTMLElement>>('scene');
   private readonly track = viewChild<ElementRef<HTMLElement>>('track');
 

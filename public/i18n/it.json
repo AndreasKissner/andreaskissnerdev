@@ -180,7 +180,12 @@
     "NEXT": "Progetto successivo",
     "CAROUSEL_LABEL": "Scorri i progetti",
     "SLIDE": "Vai alla scheda {{n}}",
-    "VISIT_PROJECT": "Vedi il progetto"
+    "VISIT_PROJECT": "Vedi il progetto",
+    "TESTIMONIAL_LABEL": "Cosa dicono i clienti",
+    "TESTIMONIAL_QUOTE": "Un lavoro eccellente. Il sito rispecchia esattamente ciò che rappresenta la mia azienda. Il servizio del signor Kissner è assolutamente imbattibile.",
+    "TESTIMONIAL_NAME": "Alain Brand",
+    "TESTIMONIAL_ROLE": "CEO",
+    "TESTIMONIAL_COMPANY": "Safety Concept Sàrl"
   },
   "PORTFOLIO_CTA": {
     "TITLE": "Altri progetti nel dettaglio",

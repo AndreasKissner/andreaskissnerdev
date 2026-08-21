@@ -33,6 +33,9 @@ export class App {
 
   constructor() {
     this.languageService.init();
+    if (typeof document === 'undefined') {
+      return;
+    }
     effect(() => {
       document.documentElement.lang = this.languageService.activeLanguage();
     });

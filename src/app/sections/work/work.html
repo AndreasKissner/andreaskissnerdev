@@ -61,6 +61,23 @@
       </article>
       </div>
     </div>
+
+    <figure class="work__testimonial scroll-reveal">
+      <p class="work__testimonial-label">{{ 'WORK.TESTIMONIAL_LABEL' | translate }}</p>
+      <blockquote class="work__testimonial-quote">
+        <span class="work__testimonial-mark" aria-hidden="true">&rdquo;</span>
+        {{ 'WORK.TESTIMONIAL_QUOTE' | translate }}
+      </blockquote>
+      <figcaption class="work__testimonial-author">
+        <span class="work__testimonial-avatar" aria-hidden="true">A</span>
+        <span class="work__testimonial-meta">
+          <span class="work__testimonial-name">{{ 'WORK.TESTIMONIAL_NAME' | translate }}</span>
+          <span class="work__testimonial-role">
+            {{ 'WORK.TESTIMONIAL_ROLE' | translate }}, <cite>{{ 'WORK.TESTIMONIAL_COMPANY' | translate }}</cite>
+          </span>
+        </span>
+      </figcaption>
+    </figure>
   </div>
 
   <app-info-modal

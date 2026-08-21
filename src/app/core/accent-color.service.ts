@@ -26,17 +26,21 @@ const ACCENT_HEX_DARK: Record<Exclude<AccentId, 'orange'>, string> = {
 @Injectable({ providedIn: 'root' })
 export class AccentColorService {
   private readonly themeService = inject(ThemeService);
-  private readonly darkMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  private readonly isBrowser = typeof window !== 'undefined';
+  private readonly darkMediaQuery = this.isBrowser ? window.matchMedia('(prefers-color-scheme: dark)') : null;
 
   readonly accent = signal<AccentId>(this.readStored());
 
   constructor() {
+    if (!this.isBrowser) {
+      return;
+    }
     effect(() => {
       this.accent();
       this.themeService.preference();
       this.applyAccent();
     });
-    this.darkMediaQuery.addEventListener('change', () => this.applyAccent());
+    this.darkMediaQuery?.addEventListener('change', () => this.applyAccent());
   }
 
   /** Switches the active accent color and persists the choice. */
@@ -78,11 +82,11 @@ export class AccentColorService {
     if (preference === 'light') {
       return false;
     }
-    return this.darkMediaQuery.matches;
+    return this.darkMediaQuery?.matches ?? false;
   }
 
   private readStored(): AccentId {
-    const stored = localStorage.getItem(STORAGE_KEY);
+    const stored = this.isBrowser ? localStorage.getItem(STORAGE_KEY) : null;
     return stored === 'blue' || stored === 'green' ? stored : DEFAULT_ACCENT;
   }
 }
