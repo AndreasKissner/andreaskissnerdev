@@ -91,8 +91,8 @@
   "PRICING": {
     "TITLE": "Combien ça coûte ?",
     "INTRO": "Transparent plutôt que \"prix sur demande\".",
-    "AMOUNT": "dès CHF 900.—",
-    "AMOUNT_LABEL": "site simple (one-pager)",
+    "AMOUNT": "dès CHF 300.—",
+    "AMOUNT_LABEL": "site simple (one-pager), hors frais de domaine",
     "NOTE": "Le prix exact dépend de l'ampleur du projet. Le plus simple est un court échange sans engagement, ainsi je sais exactement ce dont vous avez besoin, et vous obtenez un prix honnête plutôt qu'une estimation approximative.",
     "CTA": "Prendre contact, sans engagement"
   },
