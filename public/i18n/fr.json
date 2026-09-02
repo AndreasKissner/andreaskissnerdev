@@ -214,6 +214,8 @@
     "SENDING": "Envoi en cours …",
     "SUCCESS": "Merci ! Votre message est bien arrivé.",
     "ERROR": "Une erreur s'est produite. Merci de réessayer ou de m'écrire directement.",
+    "ERROR_RATE_LIMITED": "Trop de demandes en peu de temps. Merci de réessayer dans une heure ou de m'écrire directement.",
+    "ERROR_VALIDATION": "Merci de vérifier vos informations et de réessayer.",
     "ERROR_REQUIRED": "Ce champ est requis.",
     "ERROR_EMAIL": "Merci d'indiquer une adresse e-mail valide.",
     "ERROR_MIN_LENGTH": "Merci de détailler un peu plus.",

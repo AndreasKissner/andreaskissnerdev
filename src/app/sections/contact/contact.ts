@@ -2,11 +2,19 @@ import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/cor
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
-import { ContactService } from '../../core/contact.service';
+import { ContactSendError, ContactService } from '../../core/contact.service';
 import { MagneticDirective } from '../../shared/magnetic.directive';
 import { SectionDividerComponent } from '../../shared/section-divider/section-divider';
 
-type SubmitStatus = 'idle' | 'sending' | 'success' | 'error';
+type SubmitStatus =
+  | 'idle'
+  | 'sending'
+  | 'success'
+  | 'error-rate-limited'
+  | 'error-validation'
+  | 'error-forbidden'
+  | 'error-send-failed'
+  | 'error-network';
 type StepField = 'name' | 'email' | 'message';
 
 const STEP_FIELDS: readonly StepField[] = ['name', 'email', 'message'];
@@ -71,8 +79,23 @@ export class ContactComponent {
       this.status.set('success');
       this.form.reset();
       this.currentStep.set(0);
-    } catch {
-      this.status.set('error');
+    } catch (error) {
+      this.status.set(this.mapErrorToStatus(error));
     }
+  }
+
+  /** Maps a failed submission to the specific status the template shows a message for. */
+  private mapErrorToStatus(error: unknown): SubmitStatus {
+    if (!(error instanceof ContactSendError)) {
+      return 'error-network';
+    }
+    const statusByCode: Record<ContactSendError['code'], SubmitStatus> = {
+      rate_limited: 'error-rate-limited',
+      validation_failed: 'error-validation',
+      forbidden_origin: 'error-forbidden',
+      send_failed: 'error-send-failed',
+      network: 'error-network'
+    };
+    return statusByCode[error.code];
   }
 }

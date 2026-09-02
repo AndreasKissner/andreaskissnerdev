@@ -214,6 +214,8 @@
     "SENDING": "Sending …",
     "SUCCESS": "Thank you! Your message has arrived.",
     "ERROR": "Something went wrong. Please try again or email me directly.",
+    "ERROR_RATE_LIMITED": "Too many requests in a short time. Please try again in an hour or email me directly.",
+    "ERROR_VALIDATION": "Please check your details and try again.",
     "ERROR_REQUIRED": "This field is required.",
     "ERROR_EMAIL": "Please enter a valid email address.",
     "ERROR_MIN_LENGTH": "Please add a bit more detail.",

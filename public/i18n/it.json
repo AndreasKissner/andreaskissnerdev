@@ -214,6 +214,8 @@
     "SENDING": "Invio in corso …",
     "SUCCESS": "Grazie! Il vostro messaggio è arrivato.",
     "ERROR": "Qualcosa è andato storto. Riprovate o scrivetemi direttamente.",
+    "ERROR_RATE_LIMITED": "Troppe richieste in poco tempo. Riprovate tra un'ora o scrivetemi direttamente.",
+    "ERROR_VALIDATION": "Controllate i vostri dati e riprovate.",
     "ERROR_REQUIRED": "Questo campo è obbligatorio.",
     "ERROR_EMAIL": "Inserite un indirizzo e-mail valido.",
     "ERROR_MIN_LENGTH": "Aggiungete qualche dettaglio in più.",

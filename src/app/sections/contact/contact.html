@@ -134,7 +134,13 @@
       @if (status() === 'success') {
         <p class="contact__status contact__status--success" role="status">{{ 'CONTACT.SUCCESS' | translate }}</p>
       }
-      @if (status() === 'error') {
+      @if (status() === 'error-rate-limited') {
+        <p class="contact__status contact__status--error" role="alert">{{ 'CONTACT.ERROR_RATE_LIMITED' | translate }}</p>
+      }
+      @if (status() === 'error-validation' || status() === 'error-forbidden') {
+        <p class="contact__status contact__status--error" role="alert">{{ 'CONTACT.ERROR_VALIDATION' | translate }}</p>
+      }
+      @if (status() === 'error-send-failed' || status() === 'error-network') {
         <p class="contact__status contact__status--error" role="alert">{{ 'CONTACT.ERROR' | translate }}</p>
       }
     </form>
