@@ -157,6 +157,10 @@
   @include m.focus-ring;
 }
 
+.contact__turnstile {
+  margin-top: v.$space-md;
+}
+
 .contact__nav {
   display: flex;
   align-items: center;

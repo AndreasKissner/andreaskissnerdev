@@ -46,6 +46,11 @@ if ($errors !== []) {
 }
 
 $clientIp = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+$turnstileToken = trim((string) ($payload['turnstileToken'] ?? ''));
+if (!verifyTurnstileToken($turnstileToken, $clientIp)) {
+    sendJsonResponse(422, ['error' => 'captcha_failed']);
+}
+
 if (!checkAndRecordRateLimit($clientIp)) {
     sendJsonResponse(429, ['error' => 'rate_limited']);
 }
@@ -98,6 +103,33 @@ function validateFields(array $data): array
         $errors[] = 'message';
     }
     return $errors;
+}
+
+/** Verifies the visitor's Cloudflare Turnstile token, rejecting empty or invalid ones. */
+function verifyTurnstileToken(string $token, string $ip): bool
+{
+    if ($token === '') {
+        return false;
+    }
+    $config = require __DIR__ . '/turnstile-config.php';
+    $result = postTurnstileVerification($config['secret'], $token, $ip);
+    return ($result['success'] ?? false) === true;
+}
+
+/** Posts the token to Cloudflare's siteverify endpoint and decodes the JSON result. */
+function postTurnstileVerification(string $secret, string $token, string $ip): array
+{
+    $context = stream_context_create([
+        'http' => [
+            'method' => 'POST',
+            'header' => 'Content-Type: application/x-www-form-urlencoded',
+            'content' => http_build_query(['secret' => $secret, 'response' => $token, 'remoteip' => $ip]),
+            'timeout' => 10
+        ]
+    ]);
+    $raw = @file_get_contents('https://challenges.cloudflare.com/turnstile/v0/siteverify', false, $context);
+    $decoded = json_decode((string) $raw, true);
+    return is_array($decoded) ? $decoded : [];
 }
 
 /** Detects CR/LF characters that could be used to inject extra mail headers. */

@@ -216,6 +216,7 @@
     "ERROR": "Das hat leider nicht geklappt. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt.",
     "ERROR_RATE_LIMITED": "Zu viele Anfragen in kurzer Zeit. Bitte versuchen Sie es in einer Stunde erneut oder schreiben Sie mir direkt.",
     "ERROR_VALIDATION": "Bitte überprüfen Sie Ihre Angaben und versuchen Sie es erneut.",
+    "ERROR_CAPTCHA": "Die Sicherheitsprüfung ist fehlgeschlagen. Bitte versuchen Sie es erneut.",
     "ERROR_REQUIRED": "Dieses Feld wird benötigt.",
     "ERROR_EMAIL": "Bitte eine gültige E-Mail-Adresse eingeben.",
     "ERROR_MIN_LENGTH": "Bitte etwas ausführlicher.",

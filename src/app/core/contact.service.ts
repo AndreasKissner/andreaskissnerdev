@@ -5,9 +5,16 @@ export interface ContactPayload {
   readonly email: string;
   readonly message: string;
   readonly honeypot: string;
+  readonly turnstileToken: string;
 }
 
-export type ContactErrorCode = 'rate_limited' | 'validation_failed' | 'forbidden_origin' | 'send_failed' | 'network';
+export type ContactErrorCode =
+  | 'rate_limited'
+  | 'validation_failed'
+  | 'forbidden_origin'
+  | 'captcha_failed'
+  | 'send_failed'
+  | 'network';
 
 /** Thrown when a contact submission fails, carrying a machine-readable reason. */
 export class ContactSendError extends Error {
@@ -46,7 +53,13 @@ export class ContactService {
 
   /** Extracts the backend's error code from the response body, falling back to a generic one. */
   private async readErrorCode(response: Response): Promise<ContactErrorCode> {
-    const knownCodes: readonly ContactErrorCode[] = ['rate_limited', 'validation_failed', 'forbidden_origin', 'send_failed'];
+    const knownCodes: readonly ContactErrorCode[] = [
+      'rate_limited',
+      'validation_failed',
+      'forbidden_origin',
+      'captcha_failed',
+      'send_failed'
+    ];
     try {
       const body: { error?: string } = await response.json();
       return knownCodes.find((code) => code === body.error) ?? 'network';

@@ -41,6 +41,7 @@ __screenshots__/
 .DS_Store
 Thumbs.db
 
-# PHP backend secrets (real SMTP credentials, never commit)
+# PHP backend secrets (real credentials, never commit)
 /backend-php/smtp-config.php
+/backend-php/turnstile-config.php
 /backend-php/.contact-rate-limit.json

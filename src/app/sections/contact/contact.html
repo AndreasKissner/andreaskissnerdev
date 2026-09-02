@@ -99,6 +99,8 @@
               </button>
             </div>
           </dl>
+
+          <div class="contact__turnstile" #turnstileContainer></div>
         </div>
       }
 
@@ -119,7 +121,7 @@
             {{ 'CONTACT.NEXT' | translate }}
           </button>
         } @else {
-          <button class="contact__submit" type="submit" [disabled]="status() === 'sending'" appMagnetic>
+          <button class="contact__submit" type="submit" [disabled]="status() === 'sending' || !turnstileToken()" appMagnetic>
             {{ (status() === 'sending' ? 'CONTACT.SENDING' : 'CONTACT.SUBMIT') | translate }}
           </button>
         }
@@ -139,6 +141,9 @@
       }
       @if (status() === 'error-validation' || status() === 'error-forbidden') {
         <p class="contact__status contact__status--error" role="alert">{{ 'CONTACT.ERROR_VALIDATION' | translate }}</p>
+      }
+      @if (status() === 'error-captcha') {
+        <p class="contact__status contact__status--error" role="alert">{{ 'CONTACT.ERROR_CAPTCHA' | translate }}</p>
       }
       @if (status() === 'error-send-failed' || status() === 'error-network') {
         <p class="contact__status contact__status--error" role="alert">{{ 'CONTACT.ERROR' | translate }}</p>
