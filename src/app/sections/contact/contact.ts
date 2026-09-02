@@ -3,6 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { ContactSendError, ContactService } from '../../core/contact.service';
+import { LanguageService } from '../../core/language.service';
 import { TurnstileService } from '../../core/turnstile.service';
 import { MagneticDirective } from '../../shared/magnetic.directive';
 import { SectionDividerComponent } from '../../shared/section-divider/section-divider';
@@ -36,6 +37,7 @@ const REVIEW_STEP = STEP_FIELDS.length;
 export class ContactComponent {
   private readonly contactService = inject(ContactService);
   private readonly turnstileService = inject(TurnstileService);
+  private readonly languageService = inject(LanguageService);
   private readonly turnstileContainer = viewChild<ElementRef<HTMLElement>>('turnstileContainer');
   private turnstileWidgetId: string | null = null;
 
@@ -91,7 +93,11 @@ export class ContactComponent {
 
     this.status.set('sending');
     try {
-      await this.contactService.send({ ...this.form.getRawValue(), turnstileToken: this.turnstileToken()! });
+      await this.contactService.send({
+        ...this.form.getRawValue(),
+        turnstileToken: this.turnstileToken()!,
+        language: this.languageService.activeLanguage()
+      });
       this.status.set('success');
       this.form.reset();
       this.currentStep.set(0);

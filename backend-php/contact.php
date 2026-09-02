@@ -56,6 +56,9 @@ if (!checkAndRecordRateLimit($clientIp)) {
 }
 
 $sent = sendNotificationEmail($payload);
+if ($sent) {
+    sendConfirmationEmail($payload);
+}
 sendJsonResponse($sent ? 200 : 502, ['status' => $sent ? 'ok' : 'send_failed']);
 
 /** Sends a JSON response with the given status code and body, then exits. */
@@ -214,24 +217,74 @@ function sendNotificationEmail(array $data): bool
     $body = "Name: {$name}\nE-Mail: {$email}\n\nNachricht:\n{$message}\n";
 
     $config = require __DIR__ . '/smtp-config.php';
-    return sendViaSmtp($config, $subject, $body, $email);
+    return sendViaSmtp($config, RECIPIENT_EMAIL, $subject, $body, $email);
+}
+
+/**
+ * Sends a best-effort confirmation copy to the visitor themselves, in the
+ * language their UI was in. Failure here never affects the main response,
+ * since the admin notification above is the part that actually matters.
+ */
+function sendConfirmationEmail(array $data): void
+{
+    $name = trim((string) $data['name']);
+    $email = trim((string) $data['email']);
+    $message = trim((string) $data['message']);
+    $language = (string) ($data['language'] ?? 'de');
+
+    $content = confirmationEmailContent($language, $name, $email, $message);
+    $config = require __DIR__ . '/smtp-config.php';
+    sendViaSmtp($config, $email, $content['subject'], $content['body'], RECIPIENT_EMAIL);
+}
+
+/** Builds the visitor-facing confirmation subject/body in their active UI language. */
+function confirmationEmailContent(string $language, string $name, string $email, string $message): array
+{
+    $templates = confirmationTemplates();
+    $template = $templates[$language] ?? $templates['de'];
+    $encodedSubject = '=?UTF-8?B?' . base64_encode($template['subject']) . '?=';
+    $body = sprintf($template['bodyFormat'], $name, $name, $email, $message);
+    return ['subject' => $encodedSubject, 'body' => $body];
+}
+
+/** Returns the per-language subject/body templates for the confirmation email. */
+function confirmationTemplates(): array
+{
+    return [
+        'de' => [
+            'subject' => 'Ihre Anfrage ist angekommen',
+            'bodyFormat' => "Hallo %s,\n\nvielen Dank für Ihre Nachricht über andreaskissner.dev. Ich melde mich so bald wie möglich bei Ihnen.\n\nZur Bestätigung hier eine Kopie Ihrer Angaben:\n\nName: %s\nE-Mail: %s\nNachricht:\n%s\n\nFreundliche Grüsse\nAndreas Kissner"
+        ],
+        'fr' => [
+            'subject' => 'Votre demande est bien arrivée',
+            'bodyFormat' => "Bonjour %s,\n\nMerci pour votre message via andreaskissner.dev. Je vous répondrai dès que possible.\n\nVoici une copie de vos informations, pour confirmation :\n\nNom : %s\nE-mail : %s\nMessage :\n%s\n\nCordialement\nAndreas Kissner"
+        ],
+        'it' => [
+            'subject' => 'La vostra richiesta è arrivata',
+            'bodyFormat' => "Ciao %s,\n\ngrazie per il vostro messaggio tramite andreaskissner.dev. Vi risponderò il prima possibile.\n\nEcco una copia dei vostri dati, come conferma:\n\nNome: %s\nE-mail: %s\nMessaggio:\n%s\n\nCordiali saluti\nAndreas Kissner"
+        ],
+        'en' => [
+            'subject' => 'Your request has arrived',
+            'bodyFormat' => "Hi %s,\n\nThanks for your message via andreaskissner.dev. I'll get back to you as soon as possible.\n\nHere's a copy of your details for confirmation:\n\nName: %s\nEmail: %s\nMessage:\n%s\n\nBest regards\nAndreas Kissner"
+        ]
+    ];
 }
 
 /** Opens an SMTP connection, runs the full send conversation, and closes it. */
-function sendViaSmtp(array $config, string $subject, string $body, string $replyTo): bool
+function sendViaSmtp(array $config, string $to, string $subject, string $body, string $replyTo): bool
 {
     $socket = @fsockopen($config['host'], $config['port'], $errno, $errstr, 10);
     if ($socket === false) {
         return false;
     }
     stream_set_timeout($socket, 10);
-    $ok = runSmtpConversation($socket, $config, $subject, $body, $replyTo);
+    $ok = runSmtpConversation($socket, $config, $to, $subject, $body, $replyTo);
     fclose($socket);
     return $ok;
 }
 
 /** Runs the STARTTLS + AUTH LOGIN + message handshake against an open SMTP socket. */
-function runSmtpConversation($socket, array $config, string $subject, string $body, string $replyTo): bool
+function runSmtpConversation($socket, array $config, string $to, string $subject, string $body, string $replyTo): bool
 {
     if (readSmtpResponse($socket) !== 220) {
         return false;
@@ -242,7 +295,7 @@ function runSmtpConversation($socket, array $config, string $subject, string $bo
     if (!authenticateSmtp($socket, $config['username'], $config['password'])) {
         return false;
     }
-    return sendSmtpMessage($socket, $config['username'], $subject, $body, $replyTo);
+    return sendSmtpMessage($socket, $config['username'], $to, $subject, $body, $replyTo);
 }
 
 /** Upgrades the plaintext connection to TLS via STARTTLS, then re-greets the server. */
@@ -273,30 +326,30 @@ function authenticateSmtp($socket, string $username, string $password): bool
 }
 
 /** Sends MAIL FROM/RCPT TO/DATA and the message itself, then QUITs. */
-function sendSmtpMessage($socket, string $from, string $subject, string $body, string $replyTo): bool
+function sendSmtpMessage($socket, string $from, string $to, string $subject, string $body, string $replyTo): bool
 {
     if (sendSmtpCommand($socket, "MAIL FROM:<{$from}>") !== 250) {
         return false;
     }
-    if (sendSmtpCommand($socket, 'RCPT TO:<' . RECIPIENT_EMAIL . '>') !== 250) {
+    if (sendSmtpCommand($socket, "RCPT TO:<{$to}>") !== 250) {
         return false;
     }
     if (sendSmtpCommand($socket, 'DATA') !== 354) {
         return false;
     }
-    $message = buildSmtpMessage($from, $subject, $body, $replyTo);
+    $message = buildSmtpMessage($from, $to, $subject, $body, $replyTo);
     $sent = sendSmtpCommand($socket, $message . "\r\n.") === 250;
     sendSmtpCommand($socket, 'QUIT');
     return $sent;
 }
 
 /** Assembles the raw RFC 5322 message: headers, blank line, then the body. */
-function buildSmtpMessage(string $from, string $subject, string $body, string $replyTo): string
+function buildSmtpMessage(string $from, string $to, string $subject, string $body, string $replyTo): string
 {
     $escapedBody = str_replace("\n.", "\n..", $body);
     $headers = implode("\r\n", [
         'From: ' . $from,
-        'To: ' . RECIPIENT_EMAIL,
+        'To: ' . $to,
         'Reply-To: ' . $replyTo,
         'Subject: ' . $subject,
         'MIME-Version: 1.0',

@@ -6,6 +6,7 @@ export interface ContactPayload {
   readonly message: string;
   readonly honeypot: string;
   readonly turnstileToken: string;
+  readonly language: string;
 }
 
 export type ContactErrorCode =
