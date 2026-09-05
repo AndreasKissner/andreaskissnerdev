@@ -1,0 +1,58 @@
+<section class="webapp" id="webapp" aria-labelledby="webapp-title">
+  <div class="webapp__container">
+    <h2 class="webapp__title" id="webapp-title">{{ 'WEBAPP.TITLE' | translate }}</h2>
+    <p class="webapp__intro">{{ 'WEBAPP.INTRO' | translate }}</p>
+
+    <div class="webapp__grid">
+      <article class="webapp__card scroll-reveal">
+        <h3 class="webapp__card-title">{{ 'WEBAPP.INSTALL_TITLE' | translate }}</h3>
+        <p class="webapp__card-text">{{ 'WEBAPP.INSTALL_TEXT' | translate }}</p>
+
+        @if (isInstalled()) {
+          <p class="webapp__status webapp__status--ok">{{ 'WEBAPP.INSTALL_DONE' | translate }}</p>
+        } @else if (canInstall()) {
+          <button type="button" class="webapp__install-btn" (click)="install()" appMagnetic>
+            {{ 'WEBAPP.INSTALL_CTA' | translate }}
+          </button>
+        } @else {
+          <p class="webapp__status">{{ 'WEBAPP.INSTALL_UNAVAILABLE' | translate }}</p>
+        }
+
+        <p class="webapp__feedback" aria-live="polite">
+          @if (installResult() === 'accepted') {
+            {{ 'WEBAPP.INSTALL_ACCEPTED' | translate }}
+          } @else if (installResult() === 'dismissed') {
+            {{ 'WEBAPP.INSTALL_DISMISSED' | translate }}
+          }
+        </p>
+      </article>
+
+      <article class="webapp__card scroll-reveal">
+        <h3 class="webapp__card-title">{{ 'WEBAPP.OFFLINE_TITLE' | translate }}</h3>
+        <p class="webapp__card-text">{{ 'WEBAPP.OFFLINE_TEXT' | translate }}</p>
+
+        <p class="webapp__status" [class.webapp__status--ok]="isOfflineReady()">
+          {{ (isOfflineReady() ? 'WEBAPP.OFFLINE_READY' : 'WEBAPP.OFFLINE_PENDING') | translate }}
+        </p>
+
+        <p class="webapp__connection" aria-live="polite">
+          {{ 'WEBAPP.CONNECTION_LABEL' | translate }}
+          <span
+            class="webapp__connection-badge"
+            [class.webapp__connection-badge--offline]="!isOnline()"
+          >
+            {{ (isOnline() ? 'WEBAPP.CONNECTION_ONLINE' : 'WEBAPP.CONNECTION_OFFLINE') | translate }}
+          </span>
+        </p>
+
+        <p class="webapp__hint">{{ 'WEBAPP.OFFLINE_HINT' | translate }}</p>
+      </article>
+    </div>
+
+    <p class="webapp__reference">
+      {{ 'WEBAPP.REFERENCE_TEXT' | translate }}
+      <a class="webapp__reference-link" href="#work">{{ 'WEBAPP.REFERENCE_LINK' | translate }}</a>
+    </p>
+  </div>
+  <app-section-divider />
+</section>
