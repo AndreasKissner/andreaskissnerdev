@@ -1,0 +1,39 @@
+.cursor-follower {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.cursor-follower__dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  box-shadow: 0 0 24px 6px var(--color-accent-glow);
+  opacity: 0;
+  transition:
+    width 200ms ease,
+    height 200ms ease,
+    margin 200ms ease,
+    opacity 200ms ease,
+    background-color 200ms ease;
+}
+
+.cursor-follower__dot--visible {
+  opacity: 0.7;
+}
+
+.cursor-follower__dot--active {
+  width: 44px;
+  height: 44px;
+  margin: -22px 0 0 -22px;
+  background-color: transparent;
+  border: 2px solid var(--color-accent-fg);
+  box-shadow: 0 0 32px 8px var(--color-accent-glow);
+  opacity: 1;
+}

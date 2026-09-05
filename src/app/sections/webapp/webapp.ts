@@ -4,6 +4,7 @@ import { PwaService } from '../../core/pwa.service';
 import { InfoModalComponent } from '../../shared/info-modal/info-modal';
 import { MagneticDirective } from '../../shared/magnetic.directive';
 import { SectionDividerComponent } from '../../shared/section-divider/section-divider';
+import { TiltDirective } from '../../shared/tilt.directive';
 
 /** Result of the visitor's answer to the browser's install dialog. */
 type InstallResult = 'idle' | 'accepted' | 'dismissed';
@@ -14,7 +15,7 @@ type InstallResult = 'idle' | 'accepted' | 'dismissed';
  */
 @Component({
   selector: 'app-webapp',
-  imports: [TranslatePipe, MagneticDirective, SectionDividerComponent, InfoModalComponent],
+  imports: [TranslatePipe, MagneticDirective, SectionDividerComponent, InfoModalComponent, TiltDirective],
   templateUrl: './webapp.html',
   styleUrl: './webapp.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

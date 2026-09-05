@@ -1,0 +1,10 @@
+@if (enabled) {
+  <div class="cursor-follower" aria-hidden="true">
+    <div
+      class="cursor-follower__dot"
+      [class.cursor-follower__dot--active]="isHovering()"
+      [class.cursor-follower__dot--visible]="hasMoved()"
+      #dot
+    ></div>
+  </div>
+}
