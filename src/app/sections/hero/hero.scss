@@ -51,7 +51,7 @@
   width: 96px;
   height: 96px;
   border-radius: 50%;
-  animation: hero-seal-spin 18s linear infinite;
+  animation: hero-seal-spin 6s linear infinite;
 
   @include m.reduced-motion {
     animation: none;
@@ -60,11 +60,11 @@
 
 @keyframes hero-seal-spin {
   from {
-    transform: rotate(0deg);
+    transform: perspective(400px) rotateY(360deg);
   }
 
   to {
-    transform: rotate(360deg);
+    transform: perspective(400px) rotateY(0deg);
   }
 }
 
@@ -321,7 +321,7 @@
 
   dt {
     color: var(--color-text-muted);
-    font-size: 0.85rem;
+    font-size: 1rem;
   }
 
   dd {
@@ -343,7 +343,7 @@
 
 .hero__console-tracking-label {
   color: var(--color-text-muted);
-  font-size: 0.85rem;
+  font-size: 1rem;
 }
 
 .hero__console-tracking-info-btn {
@@ -372,7 +372,7 @@
 
 .hero__console-tracking-info-mark {
   font-family: v.$font-mono;
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 1;
 }

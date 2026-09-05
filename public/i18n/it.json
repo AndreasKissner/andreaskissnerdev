@@ -91,8 +91,16 @@
   "PRICING": {
     "TITLE": "Quanto costa?",
     "INTRO": "Trasparente invece di \"prezzo su richiesta\".",
-    "AMOUNT": "da CHF 300.—",
-    "AMOUNT_LABEL": "sito semplice (one-pager), escluse spese di dominio",
+    "WEBSITE_LABEL": "Sito web",
+    "WEBSITE_AMOUNT": "da CHF 200.—",
+    "WEBSITE_AMOUNT_LABEL": "sito semplice (one-pager), escluse spese di dominio",
+    "WEBSITE_DESCRIPTION": "Presenta la vostra offerta in modo professionale: struttura, testi e design da un'unica fonte. Senza logica propria né gestione dati.",
+    "WEBAPP_LABEL": "Webapp",
+    "WEBAPP_AMOUNT": "da CHF 300.—",
+    "WEBAPP_AMOUNT_LABEL": "webapp con logica propria, escluse spese di dominio e server",
+    "WEBAPP_DESCRIPTION": "Rappresenta processi reali: gestione clienti, portali, funzioni su misura, come per esempio Second Hand Manager.",
+    "FORMATS_INFO_TITLE": "Sito web, landing page o webapp: di cosa ho bisogno?",
+    "FORMATS_INFO_TEXT": "Un sito web è composto da più sezioni o pagine (home, offerta, contatti, ecc.) ed è adatto quando i visitatori devono informarsi in modo approfondito. Una landing page è una singola pagina mirata con un solo obiettivo, ad esempio un'offerta o un'iscrizione, di solito collegata da un annuncio pubblicitario, senza menu che distragga. Entrambe rientrano nella categoria \"sito web\" nel listino prezzi, con la landing page che si colloca nella fascia più bassa. Una webapp va oltre: rappresenta processi reali, come la gestione clienti o un portale clienti, con una logica propria invece di semplice informazione.",
     "NOTE": "Il prezzo esatto dipende dall'ampiezza del progetto. Il modo più semplice è un breve scambio senza impegno, così so esattamente di cosa avete bisogno e ottenete un prezzo onesto invece di una stima approssimativa.",
     "CTA": "Contattami, senza impegno"
   },

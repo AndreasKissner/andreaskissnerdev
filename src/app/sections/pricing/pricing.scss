@@ -25,12 +25,121 @@
   max-width: 640px;
 }
 
+.pricing__grid {
+  display: grid;
+  gap: v.$space-md;
+  margin: 0 0 v.$space-lg;
+
+  @include m.respond-up(v.$bp-md) {
+    grid-template-columns: repeat(2, minmax(0, 420px));
+  }
+}
+
 .pricing__card {
-  max-width: 420px;
   padding: v.$space-lg;
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: v.$radius-md;
+}
+
+.pricing__badge-row {
+  display: flex;
+  align-items: center;
+  gap: v.$space-xs;
+  margin: 0 0 v.$space-xs;
+}
+
+.pricing__badge {
+  display: inline-block;
+  margin: 0;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-family: v.$font-mono;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background-color: var(--color-surface-raised);
+  color: var(--color-accent-fg);
+  box-shadow: inset 0 0 0 1px var(--color-accent-glow);
+}
+
+.pricing__info-btn {
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition:
+    color 150ms ease,
+    border-color 150ms ease,
+    transform 150ms ease;
+
+  @include m.focus-ring;
+
+  &:hover,
+  &:focus-visible,
+  &:active {
+    color: var(--color-accent-fg);
+    border-color: var(--color-accent-fg);
+    transform: translateY(-1px);
+  }
+}
+
+.pricing__info-btn-mark {
+  font-family: v.$font-mono;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.pricing__info-btn-ring {
+  position: absolute;
+  inset: -5px;
+  border: 1px solid var(--color-accent-fg);
+  border-radius: 8px;
+  opacity: 0;
+  transform: scale(0.75);
+  pointer-events: none;
+}
+
+.pricing__info-btn:hover .pricing__info-btn-ring,
+.pricing__info-btn:focus-visible .pricing__info-btn-ring,
+.pricing__info-btn:active .pricing__info-btn-ring {
+  animation: pricing-info-ping 1.1s ease-out infinite;
+}
+
+@keyframes pricing-info-ping {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.85);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+}
+
+@include m.reduced-motion {
+  .pricing__info-btn:hover .pricing__info-btn-ring,
+  .pricing__info-btn:focus-visible .pricing__info-btn-ring {
+    animation: none;
+    opacity: 0.5;
+    transform: scale(1);
+  }
+}
+
+.pricing__description {
+  color: var(--color-text-muted);
+  margin: 0;
 }
 
 .pricing__amount {
