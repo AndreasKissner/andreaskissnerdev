@@ -163,6 +163,9 @@
     "CONNECTION_ONLINE": "online",
     "CONNECTION_OFFLINE": "offline",
     "OFFLINE_HINT": "Test it yourself: switch on airplane mode or turn off Wi-Fi, then reload this page. The indicator above changes live and the site stays usable.",
+    "UNINSTALL_CTA": "Uninstall the app",
+    "UNINSTALL_INFO_TITLE": "How do I uninstall the app again?",
+    "UNINSTALL_INFO_TEXT": "For security reasons, no website can uninstall itself, only your browser or operating system can. On a computer (Windows/Mac): right-click the app icon and choose \"Uninstall\", or use chrome://apps in Chrome / edge://apps in Edge. On Android: press and hold the app icon and choose \"Uninstall\", just like any other app. On iPhone: press and hold the app icon and choose \"Remove App\".",
     "REFERENCE_TEXT": "I build webapps like this for clients too, for example Second Hand Manager, a management webapp for second-hand shops.",
     "REFERENCE_LINK": "See the references"
   },

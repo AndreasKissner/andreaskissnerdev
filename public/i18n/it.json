@@ -163,6 +163,9 @@
     "CONNECTION_ONLINE": "online",
     "CONNECTION_OFFLINE": "offline",
     "OFFLINE_HINT": "Provate voi stessi: attivate la modalità aereo o disattivate il Wi-Fi, poi ricaricate questa pagina. L'indicatore qui sopra cambia in tempo reale e il sito resta utilizzabile.",
+    "UNINSTALL_CTA": "Disinstalla l'app",
+    "UNINSTALL_INFO_TITLE": "Come si disinstalla di nuovo l'app?",
+    "UNINSTALL_INFO_TEXT": "Per motivi di sicurezza nessun sito può disinstallarsi da solo, può farlo solo il browser o il sistema operativo. Sul computer (Windows/Mac): clic destro sull'icona dell'app e scegliere \"Disinstalla\", oppure tramite chrome://apps su Chrome / edge://apps su Edge. Su Android: tenere premuta l'icona dell'app e scegliere \"Disinstalla\", come per qualsiasi altra app. Su iPhone: tenere premuta l'icona dell'app e scegliere \"Rimuovi app\".",
     "REFERENCE_TEXT": "Sviluppo webapp di questo tipo anche per i miei clienti, per esempio Second Hand Manager, una webapp gestionale per negozi dell'usato.",
     "REFERENCE_LINK": "Vai alle referenze"
   },

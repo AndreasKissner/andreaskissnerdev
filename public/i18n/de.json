@@ -163,6 +163,9 @@
     "CONNECTION_ONLINE": "online",
     "CONNECTION_OFFLINE": "offline",
     "OFFLINE_HINT": "Selbst testen: Flugmodus einschalten oder WLAN trennen, dann diese Seite neu laden. Die Anzeige oben wechselt live, die Seite bleibt bedienbar.",
+    "UNINSTALL_CTA": "App deinstallieren",
+    "UNINSTALL_INFO_TITLE": "Wie deinstalliere ich die App wieder?",
+    "UNINSTALL_INFO_TEXT": "Aus Sicherheitsgründen darf keine Website sich selbst deinstallieren, das kann nur der Browser bzw. das Betriebssystem. Am Computer (Windows/Mac): App-Icon mit der rechten Maustaste anklicken und \"Deinstallieren\" wählen, oder in Chrome/Edge unter chrome://apps bzw. edge://apps. Am Android-Handy: App-Icon gedrückt halten und \"Deinstallieren\" wählen, wie bei jeder anderen App. Am iPhone: App-Icon gedrückt halten und \"App entfernen\" wählen.",
     "REFERENCE_TEXT": "Solche Webapps baue ich auch für Kundschaft, zum Beispiel den Second Hand Manager, eine Verwaltungs-Webapp für Second-Hand-Läden.",
     "REFERENCE_LINK": "Zu den Referenzen"
   },

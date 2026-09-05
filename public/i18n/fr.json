@@ -163,6 +163,9 @@
     "CONNECTION_ONLINE": "en ligne",
     "CONNECTION_OFFLINE": "hors ligne",
     "OFFLINE_HINT": "Testez vous-même : activez le mode avion ou coupez le Wi-Fi, puis rechargez cette page. L'indicateur ci-dessus change en direct et le site reste utilisable.",
+    "UNINSTALL_CTA": "Désinstaller l'application",
+    "UNINSTALL_INFO_TITLE": "Comment désinstaller l'application ?",
+    "UNINSTALL_INFO_TEXT": "Pour des raisons de sécurité, aucun site ne peut se désinstaller lui-même, seul le navigateur ou le système d'exploitation le peut. Sur ordinateur (Windows/Mac) : clic droit sur l'icône de l'application puis \"Désinstaller\", ou via chrome://apps sur Chrome / edge://apps sur Edge. Sur Android : maintenez l'icône appuyée puis choisissez \"Désinstaller\", comme pour toute autre application. Sur iPhone : maintenez l'icône appuyée puis choisissez \"Supprimer l'app\".",
     "REFERENCE_TEXT": "Je développe ce type d'applications web pour mes clients, par exemple Second Hand Manager, une application de gestion pour les boutiques de seconde main.",
     "REFERENCE_LINK": "Voir les références"
   },

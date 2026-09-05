@@ -10,6 +10,9 @@
 
         @if (isInstalled()) {
           <p class="webapp__status webapp__status--ok">{{ 'WEBAPP.INSTALL_DONE' | translate }}</p>
+          <button type="button" class="webapp__uninstall-btn" (click)="openUninstallInfo()">
+            {{ 'WEBAPP.UNINSTALL_CTA' | translate }}
+          </button>
         } @else if (canInstall()) {
           <button type="button" class="webapp__install-btn" (click)="install()" appMagnetic>
             {{ 'WEBAPP.INSTALL_CTA' | translate }}
@@ -54,5 +57,12 @@
       <a class="webapp__reference-link" href="#work">{{ 'WEBAPP.REFERENCE_LINK' | translate }}</a>
     </p>
   </div>
+
+  <app-info-modal
+    [isOpen]="isUninstallInfoOpen()"
+    titleKey="WEBAPP.UNINSTALL_INFO_TITLE"
+    textKey="WEBAPP.UNINSTALL_INFO_TEXT"
+    (onClose)="closeUninstallInfo()"
+  />
   <app-section-divider />
 </section>
