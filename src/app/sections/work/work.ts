@@ -4,6 +4,7 @@ import { ProcessStepsComponent } from '../../shared/process-steps/process-steps'
 import { MagneticDirective } from '../../shared/magnetic.directive';
 import { InfoModalComponent } from '../../shared/info-modal/info-modal';
 import { SectionDividerComponent } from '../../shared/section-divider/section-divider';
+import { TiltDirective } from '../../shared/tilt.directive';
 
 interface ProjectCard {
   readonly id: string;
@@ -64,6 +65,47 @@ const PROJECTS: readonly ProjectCard[] = [
   }
 ];
 
+/** A single client testimonial card. */
+interface Testimonial {
+  readonly id: string;
+  readonly quoteKey: string;
+  readonly nameKey: string | null;
+  readonly roleKey: string;
+  readonly companyKey: string;
+  readonly companyLink: string;
+  readonly avatarInitial: string;
+}
+
+const TESTIMONIALS: readonly Testimonial[] = [
+  {
+    id: 'safety',
+    quoteKey: 'WORK.TESTIMONIAL_1_QUOTE',
+    nameKey: 'WORK.TESTIMONIAL_1_NAME',
+    roleKey: 'WORK.TESTIMONIAL_1_ROLE',
+    companyKey: 'WORK.TESTIMONIAL_1_COMPANY',
+    companyLink: 'https://safety-concept.ch',
+    avatarInitial: 'A'
+  },
+  {
+    id: 'dune',
+    quoteKey: 'WORK.TESTIMONIAL_2_QUOTE',
+    nameKey: 'WORK.TESTIMONIAL_2_NAME',
+    roleKey: 'WORK.TESTIMONIAL_2_ROLE',
+    companyKey: 'WORK.TESTIMONIAL_2_COMPANY',
+    companyLink: 'https://dune-main-a-lautre.ch',
+    avatarInitial: 'J'
+  },
+  {
+    id: 'scribe',
+    quoteKey: 'WORK.TESTIMONIAL_3_QUOTE',
+    nameKey: null,
+    roleKey: 'WORK.TESTIMONIAL_3_ROLE',
+    companyKey: 'WORK.TESTIMONIAL_3_COMPANY',
+    companyLink: 'https://la-scribe-du-nil.com',
+    avatarInitial: 'S'
+  }
+];
+
 const PORTFOLIO_STEP_KEYS = [
   'PORTFOLIO_CTA.DEMO_STEP_1',
   'PORTFOLIO_CTA.DEMO_STEP_2',
@@ -73,13 +115,21 @@ const PORTFOLIO_STEP_KEYS = [
 /** Work section: real client projects shown as a card grid, with a closing portfolio link card. */
 @Component({
   selector: 'app-work',
-  imports: [TranslatePipe, ProcessStepsComponent, MagneticDirective, InfoModalComponent, SectionDividerComponent],
+  imports: [
+    TranslatePipe,
+    ProcessStepsComponent,
+    MagneticDirective,
+    InfoModalComponent,
+    SectionDividerComponent,
+    TiltDirective
+  ],
   templateUrl: './work.html',
   styleUrl: './work.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WorkComponent {
   protected readonly projects = PROJECTS;
+  protected readonly testimonials = TESTIMONIALS;
   protected readonly portfolioStepKeys = PORTFOLIO_STEP_KEYS;
   protected readonly isCmsModalOpen = signal(false);
 

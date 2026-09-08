@@ -234,21 +234,8 @@
   font-size: 1rem;
 }
 
-.work__testimonial {
-  margin: v.$space-lg 0 0;
-  padding: v.$space-lg;
-  max-width: 640px;
-  background: linear-gradient(145deg, var(--color-surface-raised), var(--color-surface));
-  border: 1px solid var(--color-accent-fg);
-  border-radius: v.$radius-md;
-  box-shadow:
-    inset 0 1px rgba(255, 255, 255, 0.12),
-    0 8px 20px rgba(0, 0, 0, 0.16),
-    0 0 0 1px var(--color-accent-glow);
-}
-
 .work__testimonial-label {
-  margin: 0 0 v.$space-sm;
+  margin: v.$space-lg 0 v.$space-sm;
   color: var(--color-text-muted);
   font-family: v.$font-mono;
   font-size: 1rem;
@@ -256,8 +243,66 @@
   text-transform: uppercase;
 }
 
+.work__testimonials {
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-md;
+
+  @include m.respond-up(v.$bp-md) {
+    flex-direction: row;
+    align-items: stretch;
+  }
+}
+
+.work__testimonial {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: v.$space-lg;
+  overflow: hidden;
+  background: linear-gradient(145deg, var(--color-surface-raised), var(--color-surface));
+  border: 1px solid var(--color-accent-fg);
+  border-radius: v.$radius-md;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.12),
+    0 8px 20px rgba(0, 0, 0, 0.16),
+    0 0 0 1px var(--color-accent-glow);
+  transition: transform 150ms ease-out;
+  will-change: transform;
+
+  @include m.respond-up(v.$bp-md) {
+    flex: 1 1 0;
+    max-width: 360px;
+  }
+
+  @include m.reduced-motion {
+    transition: none;
+  }
+}
+
+.work__testimonial-sheen {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 40%, var(--color-accent-glow) 50%, transparent 60%);
+  background-size: 250% 250%;
+  background-position: 130% 130%;
+  pointer-events: none;
+  transition: background-position 500ms ease-out;
+}
+
+.work__testimonial:hover .work__testimonial-sheen {
+  background-position: -30% -30%;
+}
+
+@include m.reduced-motion {
+  .work__testimonial-sheen {
+    display: none;
+  }
+}
+
 .work__testimonial-quote {
   position: relative;
+  flex: 1;
   margin: 0 0 v.$space-md;
   padding: 0;
   font-family: v.$font-heading;
@@ -311,6 +356,13 @@
   cite {
     font-style: normal;
   }
+}
+
+.work__testimonial-link {
+  color: var(--color-accent-fg);
+  text-decoration: underline;
+
+  @include m.focus-ring;
 }
 
 .work__card-cta-link {

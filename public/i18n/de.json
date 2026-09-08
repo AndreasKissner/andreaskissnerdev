@@ -214,10 +214,17 @@
     "SLIDE": "Zu Karte {{n}}",
     "VISIT_PROJECT": "Projekt ansehen",
     "TESTIMONIAL_LABEL": "Was Kunden sagen",
-    "TESTIMONIAL_QUOTE": "Sehr schöne Arbeit. Die Webseite spiegelt genau das wider, was meine Firma ausmacht. Der Service von Herrn Kissner ist absolut unschlagbar.",
-    "TESTIMONIAL_NAME": "Alain Brand",
-    "TESTIMONIAL_ROLE": "CEO",
-    "TESTIMONIAL_COMPANY": "Safety Concept Sàrl"
+    "TESTIMONIAL_1_QUOTE": "Sehr schöne Arbeit. Die Webseite spiegelt genau das wider, was meine Firma ausmacht. Der Service von Herrn Kissner ist absolut unschlagbar.",
+    "TESTIMONIAL_1_NAME": "Alain Brand",
+    "TESTIMONIAL_1_ROLE": "CEO",
+    "TESTIMONIAL_1_COMPANY": "Safety Concept Sàrl",
+    "TESTIMONIAL_2_QUOTE": "[Platzhalter – Bewertungstext folgt]",
+    "TESTIMONIAL_2_NAME": "Jacqueline Veya",
+    "TESTIMONIAL_2_ROLE": "Besitzerin",
+    "TESTIMONIAL_2_COMPANY": "D'une Main à l'Autre",
+    "TESTIMONIAL_3_QUOTE": "Coole Sache! Die Seite zeigt immer automatisch alles aktuell an: neue Videos, Abonnentenzahl und mehr. Echt krass, vielen Dank!",
+    "TESTIMONIAL_3_ROLE": "Content Creator, YouTube",
+    "TESTIMONIAL_3_COMPANY": "La Scribe du Nil"
   },
   "PORTFOLIO_CTA": {
     "TITLE": "Mehr Projekte im Detail",
