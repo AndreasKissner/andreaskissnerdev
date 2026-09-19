@@ -38,7 +38,10 @@ const PROJECTS: readonly ProjectCard[] = [
     hasCmsInfo: false,
     hasPdfReport: false,
     pdfReportBaseName: null,
-    additionalReports: []
+    additionalReports: [
+      { labelKey: 'WORK.REPORT_LIGHTHOUSE', fileName: 'second-hand-manager-lighthouse-report.pdf' },
+      { labelKey: 'WORK.REPORT_ACCESSIBILITY', fileName: 'second-hand-manager-accessibility-scan.pdf' }
+    ]
   },
   {
     id: 'dune',
