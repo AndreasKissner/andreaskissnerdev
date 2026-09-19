@@ -12,6 +12,9 @@
           }
 
           <div class="work__card-body">
+            <span class="work__card-kind" [class.work__card-kind--webapp]="project.kindKey === 'WORK.KIND_WEBAPP'">
+              {{ project.kindKey | translate }}
+            </span>
             <div class="work__card-header">
               <h3 class="work__card-title">{{ project.titleKey | translate }}</h3>
               @if (project.hasCmsInfo) {
@@ -48,6 +51,9 @@
                 <span class="work__card-pdf-pending">{{ 'WORK.PDF_PENDING' | translate }}</span>
               }
 
+              @if (project.additionalReports.length > 0) {
+                <span class="work__card-reports-label">{{ 'WORK.REPORTS_LABEL' | translate }}</span>
+              }
               @for (report of project.additionalReports; track report.fileName) {
                 <a class="work__card-pdf-link" [href]="'case-studies/' + report.fileName" target="_blank" rel="noopener">
                   {{ report.labelKey | translate }}

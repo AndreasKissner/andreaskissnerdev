@@ -14,6 +14,7 @@ interface AdditionalReport {
 
 interface ProjectCard {
   readonly id: string;
+  readonly kindKey: string;
   readonly titleKey: string;
   readonly textKey: string;
   readonly screenshotSrc: string | null;
@@ -29,6 +30,7 @@ interface ProjectCard {
 const PROJECTS: readonly ProjectCard[] = [
   {
     id: 'shm',
+    kindKey: 'WORK.KIND_WEBAPP',
     titleKey: 'WORK.SHM_TITLE',
     textKey: 'WORK.SHM_TEXT',
     screenshotSrc: 'img/site-second-hand-manager.webp',
@@ -45,6 +47,7 @@ const PROJECTS: readonly ProjectCard[] = [
   },
   {
     id: 'dune',
+    kindKey: 'WORK.KIND_WEBSITE',
     titleKey: 'WORK.DUNE_TITLE',
     textKey: 'WORK.DUNE_TEXT',
     screenshotSrc: 'img/site-dune-main-a-lautre-ch.webp',
@@ -61,6 +64,7 @@ const PROJECTS: readonly ProjectCard[] = [
   },
   {
     id: 'scribe',
+    kindKey: 'WORK.KIND_WEBSITE',
     titleKey: 'WORK.SCRIBE_TITLE',
     textKey: 'WORK.SCRIBE_TEXT',
     screenshotSrc: 'img/site-la-scribe-du-nil-com.webp',
@@ -77,6 +81,7 @@ const PROJECTS: readonly ProjectCard[] = [
   },
   {
     id: 'safety',
+    kindKey: 'WORK.KIND_WEBSITE',
     titleKey: 'WORK.SAFETY_TITLE',
     textKey: 'WORK.SAFETY_TEXT',
     screenshotSrc: 'img/site-safety-concept-ch.webp',
