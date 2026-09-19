@@ -49,9 +49,12 @@ const PROJECTS: readonly ProjectCard[] = [
     stepAriaLabelKey: 'WORK.DUNE_DEMO_LABEL',
     link: 'https://dune-main-a-lautre.ch',
     hasCmsInfo: true,
-    hasPdfReport: true,
+    hasPdfReport: false,
     pdfReportBaseName: null,
-    additionalReports: []
+    additionalReports: [
+      { labelKey: 'WORK.REPORT_LIGHTHOUSE', fileName: 'dune-main-a-lautre-lighthouse-report.pdf' },
+      { labelKey: 'WORK.REPORT_ACCESSIBILITY', fileName: 'dune-main-a-lautre-accessibility-scan.pdf' }
+    ]
   },
   {
     id: 'scribe',
@@ -78,9 +81,12 @@ const PROJECTS: readonly ProjectCard[] = [
     stepAriaLabelKey: 'WORK.SAFETY_FEATURES_LABEL',
     link: 'https://safety-concept.ch',
     hasCmsInfo: false,
-    hasPdfReport: true,
+    hasPdfReport: false,
     pdfReportBaseName: null,
-    additionalReports: []
+    additionalReports: [
+      { labelKey: 'WORK.REPORT_LIGHTHOUSE', fileName: 'safety-concept-lighthouse-report.pdf' },
+      { labelKey: 'WORK.REPORT_ACCESSIBILITY', fileName: 'safety-concept-accessibility-scan.pdf' }
+    ]
   }
 ];
 
