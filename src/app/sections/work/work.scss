@@ -234,6 +234,22 @@
   font-size: 1rem;
 }
 
+.work__card-pdf-link {
+  padding: 4px 10px;
+  border: 1px solid var(--color-accent-fg);
+  border-radius: 999px;
+  color: var(--color-accent-fg);
+  font-family: v.$font-mono;
+  font-size: 1rem;
+  text-decoration: none;
+
+  @include m.focus-ring;
+
+  &:hover {
+    background-color: var(--color-accent-glow);
+  }
+}
+
 .work__testimonial-label {
   margin: v.$space-lg 0 v.$space-sm;
   color: var(--color-text-muted);

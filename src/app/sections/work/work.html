@@ -35,8 +35,23 @@
                 {{ 'WORK.VISIT_PROJECT' | translate }}
               </a>
 
-              @if (project.hasPdfReport) {
+              @if (project.pdfReportBaseName) {
+                <a
+                  class="work__card-pdf-link"
+                  [href]="pdfReportUrl(project.pdfReportBaseName)"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  {{ 'WORK.PDF_DOWNLOAD' | translate }}
+                </a>
+              } @else if (project.hasPdfReport) {
                 <span class="work__card-pdf-pending">{{ 'WORK.PDF_PENDING' | translate }}</span>
+              }
+
+              @for (report of project.additionalReports; track report.fileName) {
+                <a class="work__card-pdf-link" [href]="'case-studies/' + report.fileName" target="_blank" rel="noopener">
+                  {{ report.labelKey | translate }}
+                </a>
               }
             </div>
           </div>

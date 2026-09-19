@@ -6,6 +6,12 @@ import { InfoModalComponent } from '../../shared/info-modal/info-modal';
 import { SectionDividerComponent } from '../../shared/section-divider/section-divider';
 import { TiltDirective } from '../../shared/tilt.directive';
 
+/** A downloadable third-party audit report (Lighthouse, accessibility scan, etc.). */
+interface AdditionalReport {
+  readonly labelKey: string;
+  readonly fileName: string;
+}
+
 interface ProjectCard {
   readonly id: string;
   readonly titleKey: string;
@@ -16,6 +22,8 @@ interface ProjectCard {
   readonly link: string;
   readonly hasCmsInfo: boolean;
   readonly hasPdfReport: boolean;
+  readonly pdfReportBaseName: string | null;
+  readonly additionalReports: readonly AdditionalReport[];
 }
 
 const PROJECTS: readonly ProjectCard[] = [
@@ -28,7 +36,9 @@ const PROJECTS: readonly ProjectCard[] = [
     stepAriaLabelKey: 'WORK.SHM_DEMO_LABEL',
     link: 'https://second-hand-manager.com',
     hasCmsInfo: false,
-    hasPdfReport: false
+    hasPdfReport: false,
+    pdfReportBaseName: null,
+    additionalReports: []
   },
   {
     id: 'dune',
@@ -39,7 +49,9 @@ const PROJECTS: readonly ProjectCard[] = [
     stepAriaLabelKey: 'WORK.DUNE_DEMO_LABEL',
     link: 'https://dune-main-a-lautre.ch',
     hasCmsInfo: true,
-    hasPdfReport: true
+    hasPdfReport: true,
+    pdfReportBaseName: null,
+    additionalReports: []
   },
   {
     id: 'scribe',
@@ -50,7 +62,12 @@ const PROJECTS: readonly ProjectCard[] = [
     stepAriaLabelKey: 'WORK.SCRIBE_FEATURES_LABEL',
     link: 'https://la-scribe-du-nil.com',
     hasCmsInfo: false,
-    hasPdfReport: true
+    hasPdfReport: true,
+    pdfReportBaseName: 'la-scribe-du-nil-youtube-api',
+    additionalReports: [
+      { labelKey: 'WORK.REPORT_LIGHTHOUSE', fileName: 'la-scribe-du-nil-lighthouse-report.pdf' },
+      { labelKey: 'WORK.REPORT_ACCESSIBILITY', fileName: 'la-scribe-du-nil-accessibility-scan.pdf' }
+    ]
   },
   {
     id: 'safety',
@@ -61,7 +78,9 @@ const PROJECTS: readonly ProjectCard[] = [
     stepAriaLabelKey: 'WORK.SAFETY_FEATURES_LABEL',
     link: 'https://safety-concept.ch',
     hasCmsInfo: false,
-    hasPdfReport: true
+    hasPdfReport: true,
+    pdfReportBaseName: null,
+    additionalReports: []
   }
 ];
 
@@ -132,6 +151,11 @@ export class WorkComponent {
   protected readonly testimonials = TESTIMONIALS;
   protected readonly portfolioStepKeys = PORTFOLIO_STEP_KEYS;
   protected readonly isCmsModalOpen = signal(false);
+
+  /** Builds the download URL for a project's PDF case study (one file, all languages as separate pages). */
+  protected pdfReportUrl(baseName: string): string {
+    return `case-studies/${baseName}.pdf`;
+  }
 
   private readonly isBrowser = typeof window !== 'undefined';
   private readonly prefersReducedMotion = this.isBrowser && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
