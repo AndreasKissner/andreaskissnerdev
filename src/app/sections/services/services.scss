@@ -43,6 +43,7 @@
     transform-style: preserve-3d;
     transform: rotateY(var(--carousel-rotation, 0deg));
     transition: transform 50ms linear;
+    will-change: transform;
     cursor: grab;
     touch-action: pan-y;
 
@@ -71,6 +72,7 @@
     position: absolute;
     inset: 0;
     transform-style: preserve-3d;
+    will-change: transform;
   }
 }
 
@@ -97,6 +99,8 @@
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: v.$radius-md;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 
   @include m.focus-ring;
 
