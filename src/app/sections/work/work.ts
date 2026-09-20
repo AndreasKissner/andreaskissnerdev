@@ -186,7 +186,7 @@ export class WorkComponent {
     this.isCmsModalOpen.set(false);
   }
 
-  /** Pans the card track horizontally based on where the cursor sits over the scene. */
+  /** Scrolls the card track horizontally based on where the cursor sits over the scene. */
   protected onSceneMouseMove(event: MouseEvent): void {
     if (this.prefersReducedMotion) {
       return;
@@ -202,14 +202,14 @@ export class WorkComponent {
     }
     const ratio = (event.clientX - scene.getBoundingClientRect().left) / scene.clientWidth;
     const clampedRatio = Math.min(1, Math.max(0, ratio));
-    track.style.transform = `translateX(-${clampedRatio * overflow}px)`;
+    scene.scrollLeft = clampedRatio * overflow;
   }
 
-  /** Resets the card track to its resting position once the cursor leaves the scene. */
+  /** Scrolls the card track back to its resting position once the cursor leaves the scene. */
   protected onSceneMouseLeave(): void {
-    const track = this.track()?.nativeElement;
-    if (track) {
-      track.style.transform = 'translateX(0)';
+    const scene = this.scene()?.nativeElement;
+    if (scene) {
+      scene.scrollLeft = 0;
     }
   }
 }

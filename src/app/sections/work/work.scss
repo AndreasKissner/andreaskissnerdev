@@ -27,7 +27,13 @@
 
 .work__scene {
   @include m.respond-up(v.$bp-sm) {
-    overflow-x: hidden;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
 
@@ -41,11 +47,6 @@
     align-items: flex-end;
     width: max-content;
     padding: v.$space-lg v.$space-md;
-    transition: transform 200ms ease-out;
-
-    @include m.reduced-motion {
-      transition: none;
-    }
   }
 }
 
