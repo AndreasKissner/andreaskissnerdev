@@ -36,7 +36,8 @@
   "HERO": {
     "EYEBROW": "Développeur web et frontend en Suisse",
     "TITLE": "Des sites web qui font avancer votre activité.",
-    "SUBTITLE": "Sites et applications web sur mesure avec Angular. Rapides, sécurisés, optimisés pour mobile et programmés à la main plutôt qu'assemblés avec un constructeur de sites.",
+    "SUBTITLE": "Sites et applications web sur mesure. Rapides, sécurisés, optimisés pour mobile et programmés à la main plutôt qu'assemblés avec un constructeur de sites.",
+    "FREELANCER_NOTE": "Freelance, pas une agence : pas d'équipe intermédiaire, pas de chef de projet. Vous parlez directement à la personne qui programme.",
     "CTA_PRIMARY": "Demander un projet",
     "CTA_SECONDARY": "Voir le portfolio",
     "AVAILABLE": "Un développeur, pas de file d'attente",

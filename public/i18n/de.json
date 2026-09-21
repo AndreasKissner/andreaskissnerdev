@@ -36,7 +36,8 @@
   "HERO": {
     "EYEBROW": "Web- und Frontend-Developer aus der Schweiz",
     "TITLE": "Webauftritte, die für Ihr Geschäft arbeiten.",
-    "SUBTITLE": "Individuelle Websites und Webapps mit Angular. Schnell, sicher, mobil optimiert und komplett selbst programmiert statt aus dem Baukasten.",
+    "SUBTITLE": "Individuelle Websites und Webapps. Schnell, sicher, mobil optimiert und komplett selbst programmiert statt aus dem Baukasten.",
+    "FREELANCER_NOTE": "Freelancer statt Agentur: kein Team dazwischen, kein Projektmanager. Sie sprechen direkt mit der Person, die auch programmiert.",
     "CTA_PRIMARY": "Projekt anfragen",
     "CTA_SECONDARY": "Projekte ansehen",
     "AVAILABLE": "Ein Entwickler, keine Warteschleife",

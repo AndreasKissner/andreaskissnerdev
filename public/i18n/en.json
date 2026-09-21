@@ -36,7 +36,8 @@
   "HERO": {
     "EYEBROW": "Web and frontend developer based in Switzerland",
     "TITLE": "Websites that work for your business.",
-    "SUBTITLE": "Individual websites and web apps built with Angular. Fast, secure, mobile optimized and coded by hand instead of dragged together in a builder.",
+    "SUBTITLE": "Individual websites and web apps. Fast, secure, mobile optimized and coded by hand instead of dragged together in a builder.",
+    "FREELANCER_NOTE": "Freelancer, not an agency: no team in between, no project manager. You talk directly to the person who writes the code.",
     "CTA_PRIMARY": "Start a project",
     "CTA_SECONDARY": "View portfolio",
     "AVAILABLE": "One developer, no waiting queue",

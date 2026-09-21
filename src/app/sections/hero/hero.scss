@@ -44,6 +44,13 @@
   font-size: 1.15rem;
   color: var(--color-text-muted);
   max-width: 480px;
+  margin: 0 0 v.$space-sm;
+}
+
+.hero__freelancer-note {
+  font-size: 1rem;
+  color: var(--color-accent-fg);
+  max-width: 480px;
   margin: 0 0 v.$space-lg;
 }
 
