@@ -20,18 +20,24 @@
 
   @include m.respond-up(v.$bp-sm) {
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     text-align: left;
   }
 }
 
 .about__photo {
-  width: 160px;
-  height: 160px;
+  width: 220px;
+  height: 220px;
   flex-shrink: 0;
   border-radius: 50%;
   border: 2px solid var(--color-border);
   object-fit: cover;
+  object-position: center top;
+
+  @include m.respond-up(v.$bp-sm) {
+    width: 280px;
+    height: 280px;
+  }
 }
 
 .about__content {
