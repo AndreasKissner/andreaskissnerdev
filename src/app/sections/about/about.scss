@@ -1,0 +1,66 @@
+@use '../../../styles/abstracts/variables' as v;
+@use '../../../styles/abstracts/mixins' as m;
+
+.about {
+  position: relative;
+  padding-block: v.$space-lg;
+
+  @include m.respond-up(v.$bp-lg) {
+    padding-block: v.$space-xl;
+  }
+}
+
+.about__container {
+  @include m.container;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: v.$space-md;
+  text-align: center;
+
+  @include m.respond-up(v.$bp-sm) {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+.about__photo {
+  width: 160px;
+  height: 160px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+  object-fit: cover;
+}
+
+.about__content {
+  max-width: 560px;
+}
+
+.about__title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin: 0 0 v.$space-xs;
+}
+
+.about__role {
+  color: var(--color-accent-fg);
+  font-family: v.$font-mono;
+  margin: 0 0 v.$space-sm;
+}
+
+.about__bio {
+  color: var(--color-text-muted);
+  margin: 0 0 v.$space-md;
+}
+
+.about__portfolio-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-accent-fg);
+  text-decoration: none;
+  font-weight: 600;
+
+  @include m.focus-ring;
+}

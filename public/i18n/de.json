@@ -238,6 +238,13 @@
     "TESTIMONIAL_3_ROLE": "Content Creator, YouTube",
     "TESTIMONIAL_3_COMPANY": "La Scribe du Nil"
   },
+  "ABOUT": {
+    "TITLE": "Über mich",
+    "PHOTO_ALT": "Andreas Kissner",
+    "ROLE": "Andreas Kissner — Web- und Frontend-Developer",
+    "BIO": "Freelancer statt Agentur: kein Team dazwischen, kein Projektmanager. Ich bin professioneller Entwickler und nehme es mit Qualität und Kalkulation genau, damit Sie am Ende eine Website oder Webapp bekommen, die wirklich zu Ihrem Geschäft passt.",
+    "PORTFOLIO_LINK": "Mein vollständiges Portfolio"
+  },
   "PORTFOLIO_CTA": {
     "TITLE": "Mehr Projekte im Detail",
     "TEXT": "Alle Arbeiten im Überblick. Sehen Sie, wie ich ganz unterschiedliche Anforderungen technisch löse, von Verwaltungssystemen bis zu individuell gestalteten Webauftritten.",

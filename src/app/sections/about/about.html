@@ -1,0 +1,30 @@
+<section class="about" id="about" aria-labelledby="about-title">
+  <div class="about__container">
+    <img
+      class="about__photo"
+      src="img/profilbild.webp"
+      [attr.alt]="'ABOUT.PHOTO_ALT' | translate"
+      width="160"
+      height="160"
+      loading="lazy"
+    />
+
+    <div class="about__content">
+      <h2 class="about__title" id="about-title">{{ 'ABOUT.TITLE' | translate }}</h2>
+      <p class="about__role">{{ 'ABOUT.ROLE' | translate }}</p>
+      <p class="about__bio">{{ 'ABOUT.BIO' | translate }}</p>
+
+      <a
+        class="about__portfolio-link"
+        href="https://www.andreas-kissner.cloud/#portfolio"
+        target="_blank"
+        rel="noopener"
+        appMagnetic
+      >
+        {{ 'ABOUT.PORTFOLIO_LINK' | translate }} →
+      </a>
+    </div>
+  </div>
+
+  <app-section-divider />
+</section>
