@@ -14,9 +14,16 @@
   @include m.container;
 }
 
+.pricing__title-row {
+  display: flex;
+  align-items: center;
+  gap: v.$space-xs;
+  margin: 0 0 v.$space-xs;
+}
+
 .pricing__title {
   font-size: clamp(1.5rem, 3vw, 2rem);
-  margin: 0 0 v.$space-xs;
+  margin: 0;
 }
 
 .pricing__intro {
@@ -158,6 +165,17 @@
 .pricing__amount-label {
   color: var(--color-text-muted);
   margin: 0 0 v.$space-md;
+}
+
+.pricing__example {
+  color: var(--color-text-muted);
+  margin: 0 0 v.$space-sm;
+}
+
+.pricing__example-link {
+  color: var(--color-accent-fg);
+
+  @include m.focus-ring;
 }
 
 .pricing__note {
