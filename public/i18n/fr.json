@@ -24,6 +24,7 @@
     "MENU_CLOSE": "Fermer",
     "THEME_TOGGLE": "Changer de thème (actuel : {{mode}})",
     "ACCENT_COLOR": "Choisir la couleur d'accent",
+    "SETTINGS": "Paramètres",
     "ACCENT_ORANGE": "Accent orange",
     "ACCENT_BLUE": "Accent bleu",
     "ACCENT_GREEN": "Accent vert",

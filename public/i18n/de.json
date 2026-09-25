@@ -24,6 +24,7 @@
     "MENU_CLOSE": "Schliessen",
     "THEME_TOGGLE": "Theme wechseln (aktuell: {{mode}})",
     "ACCENT_COLOR": "Akzentfarbe wählen",
+    "SETTINGS": "Einstellungen",
     "ACCENT_ORANGE": "Akzentfarbe Orange",
     "ACCENT_BLUE": "Akzentfarbe Blau",
     "ACCENT_GREEN": "Akzentfarbe Grün",

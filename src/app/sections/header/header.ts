@@ -18,6 +18,7 @@ import { CommandPaletteService } from '../../core/command-palette.service';
 import { ScrollStateService } from '../../core/scroll-state.service';
 import { AccentColorService, type AccentId } from '../../core/accent-color.service';
 import { LogoMarkComponent } from '../../shared/logo-mark/logo-mark';
+import { MagneticDirective } from '../../shared/magnetic.directive';
 
 const LANGUAGE_OPTIONS: readonly AppLanguage[] = ['de', 'fr', 'it', 'en'];
 const ACCENT_OPTIONS: readonly AccentId[] = ['orange', 'blue', 'green'];
@@ -39,12 +40,12 @@ const NAV_LINKS: readonly NavLink[] = [
 ];
 
 /**
- * Site header with animated sliding-blob navigation, a sliding language pill,
- * theme toggle and mobile menu.
+ * Site header: animated sliding-blob navigation, a CTA button and a single
+ * settings popover bundling search, theme, language and accent color.
  */
 @Component({
   selector: 'app-header',
-  imports: [TranslatePipe, LogoMarkComponent],
+  imports: [TranslatePipe, LogoMarkComponent, MagneticDirective],
   templateUrl: './header.html',
   styleUrl: './header.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -59,6 +60,7 @@ export class HeaderComponent {
   protected readonly accentOptions = ACCENT_OPTIONS;
   protected readonly navLinks = NAV_LINKS;
   protected readonly isMenuOpen = signal(false);
+  protected readonly isSettingsOpen = signal(false);
 
   private readonly hoveredNavIndex = signal<number | null>(null);
   private readonly activeSectionId = signal<string | null>(null);
@@ -66,6 +68,7 @@ export class HeaderComponent {
   private readonly navBlobRef = viewChild<ElementRef<HTMLElement>>('navBlob');
   private readonly langButtonRefs = viewChildren<ElementRef<HTMLElement>>('langBtn');
   private readonly langFillRef = viewChild<ElementRef<HTMLElement>>('langFill');
+  private readonly settingsWrapRef = viewChild<ElementRef<HTMLElement>>('settingsWrap');
 
   constructor() {
     this.observeSections();
@@ -88,15 +91,50 @@ export class HeaderComponent {
     this.refreshLangFill();
   }
 
+  /** Closes the settings popover when a click lands outside it. */
+  @HostListener('document:click', ['$event'])
+  protected onDocumentClick(event: MouseEvent): void {
+    if (!this.isSettingsOpen()) {
+      return;
+    }
+    const wrap = this.settingsWrapRef()?.nativeElement;
+    if (wrap && !wrap.contains(event.target as Node)) {
+      this.closeSettings();
+    }
+  }
+
+  /** Closes the settings popover on Escape, wherever focus currently is. */
+  @HostListener('document:keydown.escape')
+  protected onEscape(): void {
+    this.closeSettings();
+  }
+
   /** Toggles the mobile navigation menu. */
   protected toggleMenu(): void {
     this.isMenuOpen.update((open) => !open);
+    this.closeSettings();
     this.scheduleIndicatorRefresh();
   }
 
   /** Closes the mobile navigation menu, used after selecting a link. */
   protected closeMenu(): void {
     this.isMenuOpen.set(false);
+  }
+
+  /** Toggles the settings popover (search, theme, language, accent color). */
+  protected toggleSettings(): void {
+    this.isSettingsOpen.update((open) => !open);
+  }
+
+  /** Closes the settings popover. */
+  protected closeSettings(): void {
+    this.isSettingsOpen.set(false);
+  }
+
+  /** Closes the settings popover and opens the command palette. */
+  protected openSearchFromSettings(): void {
+    this.closeSettings();
+    this.commandPalette.open();
   }
 
   /** Switches the active UI language. */

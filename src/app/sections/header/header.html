@@ -5,81 +5,6 @@
       {{ 'NAV.BRAND' | translate }}
     </a>
 
-    <div class="header__controls">
-      <div class="header__accent-nav" role="group" [attr.aria-label]="'NAV.ACCENT_COLOR' | translate">
-        @for (option of accentOptions; track option; let i = $index) {
-          <button
-            type="button"
-            class="header__accent-card"
-            [class.header__accent-card--active]="accentColor.accent() === option"
-            [style.--accent-dot-color]="accentDotColor(option)"
-            [style.--card-index]="i"
-            [attr.aria-label]="('NAV.ACCENT_' + option.toUpperCase()) | translate"
-            [attr.aria-pressed]="accentColor.accent() === option"
-            (click)="accentColor.setAccent(option)"
-          >
-            <span class="header__accent-card-fill" aria-hidden="true"></span>
-          </button>
-        }
-      </div>
-
-      <button
-        type="button"
-        class="header__icon-btn"
-        [attr.aria-label]="'PALETTE.TITLE' | translate"
-        [attr.title]="'PALETTE.TITLE' | translate"
-        (click)="commandPalette.open()"
-      >
-        <span class="header__icon header__icon--mask header__icon--lupe" aria-hidden="true"></span>
-      </button>
-
-      <button
-        type="button"
-        class="header__icon-btn"
-        [attr.aria-label]="'NAV.THEME_TOGGLE' | translate: { mode: ('THEME.' + themeService.preference().toUpperCase() | translate) }"
-        [attr.title]="'THEME.' + themeService.preference().toUpperCase() | translate"
-        (click)="cycleTheme()"
-      >
-        @switch (themeService.preference()) {
-          @case ('light') {
-            <svg class="header__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="4" />
-              <line x1="12" y1="2" x2="12" y2="5" />
-              <line x1="12" y1="19" x2="12" y2="22" />
-              <line x1="2" y1="12" x2="5" y2="12" />
-              <line x1="19" y1="12" x2="22" y2="12" />
-              <line x1="4.6" y1="4.6" x2="6.7" y2="6.7" />
-              <line x1="17.3" y1="17.3" x2="19.4" y2="19.4" />
-              <line x1="4.6" y1="19.4" x2="6.7" y2="17.3" />
-              <line x1="17.3" y1="6.7" x2="19.4" y2="4.6" />
-            </svg>
-          }
-          @case ('dark') {
-            <svg class="header__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M20 14.5a8.5 8.5 0 1 1-10.5-10.3 6.7 6.7 0 0 0 10.3 10.3z" />
-            </svg>
-          }
-          @default {
-            <svg class="header__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="3" y="4" width="18" height="12" rx="1.5" />
-              <line x1="8" y1="20" x2="16" y2="20" />
-              <line x1="12" y1="16" x2="12" y2="20" />
-            </svg>
-          }
-        }
-      </button>
-
-      <button
-        type="button"
-        class="header__toggle"
-        [attr.aria-expanded]="isMenuOpen()"
-        aria-controls="primary-navigation"
-        (click)="toggleMenu()"
-      >
-        <span class="header__toggle-label">{{ (isMenuOpen() ? 'NAV.MENU_CLOSE' : 'NAV.MENU_OPEN') | translate }}</span>
-      </button>
-    </div>
-
     <nav
       id="primary-navigation"
       class="header__nav"
@@ -115,41 +40,121 @@
           }
         }
       </div>
-
-      <div class="header__lang-row">
-        <div class="header__lang" role="group" [attr.aria-label]="'NAV.LANGUAGE' | translate">
-          <span class="header__lang-fill" #langFill aria-hidden="true"></span>
-          @for (language of languageOptions; track language) {
-            <button
-              #langBtn
-              type="button"
-              class="header__lang-button"
-              [class.header__lang-button--active]="languageService.activeLanguage() === language"
-              [attr.aria-current]="languageService.activeLanguage() === language ? 'true' : null"
-              (click)="selectLanguage(language)"
-            >
-              {{ language }}
-            </button>
-          }
-        </div>
-
-        <div class="header__accent-nav header__accent-nav--mobile" role="group" [attr.aria-label]="'NAV.ACCENT_COLOR' | translate">
-          @for (option of accentOptions; track option; let i = $index) {
-            <button
-              type="button"
-              class="header__accent-card"
-              [class.header__accent-card--active]="accentColor.accent() === option"
-              [style.--accent-dot-color]="accentDotColor(option)"
-              [style.--card-index]="i"
-              [attr.aria-label]="('NAV.ACCENT_' + option.toUpperCase()) | translate"
-              [attr.aria-pressed]="accentColor.accent() === option"
-              (click)="accentColor.setAccent(option)"
-            >
-              <span class="header__accent-card-fill" aria-hidden="true"></span>
-            </button>
-          }
-        </div>
-      </div>
     </nav>
+
+    <div class="header__controls">
+      <a class="header__cta" href="#contact" appMagnetic>{{ 'HERO.CTA_PRIMARY' | translate }}</a>
+
+      <div class="header__settings" #settingsWrap>
+        <button
+          type="button"
+          class="header__icon-btn"
+          [attr.aria-label]="'NAV.SETTINGS' | translate"
+          [attr.aria-expanded]="isSettingsOpen()"
+          (click)="toggleSettings()"
+        >
+          <svg class="header__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="4" y1="7" x2="20" y2="7" />
+            <line x1="4" y1="12" x2="20" y2="12" />
+            <line x1="4" y1="17" x2="20" y2="17" />
+            <circle cx="9" cy="7" r="1.8" fill="var(--color-bg)" />
+            <circle cx="16" cy="12" r="1.8" fill="var(--color-bg)" />
+            <circle cx="10" cy="17" r="1.8" fill="var(--color-bg)" />
+          </svg>
+        </button>
+
+        @if (isSettingsOpen()) {
+          <div class="header__settings-panel" role="menu">
+            <button type="button" class="header__settings-row" role="menuitem" (click)="openSearchFromSettings()">
+              <span class="header__icon header__icon--mask header__icon--lupe" aria-hidden="true"></span>
+              {{ 'PALETTE.TITLE' | translate }}
+            </button>
+
+            <button
+              type="button"
+              class="header__settings-row"
+              role="menuitem"
+              [attr.aria-label]="'NAV.THEME_TOGGLE' | translate: { mode: ('THEME.' + themeService.preference().toUpperCase() | translate) }"
+              (click)="cycleTheme()"
+            >
+              @switch (themeService.preference()) {
+                @case ('light') {
+                  <svg class="header__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4" />
+                    <line x1="12" y1="2" x2="12" y2="5" />
+                    <line x1="12" y1="19" x2="12" y2="22" />
+                    <line x1="2" y1="12" x2="5" y2="12" />
+                    <line x1="19" y1="12" x2="22" y2="12" />
+                    <line x1="4.6" y1="4.6" x2="6.7" y2="6.7" />
+                    <line x1="17.3" y1="17.3" x2="19.4" y2="19.4" />
+                    <line x1="4.6" y1="19.4" x2="6.7" y2="17.3" />
+                    <line x1="17.3" y1="6.7" x2="19.4" y2="4.6" />
+                  </svg>
+                }
+                @case ('dark') {
+                  <svg class="header__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 14.5a8.5 8.5 0 1 1-10.5-10.3 6.7 6.7 0 0 0 10.3 10.3z" />
+                  </svg>
+                }
+                @default {
+                  <svg class="header__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="12" rx="1.5" />
+                    <line x1="8" y1="20" x2="16" y2="20" />
+                    <line x1="12" y1="16" x2="12" y2="20" />
+                  </svg>
+                }
+              }
+              {{ 'THEME.' + themeService.preference().toUpperCase() | translate }}
+            </button>
+
+            <div class="header__settings-group">
+              <span class="header__settings-label">{{ 'NAV.LANGUAGE' | translate }}</span>
+              <div class="header__lang" role="group" [attr.aria-label]="'NAV.LANGUAGE' | translate">
+                <span class="header__lang-fill" #langFill aria-hidden="true"></span>
+                @for (language of languageOptions; track language) {
+                  <button
+                    #langBtn
+                    type="button"
+                    class="header__lang-button"
+                    [class.header__lang-button--active]="languageService.activeLanguage() === language"
+                    [attr.aria-current]="languageService.activeLanguage() === language ? 'true' : null"
+                    (click)="selectLanguage(language)"
+                  >
+                    {{ language }}
+                  </button>
+                }
+              </div>
+            </div>
+
+            <div class="header__settings-group">
+              <span class="header__settings-label">{{ 'NAV.ACCENT_COLOR' | translate }}</span>
+              <div class="header__accent-nav" role="group" [attr.aria-label]="'NAV.ACCENT_COLOR' | translate">
+                @for (option of accentOptions; track option) {
+                  <button
+                    type="button"
+                    class="header__accent-swatch"
+                    [class.header__accent-swatch--active]="accentColor.accent() === option"
+                    [style.--accent-dot-color]="accentDotColor(option)"
+                    [attr.aria-label]="('NAV.ACCENT_' + option.toUpperCase()) | translate"
+                    [attr.aria-pressed]="accentColor.accent() === option"
+                    (click)="accentColor.setAccent(option)"
+                  ></button>
+                }
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+
+      <button
+        type="button"
+        class="header__toggle"
+        [attr.aria-expanded]="isMenuOpen()"
+        aria-controls="primary-navigation"
+        (click)="toggleMenu()"
+      >
+        <span class="header__toggle-label">{{ (isMenuOpen() ? 'NAV.MENU_CLOSE' : 'NAV.MENU_OPEN') | translate }}</span>
+      </button>
+    </div>
   </div>
 </header>
