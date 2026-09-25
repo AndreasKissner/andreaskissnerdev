@@ -1,7 +1,8 @@
 {
   "A11Y": {
     "SKIP_TO_CONTENT": "Skip to content",
-    "BACK_TO_HOME": "← Back to home"
+    "BACK_TO_HOME": "← Back to home",
+    "BACK_TO_TOP": "Scroll to top"
   },
   "SEO": {
     "HOME_TITLE": "Andreas Kissner | Web & Frontend Developer Switzerland",
@@ -38,6 +39,7 @@
     "TITLE": "Websites that work for your business.",
     "SUBTITLE": "Individual websites and web apps. Fast, secure, mobile optimized and coded by hand instead of dragged together in a builder.",
     "FREELANCER_NOTE": "Freelancer, not an agency: no team in between, no project manager. You talk directly to the person who writes the code.",
+    "DEMO_LINK": "View live demo",
     "CTA_PRIMARY": "Start a project",
     "CTA_SECONDARY": "View portfolio",
     "AVAILABLE": "One developer, no waiting queue",
@@ -182,6 +184,22 @@
     "UNINSTALL_INFO_TEXT": "For security reasons, no website can uninstall itself, only your browser or operating system can. On a computer (Windows/Mac): right-click the app icon and choose \"Uninstall\", or use chrome://apps in Chrome / edge://apps in Edge. On Android: press and hold the app icon and choose \"Uninstall\", just like any other app. On iPhone: press and hold the app icon and choose \"Remove App\".",
     "REFERENCE_TEXT": "I build webapps like this for clients too, for example Second Hand Manager, a management webapp for second-hand shops.",
     "REFERENCE_LINK": "See the references"
+  },
+  "DEMO": {
+    "EYEBROW": "Live demo",
+    "TITLE": "A restaurant website to try out",
+    "INTRO": "Not client work, but my own demo project: a website for a restaurant serving vegetarian dishes and fish. Click through it and see what a tailor-made solution can do.",
+    "PREVIEW_LABEL": "Open restaurant demo in a new tab",
+    "STATUS_IN_PROGRESS": "In progress",
+    "FEATURE_RESERVATION_TITLE": "Online table reservation",
+    "FEATURE_RESERVATION_TEXT": "Guests will soon be able to request a table directly on the website, around the clock and without a phone call.",
+    "FEATURE_CMS_TITLE": "Manage content yourself (CMS)",
+    "FEATURE_CMS_TEXT": "The restaurant updates the daily menu, opening hours and other content itself, no programming skills needed.",
+    "FEATURE_MENU_TITLE": "Menu as PDF",
+    "FEATURE_MENU_TEXT": "Upload a new menu as a PDF and it appears on the website right away.",
+    "FEATURE_LANGUAGES_TITLE": "Bilingual with automatic translation",
+    "FEATURE_LANGUAGES_TEXT": "The site is available in German and French. Newly entered texts are translated into both languages automatically.",
+    "CTA": "View demo"
   },
   "WORK": {
     "TITLE": "Selected work",

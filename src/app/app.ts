@@ -8,6 +8,7 @@ import { StickyBarComponent } from './shared/sticky-bar/sticky-bar';
 import { EasterEggComponent } from './shared/easter-egg/easter-egg';
 import { CookieBannerComponent } from './shared/cookie-banner/cookie-banner';
 import { CursorFollowerComponent } from './shared/cursor-follower/cursor-follower';
+import { BackToTopComponent } from './shared/back-to-top/back-to-top';
 import { LanguageService } from './core/language.service';
 import { AnalyticsService } from './core/analytics.service';
 import { ConsoleEasterEggService } from './core/console-easter-egg.service';
@@ -23,7 +24,8 @@ import { ConsoleEasterEggService } from './core/console-easter-egg.service';
     StickyBarComponent,
     EasterEggComponent,
     CookieBannerComponent,
-    CursorFollowerComponent
+    CursorFollowerComponent,
+    BackToTopComponent
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'

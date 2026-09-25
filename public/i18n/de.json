@@ -1,7 +1,8 @@
 {
   "A11Y": {
     "SKIP_TO_CONTENT": "Zum Inhalt springen",
-    "BACK_TO_HOME": "← Zurück zur Startseite"
+    "BACK_TO_HOME": "← Zurück zur Startseite",
+    "BACK_TO_TOP": "Nach oben scrollen"
   },
   "SEO": {
     "HOME_TITLE": "Andreas Kissner | Web & Frontend Developer Schweiz",
@@ -38,6 +39,7 @@
     "TITLE": "Webauftritte, die für Ihr Geschäft arbeiten.",
     "SUBTITLE": "Individuelle Websites und Webapps. Schnell, sicher, mobil optimiert und komplett selbst programmiert statt aus dem Baukasten.",
     "FREELANCER_NOTE": "Freelancer statt Agentur: kein Team dazwischen, kein Projektmanager. Sie sprechen direkt mit der Person, die auch programmiert.",
+    "DEMO_LINK": "Live-Demo ansehen",
     "CTA_PRIMARY": "Projekt anfragen",
     "CTA_SECONDARY": "Projekte ansehen",
     "AVAILABLE": "Ein Entwickler, keine Warteschleife",
@@ -182,6 +184,22 @@
     "UNINSTALL_INFO_TEXT": "Aus Sicherheitsgründen darf keine Website sich selbst deinstallieren, das kann nur der Browser bzw. das Betriebssystem. Am Computer (Windows/Mac): App-Icon mit der rechten Maustaste anklicken und \"Deinstallieren\" wählen, oder in Chrome/Edge unter chrome://apps bzw. edge://apps. Am Android-Handy: App-Icon gedrückt halten und \"Deinstallieren\" wählen, wie bei jeder anderen App. Am iPhone: App-Icon gedrückt halten und \"App entfernen\" wählen.",
     "REFERENCE_TEXT": "Solche Webapps baue ich auch für Kundschaft, zum Beispiel den Second Hand Manager, eine Verwaltungs-Webapp für Second-Hand-Läden.",
     "REFERENCE_LINK": "Zu den Referenzen"
+  },
+  "DEMO": {
+    "EYEBROW": "Live-Demo",
+    "TITLE": "Eine Restaurant-Website zum Ausprobieren",
+    "INTRO": "Keine Kundenarbeit, sondern mein eigenes Demo-Projekt: eine Website für ein Restaurant mit vegetarischer Küche und Fisch. Klicken Sie sich durch und sehen Sie, was eine massgeschneiderte Lösung kann.",
+    "PREVIEW_LABEL": "Restaurant-Demo in neuem Tab öffnen",
+    "STATUS_IN_PROGRESS": "In Arbeit",
+    "FEATURE_RESERVATION_TITLE": "Online-Tischreservierung",
+    "FEATURE_RESERVATION_TEXT": "Gäste können ihren Tisch bald direkt auf der Website anfragen, rund um die Uhr und ohne Telefonat.",
+    "FEATURE_CMS_TITLE": "Inhalte selbst pflegen (CMS)",
+    "FEATURE_CMS_TEXT": "Tagesmenü, Öffnungszeiten und andere Inhalte ändert das Restaurant selbst, ganz ohne Programmierkenntnisse.",
+    "FEATURE_MENU_TITLE": "Speisekarte als PDF",
+    "FEATURE_MENU_TEXT": "Neue Speisekarte als PDF hochladen, sie erscheint sofort auf der Website.",
+    "FEATURE_LANGUAGES_TITLE": "Zweisprachig mit automatischer Übersetzung",
+    "FEATURE_LANGUAGES_TEXT": "Die Seite ist auf Deutsch und Französisch verfügbar. Neu eingegebene Texte werden automatisch in beide Sprachen übersetzt.",
+    "CTA": "Demo ansehen"
   },
   "WORK": {
     "TITLE": "Referenzen",
