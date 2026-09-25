@@ -95,7 +95,7 @@
     "PRICING_EXPLAINER_TITLE": "What makes up the price?",
     "PRICING_EXPLAINER_TEXT": "The amounts shown are entry prices for development work alone. Depending on the project, ongoing costs come on top that aren't paid to me but directly to the respective providers: domain costs (free in the first year for a standard domain, the price for special domains can vary depending on your choice; from the second year on you pay only the regular domain fee with no markup. Example: myshopbeispiel.com is free in the first year, then CHF 24.90 per year; a special domain like myideal.shop costs a one-time CHF 500.—, then CHF 5.— per year), server costs for webapps with their own database, and for forms with email sending, possibly costs for the mail delivery service. Maintenance and further development after launch can also cause costs, but they matter, so your site stays secure and up to date. No need to worry: how much that adds up to in your case, we discuss beforehand, so you end up with an honest total price. In return, you get 100% custom quality instead of a simple builder system like Wix or Jimdo. I'm a professional developer and take calculation seriously, so everything adds up in the end.",
     "WEBSITE_LABEL": "Website",
-    "WEBSITE_AMOUNT": "from CHF 500.—",
+    "WEBSITE_AMOUNT": "from CHF 250.—",
     "WEBSITE_AMOUNT_LABEL": "simple website (one-pager), plus domain costs",
     "WEBSITE_EXAMPLE": "Price example:",
     "WEBSITE_DESCRIPTION": "Presents your offering professionally: structure, copy and design from a single source, like Safety Concept Sàrl. Can include simple logic, but no data management.",

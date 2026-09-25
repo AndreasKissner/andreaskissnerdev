@@ -95,7 +95,7 @@
     "PRICING_EXPLAINER_TITLE": "Come si compone il prezzo?",
     "PRICING_EXPLAINER_TEXT": "Gli importi indicati sono prezzi base per il solo sviluppo. A seconda del progetto si aggiungono costi ricorrenti che non vengono versati a me, ma direttamente ai rispettivi fornitori: costi di dominio (gratuiti il primo anno per un dominio standard, il prezzo dei domini speciali può variare in base alla scelta; dal secondo anno pagate solo la tariffa abituale del dominio, senza maggiorazione. Esempio: myshopbeispiel.com è gratuito il primo anno, poi CHF 24.90 all'anno; un dominio speciale come myideal.shop costa CHF 500.— una tantum, poi CHF 5.— all'anno), costi del server per le webapp con database proprio, e per i moduli con invio e-mail, eventualmente costi per il servizio di invio. Anche la manutenzione e lo sviluppo continuo dopo il lancio possono generare costi, ma sono importanti perché il vostro sito resti sicuro e aggiornato. Nessuna preoccupazione: discutiamo prima esattamente l'entità nel vostro caso, così alla fine conoscete un prezzo totale onesto. In cambio ottenete una qualità 100% su misura, non un semplice sistema a blocchi come Wix o Jimdo. Sono uno sviluppatore professionista e prendo sul serio il calcolo, così alla fine tutto torna.",
     "WEBSITE_LABEL": "Sito web",
-    "WEBSITE_AMOUNT": "da CHF 500.—",
+    "WEBSITE_AMOUNT": "da CHF 250.—",
     "WEBSITE_AMOUNT_LABEL": "sito semplice (one-pager), escluse spese di dominio",
     "WEBSITE_EXAMPLE": "Esempio di prezzo:",
     "WEBSITE_DESCRIPTION": "Presenta la vostra offerta in modo professionale: struttura, testi e design da un'unica fonte, come Safety Concept Sàrl. Può includere una logica semplice, ma senza gestione dati.",
