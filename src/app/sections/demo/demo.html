@@ -1,0 +1,75 @@
+<section class="demo" id="demo" aria-labelledby="demo-title">
+  <div class="demo__container">
+    <p class="demo__eyebrow">{{ 'DEMO.EYEBROW' | translate }}</p>
+    <h2 class="demo__title" id="demo-title">{{ 'DEMO.TITLE' | translate }}</h2>
+    <p class="demo__intro">{{ 'DEMO.INTRO' | translate }}</p>
+
+    <div class="demo__layout">
+      <a
+        class="demo__preview"
+        [href]="demoUrl"
+        target="_blank"
+        rel="noopener"
+        [attr.aria-label]="'DEMO.PREVIEW_LABEL' | translate"
+      >
+        <img
+          class="demo__image"
+          src="img/site-restaurant-demo.webp"
+          alt=""
+          width="1200"
+          height="750"
+          loading="lazy"
+        />
+      </a>
+
+      <div class="demo__details">
+        <ul class="demo__features">
+          <li class="demo__feature">
+            <div class="demo__feature-header">
+              <h3 class="demo__feature-title">{{ 'DEMO.FEATURE_RESERVATION_TITLE' | translate }}</h3>
+              <span class="demo__badge">{{ 'DEMO.STATUS_IN_PROGRESS' | translate }}</span>
+            </div>
+            <p class="demo__feature-text">{{ 'DEMO.FEATURE_RESERVATION_TEXT' | translate }}</p>
+          </li>
+
+          <li class="demo__feature">
+            <div class="demo__feature-header">
+              <h3 class="demo__feature-title">{{ 'DEMO.FEATURE_CMS_TITLE' | translate }}</h3>
+              <button
+                type="button"
+                class="demo__info-btn"
+                [attr.aria-label]="'WORK.DUNE_CMS_TITLE' | translate"
+                (click)="openCmsInfo()"
+              >
+                <span aria-hidden="true">i</span>
+              </button>
+            </div>
+            <p class="demo__feature-text">{{ 'DEMO.FEATURE_CMS_TEXT' | translate }}</p>
+          </li>
+
+          <li class="demo__feature">
+            <h3 class="demo__feature-title">{{ 'DEMO.FEATURE_MENU_TITLE' | translate }}</h3>
+            <p class="demo__feature-text">{{ 'DEMO.FEATURE_MENU_TEXT' | translate }}</p>
+          </li>
+
+          <li class="demo__feature">
+            <h3 class="demo__feature-title">{{ 'DEMO.FEATURE_LANGUAGES_TITLE' | translate }}</h3>
+            <p class="demo__feature-text">{{ 'DEMO.FEATURE_LANGUAGES_TEXT' | translate }}</p>
+          </li>
+        </ul>
+
+        <a class="demo__cta" [href]="demoUrl" target="_blank" rel="noopener" appMagnetic>
+          {{ 'DEMO.CTA' | translate }} <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <app-info-modal
+    [isOpen]="isCmsInfoOpen()"
+    titleKey="WORK.DUNE_CMS_TITLE"
+    textKey="WORK.DUNE_CMS_INFO"
+    (onClose)="closeCmsInfo()"
+  />
+  <app-section-divider />
+</section>

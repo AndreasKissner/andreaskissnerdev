@@ -51,7 +51,29 @@
   font-size: 1rem;
   color: var(--color-accent-fg);
   max-width: 480px;
+  margin: 0 0 v.$space-md;
+}
+
+.hero__demo-link {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: v.$space-xs;
   margin: 0 0 v.$space-lg;
+  padding: 10px 20px;
+  border: 1px solid var(--color-accent-fg);
+  border-radius: v.$radius-sm;
+  color: var(--color-accent-fg);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 150ms ease;
+
+  @include m.focus-ring;
+
+  &:hover {
+    background-color: var(--color-accent-glow);
+  }
 }
 
 .hero__seal {
