@@ -198,6 +198,8 @@
     "FEATURE_CMS_TEXT": "Il ristorante aggiorna da solo il menu del giorno, gli orari di apertura e altri contenuti, senza conoscenze di programmazione.",
     "FEATURE_MENU_TITLE": "Menu in PDF",
     "FEATURE_MENU_TEXT": "Caricate un nuovo menu in PDF e appare subito sul sito.",
+    "FEATURE_MENU_MAKER_TITLE": "Editor menu su misura",
+    "FEATURE_MENU_MAKER_TEXT": "Oltre al PDF: un editor del menu integrato nel CMS, pensato in base alle esigenze e al design di ogni ristorante.",
     "FEATURE_LANGUAGES_TITLE": "Bilingue con traduzione automatica",
     "FEATURE_LANGUAGES_TEXT": "Il sito è disponibile in tedesco e francese. I nuovi testi inseriti vengono tradotti automaticamente in entrambe le lingue.",
     "CTA": "Vedere la demo"

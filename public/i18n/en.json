@@ -198,6 +198,8 @@
     "FEATURE_CMS_TEXT": "The restaurant updates the daily menu, opening hours and other content itself, no programming skills needed.",
     "FEATURE_MENU_TITLE": "Menu as PDF",
     "FEATURE_MENU_TEXT": "Upload a new menu as a PDF and it appears on the website right away.",
+    "FEATURE_MENU_MAKER_TITLE": "Custom menu maker",
+    "FEATURE_MENU_MAKER_TEXT": "Beyond just PDF: a dedicated menu editor built into the CMS, designed around the specific needs and look of each restaurant.",
     "FEATURE_LANGUAGES_TITLE": "Bilingual with automatic translation",
     "FEATURE_LANGUAGES_TEXT": "The site is available in German and French. Newly entered texts are translated into both languages automatically.",
     "CTA": "View demo"

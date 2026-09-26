@@ -198,6 +198,8 @@
     "FEATURE_CMS_TEXT": "Le restaurant modifie lui-même le menu du jour, les horaires d'ouverture et d'autres contenus, sans connaissances en programmation.",
     "FEATURE_MENU_TITLE": "Carte en PDF",
     "FEATURE_MENU_TEXT": "Téléchargez une nouvelle carte en PDF, elle apparaît immédiatement sur le site.",
+    "FEATURE_MENU_MAKER_TITLE": "Créateur de carte sur mesure",
+    "FEATURE_MENU_MAKER_TEXT": "Au-delà du PDF : un éditeur de carte propre au CMS, conçu selon les besoins et le design de chaque restaurant.",
     "FEATURE_LANGUAGES_TITLE": "Bilingue avec traduction automatique",
     "FEATURE_LANGUAGES_TEXT": "Le site est disponible en allemand et en français. Les nouveaux textes saisis sont traduits automatiquement dans les deux langues.",
     "CTA": "Voir la démo"

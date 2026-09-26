@@ -198,6 +198,8 @@
     "FEATURE_CMS_TEXT": "Tagesmenü, Öffnungszeiten und andere Inhalte ändert das Restaurant selbst, ganz ohne Programmierkenntnisse.",
     "FEATURE_MENU_TITLE": "Speisekarte als PDF",
     "FEATURE_MENU_TEXT": "Neue Speisekarte als PDF hochladen, sie erscheint sofort auf der Website.",
+    "FEATURE_MENU_MAKER_TITLE": "Eigener Speisekarten-Maker",
+    "FEATURE_MENU_MAKER_TEXT": "Statt nur PDF: ein eigener Speisekarten-Editor im CMS, gestaltet nach den Bedürfnissen und dem Design des jeweiligen Restaurants.",
     "FEATURE_LANGUAGES_TITLE": "Zweisprachig mit automatischer Übersetzung",
     "FEATURE_LANGUAGES_TEXT": "Die Seite ist auf Deutsch und Französisch verfügbar. Neu eingegebene Texte werden automatisch in beide Sprachen übersetzt.",
     "CTA": "Demo ansehen"
