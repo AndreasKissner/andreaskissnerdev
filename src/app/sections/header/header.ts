@@ -22,7 +22,7 @@ import { MagneticDirective } from '../../shared/magnetic.directive';
 
 const LANGUAGE_OPTIONS: readonly AppLanguage[] = ['de', 'fr', 'it', 'en'];
 const ACCENT_OPTIONS: readonly AccentId[] = ['orange', 'blue', 'green'];
-const SECTION_IDS = ['services', 'pricing', 'work', 'contact'] as const;
+const SECTION_IDS = ['services', 'pricing', 'demo', 'work', 'contact'] as const;
 
 interface NavLink {
   readonly labelKey: string;
@@ -34,6 +34,7 @@ interface NavLink {
 const NAV_LINKS: readonly NavLink[] = [
   { labelKey: 'NAV.SERVICES', href: '#services', sectionId: 'services', external: false },
   { labelKey: 'NAV.PRICING', href: '#pricing', sectionId: 'pricing', external: false },
+  { labelKey: 'NAV.DEMO', href: '#demo', sectionId: 'demo', external: false },
   { labelKey: 'NAV.WORK', href: '#work', sectionId: 'work', external: false },
   { labelKey: 'NAV.CONTACT', href: '#contact', sectionId: 'contact', external: false },
   { labelKey: 'NAV.PORTFOLIO', href: 'https://www.andreas-kissner.cloud/#portfolio', sectionId: null, external: true }
