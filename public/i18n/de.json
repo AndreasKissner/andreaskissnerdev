@@ -26,6 +26,7 @@
     "THEME_TOGGLE": "Theme wechseln (aktuell: {{mode}})",
     "ACCENT_COLOR": "Akzentfarbe wählen",
     "SETTINGS": "Einstellungen",
+    "SETTINGS_LABEL": "Mehr",
     "ACCENT_ORANGE": "Akzentfarbe Orange",
     "ACCENT_BLUE": "Akzentfarbe Blau",
     "ACCENT_GREEN": "Akzentfarbe Grün",

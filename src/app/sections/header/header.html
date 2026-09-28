@@ -48,7 +48,7 @@
       <div class="header__settings" #settingsWrap>
         <button
           type="button"
-          class="header__icon-btn"
+          class="header__icon-btn header__icon-btn--labeled"
           [attr.aria-label]="'NAV.SETTINGS' | translate"
           [attr.aria-expanded]="isSettingsOpen()"
           (click)="toggleSettings()"
@@ -61,6 +61,7 @@
             <circle cx="16" cy="12" r="1.8" fill="var(--color-bg)" />
             <circle cx="10" cy="17" r="1.8" fill="var(--color-bg)" />
           </svg>
+          <span class="header__icon-btn-label" aria-hidden="true">{{ 'NAV.SETTINGS_LABEL' | translate }}</span>
         </button>
 
         @if (isSettingsOpen()) {

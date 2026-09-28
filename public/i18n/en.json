@@ -26,6 +26,7 @@
     "THEME_TOGGLE": "Switch theme (current: {{mode}})",
     "ACCENT_COLOR": "Choose accent color",
     "SETTINGS": "Settings",
+    "SETTINGS_LABEL": "More",
     "ACCENT_ORANGE": "Orange accent",
     "ACCENT_BLUE": "Blue accent",
     "ACCENT_GREEN": "Green accent",

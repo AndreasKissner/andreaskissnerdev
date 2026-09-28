@@ -116,6 +116,31 @@
   &[aria-expanded='true'] {
     color: var(--color-accent-fg);
   }
+
+  &--labeled {
+    width: auto;
+    height: auto;
+    gap: 6px;
+    padding: 6px 10px;
+    border: 1px solid var(--color-border);
+    border-radius: v.$radius-sm;
+
+    @include m.respond-up(v.$bp-sm) {
+      width: auto;
+      height: auto;
+    }
+
+    &:hover,
+    &[aria-expanded='true'] {
+      border-color: var(--color-accent-fg);
+    }
+  }
+}
+
+.header__icon-btn-label {
+  font-size: 1rem;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .header__icon {

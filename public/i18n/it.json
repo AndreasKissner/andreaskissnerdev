@@ -26,6 +26,7 @@
     "THEME_TOGGLE": "Cambia tema (attuale: {{mode}})",
     "ACCENT_COLOR": "Scegli il colore accento",
     "SETTINGS": "Impostazioni",
+    "SETTINGS_LABEL": "Altro",
     "ACCENT_ORANGE": "Accento arancione",
     "ACCENT_BLUE": "Accento blu",
     "ACCENT_GREEN": "Accento verde",
