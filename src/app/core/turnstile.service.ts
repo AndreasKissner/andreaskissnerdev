@@ -15,7 +15,7 @@ declare global {
 }
 
 const SCRIPT_URL = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
-const SITE_KEY = '0x4AAAAAAEkrPcpkIaX3GO8o';
+const SITE_KEY = '0x4AAAAAAFMipx4MmLPgsoHs';
 
 /**
  * Loads the Cloudflare Turnstile script and renders the widget used to
