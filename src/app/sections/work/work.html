@@ -3,10 +3,9 @@
     <h2 class="work__title" id="work-title">{{ 'WORK.TITLE' | translate }}</h2>
     <p class="work__intro">{{ 'WORK.INTRO' | translate }}</p>
 
-    <div class="work__scene" #scene (mousemove)="onSceneMouseMove($event)" (mouseleave)="onSceneMouseLeave()">
-      <div class="work__track" #track>
-      @for (project of projects; track project.id; let i = $index) {
-        <article class="work__card scroll-reveal" [style.--card-index]="i">
+    <div class="work__grid">
+      @for (project of projects; track project.id) {
+        <article class="work__card scroll-reveal">
           @if (project.screenshotSrc) {
             <img class="work__card-image" [src]="project.screenshotSrc" alt="" loading="lazy" />
           }
@@ -31,40 +30,20 @@
             </div>
 
             <p class="work__card-text">{{ project.textKey | translate }}</p>
-            <app-process-steps [stepKeys]="project.stepKeys" [ariaLabelKey]="project.stepAriaLabelKey" />
 
-            <div class="work__card-actions">
-              <a class="work__card-link" [href]="project.link" target="_blank" rel="noopener" appMagnetic>
-                {{ 'WORK.VISIT_PROJECT' | translate }}
-              </a>
-
-              @if (project.pdfReportBaseName) {
-                <a
-                  class="work__card-pdf-link"
-                  [href]="pdfReportUrl(project.pdfReportBaseName)"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  {{ 'WORK.PDF_DOWNLOAD' | translate }}
-                </a>
-              } @else if (project.hasPdfReport) {
-                <span class="work__card-pdf-pending">{{ 'WORK.PDF_PENDING' | translate }}</span>
-              }
-
-              @if (project.additionalReports.length > 0) {
-                <span class="work__card-reports-label">{{ 'WORK.REPORTS_LABEL' | translate }}</span>
-              }
-              @for (report of project.additionalReports; track report.fileName) {
-                <a class="work__card-pdf-link" [href]="'case-studies/' + report.fileName" target="_blank" rel="noopener">
-                  {{ report.labelKey | translate }}
-                </a>
-              }
-            </div>
+            <button
+              type="button"
+              class="work__card-details-btn"
+              [attr.aria-label]="('WORK.DETAILS_BUTTON' | translate) + ': ' + (project.titleKey | translate)"
+              (click)="openDetails(project)"
+            >
+              {{ 'WORK.DETAILS_BUTTON' | translate }}
+            </button>
           </div>
         </article>
       }
 
-      <article class="work__card work__card--cta scroll-reveal" [style.--card-index]="projects.length">
+      <article class="work__card work__card--cta scroll-reveal">
         <div class="work__card-body">
           <h3 class="work__card-title">{{ 'PORTFOLIO_CTA.TITLE' | translate }}</h3>
           <p class="work__card-text">{{ 'PORTFOLIO_CTA.TEXT' | translate }}</p>
@@ -80,7 +59,6 @@
           </a>
         </div>
       </article>
-      </div>
     </div>
 
     <p class="work__testimonial-label">{{ 'WORK.TESTIMONIAL_LABEL' | translate }}</p>
@@ -117,6 +95,40 @@
       }
     </div>
   </div>
+
+  <app-info-modal
+    [isOpen]="selectedProject() !== null"
+    [titleKey]="selectedProject()?.titleKey ?? ''"
+    (onClose)="closeDetails()"
+  >
+    @if (selectedProject(); as project) {
+      <app-process-steps [stepKeys]="project.stepKeys" [ariaLabelKey]="project.stepAriaLabelKey" />
+
+      <div class="work__details-actions">
+        <a class="work__card-link" [href]="project.link" target="_blank" rel="noopener">
+          {{ 'WORK.VISIT_PROJECT' | translate }}
+        </a>
+        @if (project.pdfReportBaseName) {
+          <a class="work__card-pdf-link" [href]="pdfReportUrl(project.pdfReportBaseName)" target="_blank" rel="noopener">
+            {{ 'WORK.PDF_DOWNLOAD' | translate }}
+          </a>
+        } @else if (project.hasPdfReport) {
+          <span class="work__card-pdf-pending">{{ 'WORK.PDF_PENDING' | translate }}</span>
+        }
+      </div>
+
+      @if (project.additionalReports.length > 0) {
+        <p class="work__card-reports-label">{{ 'WORK.REPORTS_LABEL' | translate }}</p>
+        <div class="work__details-actions">
+          @for (report of project.additionalReports; track report.fileName) {
+            <a class="work__card-pdf-link" [href]="'case-studies/' + report.fileName" target="_blank" rel="noopener">
+              {{ report.labelKey | translate }}
+            </a>
+          }
+        </div>
+      }
+    }
+  </app-info-modal>
 
   <app-info-modal
     [isOpen]="isCmsModalOpen()"

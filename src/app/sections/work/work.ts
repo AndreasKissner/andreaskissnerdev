@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ElementRef, signal, viewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { ProcessStepsComponent } from '../../shared/process-steps/process-steps';
 import { MagneticDirective } from '../../shared/magnetic.directive';
@@ -145,7 +145,7 @@ const PORTFOLIO_STEP_KEYS = [
   'PORTFOLIO_CTA.DEMO_STEP_3'
 ] as const;
 
-/** Work section: real client projects shown as a card grid, with a closing portfolio link card. */
+/** Work section: real client projects as a compact card grid with a detail modal and a closing portfolio link card. */
 @Component({
   selector: 'app-work',
   imports: [
@@ -165,16 +165,22 @@ export class WorkComponent {
   protected readonly testimonials = TESTIMONIALS;
   protected readonly portfolioStepKeys = PORTFOLIO_STEP_KEYS;
   protected readonly isCmsModalOpen = signal(false);
+  protected readonly selectedProject = signal<ProjectCard | null>(null);
 
   /** Builds the download URL for a project's PDF case study (one file, all languages as separate pages). */
   protected pdfReportUrl(baseName: string): string {
     return `case-studies/${baseName}.pdf`;
   }
 
-  private readonly isBrowser = typeof window !== 'undefined';
-  private readonly prefersReducedMotion = this.isBrowser && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  private readonly scene = viewChild<ElementRef<HTMLElement>>('scene');
-  private readonly track = viewChild<ElementRef<HTMLElement>>('track');
+  /** Opens the detail modal for the given project. */
+  protected openDetails(project: ProjectCard): void {
+    this.selectedProject.set(project);
+  }
+
+  /** Closes the project detail modal. */
+  protected closeDetails(): void {
+    this.selectedProject.set(null);
+  }
 
   /** Opens the explainer modal for how a content management system works. */
   protected openCmsModal(): void {
@@ -184,32 +190,5 @@ export class WorkComponent {
   /** Closes the CMS explainer modal. */
   protected closeCmsModal(): void {
     this.isCmsModalOpen.set(false);
-  }
-
-  /** Scrolls the card track horizontally based on where the cursor sits over the scene. */
-  protected onSceneMouseMove(event: MouseEvent): void {
-    if (this.prefersReducedMotion) {
-      return;
-    }
-    const scene = this.scene()?.nativeElement;
-    const track = this.track()?.nativeElement;
-    if (!scene || !track) {
-      return;
-    }
-    const overflow = track.scrollWidth - scene.clientWidth;
-    if (overflow <= 0) {
-      return;
-    }
-    const ratio = (event.clientX - scene.getBoundingClientRect().left) / scene.clientWidth;
-    const clampedRatio = Math.min(1, Math.max(0, ratio));
-    scene.scrollLeft = clampedRatio * overflow;
-  }
-
-  /** Scrolls the card track back to its resting position once the cursor leaves the scene. */
-  protected onSceneMouseLeave(): void {
-    const scene = this.scene()?.nativeElement;
-    if (scene) {
-      scene.scrollLeft = 0;
-    }
   }
 }

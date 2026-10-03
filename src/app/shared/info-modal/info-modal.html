@@ -26,9 +26,13 @@
         {{ titleKey | translate }}
       </h2>
 
-      <p class="info-modal__text">
-        {{ textKey | translate }}
-      </p>
+      @if (textKey) {
+        <p class="info-modal__text">
+          {{ textKey | translate }}
+        </p>
+      }
+      <ng-content />
+
     </div>
   </div>
 }
