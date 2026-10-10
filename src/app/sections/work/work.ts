@@ -22,8 +22,6 @@ interface ProjectCard {
   readonly stepAriaLabelKey: string;
   readonly link: string;
   readonly hasCmsInfo: boolean;
-  readonly hasPdfReport: boolean;
-  readonly pdfReportBaseName: string | null;
   readonly additionalReports: readonly AdditionalReport[];
 }
 
@@ -38,8 +36,6 @@ const PROJECTS: readonly ProjectCard[] = [
     stepAriaLabelKey: 'WORK.SHM_DEMO_LABEL',
     link: 'https://second-hand-manager.com',
     hasCmsInfo: false,
-    hasPdfReport: false,
-    pdfReportBaseName: null,
     additionalReports: [
       { labelKey: 'WORK.REPORT_LIGHTHOUSE', fileName: 'second-hand-manager-lighthouse-report.pdf' },
       { labelKey: 'WORK.REPORT_ACCESSIBILITY', fileName: 'second-hand-manager-accessibility-scan.pdf' }
@@ -55,29 +51,22 @@ const PROJECTS: readonly ProjectCard[] = [
     stepAriaLabelKey: 'WORK.DUNE_DEMO_LABEL',
     link: 'https://dune-main-a-lautre.ch',
     hasCmsInfo: true,
-    hasPdfReport: false,
-    pdfReportBaseName: null,
     additionalReports: [
       { labelKey: 'WORK.REPORT_LIGHTHOUSE', fileName: 'dune-main-a-lautre-lighthouse-report.pdf' },
       { labelKey: 'WORK.REPORT_ACCESSIBILITY', fileName: 'dune-main-a-lautre-accessibility-scan.pdf' }
     ]
   },
   {
-    id: 'scribe',
-    kindKey: 'WORK.KIND_WEBSITE',
-    titleKey: 'WORK.SCRIBE_TITLE',
-    textKey: 'WORK.SCRIBE_TEXT',
-    screenshotSrc: 'img/site-la-scribe-du-nil-com.webp',
-    stepKeys: ['WORK.SCRIBE_FEATURE_1', 'WORK.SCRIBE_FEATURE_2', 'WORK.SCRIBE_FEATURE_3', 'WORK.SCRIBE_FEATURE_4'],
-    stepAriaLabelKey: 'WORK.SCRIBE_FEATURES_LABEL',
-    link: 'https://la-scribe-du-nil.com',
+    id: 'restaurant',
+    kindKey: 'WORK.KIND_DEMO',
+    titleKey: 'WORK.RESTAURANT_TITLE',
+    textKey: 'WORK.RESTAURANT_TEXT',
+    screenshotSrc: 'img/presentationdemoimg.webp',
+    stepKeys: ['WORK.RESTAURANT_FEATURE_1', 'WORK.RESTAURANT_FEATURE_2', 'WORK.RESTAURANT_FEATURE_3'],
+    stepAriaLabelKey: 'WORK.RESTAURANT_FEATURES_LABEL',
+    link: 'https://restaurantdemo.andreaskissner.dev/',
     hasCmsInfo: false,
-    hasPdfReport: true,
-    pdfReportBaseName: 'la-scribe-du-nil-youtube-api',
-    additionalReports: [
-      { labelKey: 'WORK.REPORT_LIGHTHOUSE', fileName: 'la-scribe-du-nil-lighthouse-report.pdf' },
-      { labelKey: 'WORK.REPORT_ACCESSIBILITY', fileName: 'la-scribe-du-nil-accessibility-scan.pdf' }
-    ]
+    additionalReports: []
   },
   {
     id: 'safety',
@@ -89,8 +78,6 @@ const PROJECTS: readonly ProjectCard[] = [
     stepAriaLabelKey: 'WORK.SAFETY_FEATURES_LABEL',
     link: 'https://safety-concept.ch',
     hasCmsInfo: false,
-    hasPdfReport: false,
-    pdfReportBaseName: null,
     additionalReports: [
       { labelKey: 'WORK.REPORT_LIGHTHOUSE', fileName: 'safety-concept-lighthouse-report.pdf' },
       { labelKey: 'WORK.REPORT_ACCESSIBILITY', fileName: 'safety-concept-accessibility-scan.pdf' }
@@ -127,15 +114,6 @@ const TESTIMONIALS: readonly Testimonial[] = [
     companyKey: 'WORK.TESTIMONIAL_2_COMPANY',
     companyLink: 'https://dune-main-a-lautre.ch',
     avatarInitial: 'J'
-  },
-  {
-    id: 'scribe',
-    quoteKey: 'WORK.TESTIMONIAL_3_QUOTE',
-    nameKey: null,
-    roleKey: 'WORK.TESTIMONIAL_3_ROLE',
-    companyKey: 'WORK.TESTIMONIAL_3_COMPANY',
-    companyLink: 'https://la-scribe-du-nil.com',
-    avatarInitial: 'S'
   }
 ];
 
@@ -166,11 +144,6 @@ export class WorkComponent {
   protected readonly portfolioStepKeys = PORTFOLIO_STEP_KEYS;
   protected readonly isCmsModalOpen = signal(false);
   protected readonly selectedProject = signal<ProjectCard | null>(null);
-
-  /** Builds the download URL for a project's PDF case study (one file, all languages as separate pages). */
-  protected pdfReportUrl(baseName: string): string {
-    return `case-studies/${baseName}.pdf`;
-  }
 
   /** Opens the detail modal for the given project. */
   protected openDetails(project: ProjectCard): void {

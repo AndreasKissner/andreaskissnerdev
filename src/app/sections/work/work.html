@@ -108,13 +108,6 @@
         <a class="work__card-link" [href]="project.link" target="_blank" rel="noopener">
           {{ 'WORK.VISIT_PROJECT' | translate }}
         </a>
-        @if (project.pdfReportBaseName) {
-          <a class="work__card-pdf-link" [href]="pdfReportUrl(project.pdfReportBaseName)" target="_blank" rel="noopener">
-            {{ 'WORK.PDF_DOWNLOAD' | translate }}
-          </a>
-        } @else if (project.hasPdfReport) {
-          <span class="work__card-pdf-pending">{{ 'WORK.PDF_PENDING' | translate }}</span>
-        }
       </div>
 
       @if (project.additionalReports.length > 0) {
